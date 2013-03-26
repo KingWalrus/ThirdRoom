@@ -1,0 +1,207 @@
+TThirdRoom
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Info.plist Info.plist
+cCpResource ../resources/CinderApp.icns build/Debug/ThirdRoom.app/Contents/Resources/CinderApp.icns
+cProcessPCH++ /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/MacOS/ThirdRoom normal i386
+cTouch /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk
+c000000004FD6447400000000000000EE
+t1339442292
+s238
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Accelerate.framework/Accelerate
+c000000004FD82C760000000000006500
+t1339567222
+s25856
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000004FD82C760000000000025E48
+t1339567222
+s155208
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/AudioUnit.framework/AudioUnit
+c000000004FD82C760000000000005FA8
+t1339567222
+s24488
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c000000004FD82C7700000000000001E5
+t1339567223
+s485
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/CoreAudio.framework/CoreAudio
+c000000004FD82C770000000000014894
+t1339567223
+s84116
+
+N/System/Library/Frameworks/Carbon.framework/Carbon
+c000000004FD7F7120000000000006530
+t1339553554
+s25904
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004FD7F7120000000000006560
+t1339553554
+s25952
+
+N/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+c000000004FD7F715000000000007CED0
+t1339553557
+s511696
+
+N/System/Library/Frameworks/OpenGL.framework/OpenGL
+c00000000506C0787000000000002D360
+t1349257095
+s185184
+
+N/System/Library/Frameworks/QTKit.framework/QTKit
+c00000000506C0B1A00000000004B9FB0
+t1349258010
+s4956080
+
+N/System/Library/Frameworks/QuickTime.framework/QuickTime
+c00000000506C0A87000000000032B7E0
+t1349257863
+s3323872
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../resources/CinderApp.icns
+c000000004EA0B145000000000001BEB5
+t1319153989
+s114357
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp
+c0000000050EA1E240000000000000210
+t1357520420
+s528
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/ThirdRoom_Prefix.pch
+c0000000050EA1E240000000000000093
+t1357520420
+s147
+i<Cocoa/Cocoa.h>
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app
+t2
+s0
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Info.plist
+t2
+s0
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/MacOS/ThirdRoom
+t2
+s0
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/PkgInfo
+t2
+s0
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Resources/CinderApp.icns
+t2
+s0
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoom.LinkFileList
+c0000000050EA1EDC0000000000000083
+t1357520604
+s131
+
+N/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o
+t2
+s0
+
+N/var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.pth
+t2
+s0
+
+N/var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-gpxubidleixnkadjzgciemrcdgzb/ThirdRoom_Prefix.pch.pth
+t2
+s0
+
+NInfo.plist
+c0000000050EA1E240000000000000352
+t1357520420
+s850
+
+CBuild AST from /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies1e1bf95b569ab641^47e92e5c569ab641^---0#1#0#--18"Check dependencies36"C50EB61D-DC25-4077-9BCB-68BE2F1F5B44-
+
+CCompileC build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s379213404.414201
+e379213416.362066
+r1
+xCompileC
+xbuild/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o
+x/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp25246a5c569ab641^03b15c68569ab641^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp0000000000000000^2768"CompileC build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o ../src/ThirdRoomApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-newline-eof -Wc++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-conversion -Wno-sign-conversion -iquote /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/include -I../../../boost -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/DerivedSources/i386 -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/DerivedSources -F/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug -include /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.d --serialize-diagnostics /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.dia -c /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp -o /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o36"FF668C94-4CD3-4D5D-B584-2D34A0DB365C-
+
+CCpResource ../resources/CinderApp.icns build/Debug/ThirdRoom.app/Contents/Resources/CinderApp.icns
+s379213404.238137
+e379213404.241249
+r1
+xCpResource
+x../resources/CinderApp.icns
+xbuild/Debug/ThirdRoom.app/Contents/Resources/CinderApp.icns
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection64"Copy build/Debug/ThirdRoom.app/Contents/Resources/CinderApp.icns880e3d5c569ab641^6ec23d5c569ab641^---0#0#0#-19%DVTDocumentLocation2@127"file://localhost/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Resources/CinderApp.icns000000000080d041^552"CpResource ../resources/CinderApp.icns build/Debug/ThirdRoom.app/Contents/Resources/CinderApp.icns    cd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../resources/CinderApp.icns /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Resources36"A4C2902F-EE9C-496B-9CC9-701896CD019F-
+
+CLd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/MacOS/ThirdRoom normal i386
+s379213416.368780
+e379213425.839888
+r1
+xLd
+x/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/MacOS/ThirdRoom
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection107"Link /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/MacOS/ThirdRoom06805e68569ab641^8411d771569ab641^---0#0#0#--1025"Ld build/Debug/ThirdRoom.app/Contents/MacOS/ThirdRoom normal i386    cd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -L/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug -F/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug -filelist /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/Objects-normal/i386/ThirdRoom.LinkFileList -mmacosx-version-min=10.5 ../../../lib/libcinder_d.a -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/MacOS/ThirdRoom36"031C09BF-214C-493B-A4EE-43918AED3891-
+
+CProcessInfoPlistFile /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Info.plist Info.plist
+s379213404.205765
+e379213404.229952
+r1
+xProcessInfoPlistFile
+x/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Info.plist
+xInfo.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Process Info.plist1ac3345c569ab641^a9de3a5c569ab641^---0#0#0#-19%DVTDocumentLocation2@78"file://localhost/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Info.plist0000000000000000^423"ProcessInfoPlistFile build/Debug/ThirdRoom.app/Contents/Info.plist Info.plist    cd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    builtin-infoPlistUtility Info.plist -genpkginfo /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app/Contents/Info.plist36"ADA976C6-D71B-4824-9C8A-ABB1215D1FD2-
+
+CProcessPCH++ /Users/CHIBI/Library/Developer/Xcode/DerivedData/ThirdRoom-ctjernrtdshsdlglhguspscuyjla/Index/PrecompiledHeaders/ThirdRoom_Prefix-anmfhvtkzpdztfcnwyfmmobbilyp_ast/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /Users/CHIBI/Library/Developer/Xcode/DerivedData/ThirdRoom-ctjernrtdshsdlglhguspscuyjla/Index/PrecompiledHeaders/ThirdRoom_Prefix-fmrrsswmzetzkfgxyiphhfhgxsoy_ast/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CProcessPCH++ /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s379213404.249265
+e379213404.407937
+r1
+xProcessPCH++
+x/var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.pth
+xThirdRoom_Prefix.pch
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection31"Precompile ThirdRoom_Prefix.pchc2f63f5c569ab641^c66d685c569ab641^---0#0#0#-19%DVTDocumentLocation2@88"file://localhost/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/ThirdRoom_Prefix.pch0000000000000000^2787"ProcessPCH++ /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wno-newline-eof -Wc++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.6.sdk -fasm-blocks -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.5 -g -Wno-conversion -Wno-sign-conversion -iquote /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/include -I../../../boost -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/DerivedSources/i386 -I/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/ThirdRoom.build/Debug/ThirdRoom.build/DerivedSources -F/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug --serialize-diagnostics /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.dia -c /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/ThirdRoom_Prefix.pch -o /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-edpusnjdxjltkfbazxoujacpbfbf/ThirdRoom_Prefix.pch.d36"A4FD8E21-05F1-4395-B26F-C2E702E29898-
+
+CProcessPCH++ /var/folders/ys/xs3gb6wj3rscn4000xzmywp40000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/ThirdRoom_Prefix-gpxubidleixnkadjzgciemrcdgzb/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CTouch /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app
+s379213425.848530
+e379213426.040951
+r1
+xTouch
+x/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Touch /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app6f46d971569ab641^e17c0a72569ab641^---0#0#0#--191"Touch build/Debug/ThirdRoom.app    cd /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    /usr/bin/touch -c /Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/build/Debug/ThirdRoom.app36"35BA24DF-1333-4475-9ACC-E7C2B189CBBB-
+
