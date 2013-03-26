@@ -11,6 +11,7 @@
 
 #include <iostream>
 #include "Instrument.h"
+#include "User.h"
 
 /*! \brief The Ball Class
  * The first kind of instrument that is sphere shaped and can be directly
@@ -23,7 +24,10 @@ public:
     
     void display();
     void update();
-    bool hitTest();
+    bool hitTest(User* user);
+    
+private:
+    User* mUser;
     
 };
 

@@ -23,6 +23,7 @@
 		C27BF4F4170203F80063600C /* Instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F3170203F80063600C /* Instrument.cpp */; };
 		C27BF4F717020B340063600C /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F517020B340063600C /* Ball.cpp */; };
 		C27BF4FB17020CFA0063600C /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F917020CFA0063600C /* User.cpp */; };
+		C27BF4FE17021D450063600C /* UserManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4FC17021D450063600C /* UserManager.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		C27BF4F617020B340063600C /* Ball.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ball.h; sourceTree = "<group>"; };
 		C27BF4F917020CFA0063600C /* User.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = User.cpp; sourceTree = "<group>"; };
 		C27BF4FA17020CFA0063600C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		C27BF4FC17021D450063600C /* UserManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserManager.cpp; sourceTree = "<group>"; };
+		C27BF4FD17021D450063600C /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +86,7 @@
 				C27BF4F3170203F80063600C /* Instrument.cpp */,
 				C27BF4F517020B340063600C /* Ball.cpp */,
 				C27BF4F917020CFA0063600C /* User.cpp */,
+				C27BF4FC17021D450063600C /* UserManager.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -142,6 +146,7 @@
 				C27BF4F617020B340063600C /* Ball.h */,
 				C27BF4F2170203EC0063600C /* Instrument.h */,
 				C27BF4FA17020CFA0063600C /* User.h */,
+				C27BF4FD17021D450063600C /* UserManager.h */,
 			);
 			name = Headers;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				C27BF4F4170203F80063600C /* Instrument.cpp in Sources */,
 				C27BF4F717020B340063600C /* Ball.cpp in Sources */,
 				C27BF4FB17020CFA0063600C /* User.cpp in Sources */,
+				C27BF4FE17021D450063600C /* UserManager.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

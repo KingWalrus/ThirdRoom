@@ -1,4 +1,4 @@
-//
+:://
 //  Instrument.cpp
 //  ThirdRoom
 //
@@ -17,11 +17,11 @@ Instrument::~Instrument(){
 }
 
 ci::Vec3f Instrument::getPosition(){
-    return mPos;
+    return mPosition;
 }
 
 void Instrument::setPosition(ci::Vec3f newPosition){
-    mPos = newPosition;
+    mPosition = newPosition;
 }
 
 ci::Vec3f Instrument::getVelocity(){
@@ -38,4 +38,12 @@ ci::Vec3f Instrument::getColor(){
 
 void Instrument::setColor(ci::Vec3f newColor){
     mColor = newColor;
+}
+
+ci::Vec3f Instrument::getSize(){
+    return mSize;
+}
+
+void Instrument::setSize(ci::Vec3f newSize){
+    mSize = newSize;
 }

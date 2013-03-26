@@ -10,7 +10,7 @@
 #define __ThirdRoom__User__
 
 #include <iostream>
-#include "cinder/app/AppBasic.h"
+#include "cinder/gl/gl.h"
 
 /*! \brief User Class
  * Stores status, userID, and joint positions */
@@ -37,7 +37,7 @@ public:
         leftFoot,
         rightFoot
         
-    } joints;
+    };
     
     ci::Vec3f       getJointPosition(int whichJoint);
     int             getUserID();
@@ -46,6 +46,7 @@ private:
     ci::Vec3f       allJoints[13], allJointsZ[13];
     ci::Vec3f       mSize, mColor;
     bool            active;
+    bool            activeJoints[13];
     int             userID;
 
     

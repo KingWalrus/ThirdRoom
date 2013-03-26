@@ -10,7 +10,7 @@
 #define ThirdRoom_Instrument_h
 
 #include <vector>
-#include "cinder/app/AppBasic.h"
+#include "cinder/Vector.h"
 
 /*! \brief Instrument class
  * The abstract parent of all instruments */
@@ -28,16 +28,18 @@ public:
     void            setVelocity(ci::Vec3f newVelocity);
     ci::Vec3f       getColor();
     void            setColor(ci::Vec3f newColor);
+    ci::Vec3f       getSize();
+    void            setSize(ci::Vec3f newSize);
     
-    
-
-private:
-    ci::Vec3f       mPos;
+    ci::Vec3f       mPosition;
     ci::Vec3f       mSize;
     ci::Vec3f       mVelocity;
     ci::Vec3f       mColor;
     bool            bHit;
     bool            bMoving;
+    
+
+    
 
 
 };
