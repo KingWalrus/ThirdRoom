@@ -40,6 +40,7 @@ public:
     };
     
     ci::Vec3f       getJointPosition(int whichJoint);
+    void            setJointPosition(int whichJoint, ci::Vec3f newJointPosition);
     int             getUserID();
     
 private:

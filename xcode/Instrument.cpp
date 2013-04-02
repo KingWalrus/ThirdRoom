@@ -1,4 +1,4 @@
-:://
+//
 //  Instrument.cpp
 //  ThirdRoom
 //
@@ -13,7 +13,15 @@ Instrument::Instrument(){
 }
 
 Instrument::~Instrument(){
-    
+    if( moveBehavior != NULL){
+        delete moveBehavior;
+    }
+}
+
+void Instrument::move(ci::Vec3f& velocity, ci::Vec3f& position){
+    if( moveBehavior != NULL){
+        moveBehavior->move(velocity, position);
+    }
 }
 
 ci::Vec3f Instrument::getPosition(){
@@ -46,4 +54,8 @@ ci::Vec3f Instrument::getSize(){
 
 void Instrument::setSize(ci::Vec3f newSize){
     mSize = newSize;
+}
+
+void Instrument::setMoveBehavior(MoveBehavior *mb){
+    moveBehavior = mb;
 }

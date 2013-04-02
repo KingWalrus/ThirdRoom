@@ -27,6 +27,13 @@ Bounce::Bounce(ci::Vec3f pos, int size, int idNumber){
     mVelocity = ci::Vec3f(0, 0, 0);
 }
 
+void Bounce::display(){
+    
+    ci::gl::drawSphere(mPosition, radius, 12);
+    ci::gl::drawSphere(ci::Vec3f(mPosition.x, -40, mPosition.z), 1.0f, 12);
+    
+}
+
 void Bounce::update(){
     mPosition += mVelocity;
     if(mPosition.x > 45 || mPosition.x < -45){
@@ -40,9 +47,4 @@ void Bounce::update(){
     }
 }
 
-void Bounce::display(){
-    
-    ci::gl::drawSphere(mPosition, radius, 12);
-    ci::gl::drawSphere(ci::Vec3f(mPosition.x, -40, mPosition.z), 1.0f, 12);
-    
-}
+

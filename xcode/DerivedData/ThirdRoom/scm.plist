@@ -4,16 +4,12 @@
 <dict>
 	<key>FoundWorkingCopyPaths</key>
 	<array>
-		<string>/Volumes/HeavyD/Users/CHIBI/cinder_master</string>
+		<string>/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom</string>
 	</array>
 	<key>LastWorkingCopyScanDate</key>
-	<date>2013-03-26T18:15:39Z</date>
+	<date>2013-04-02T17:20:53Z</date>
 	<key>MissingFilePaths</key>
-	<array>
-		<string>/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp</string>
-		<string>/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp</string>
-		<string>/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.h</string>
-	</array>
+	<array/>
 	<key>Version</key>
 	<integer>4</integer>
 </dict>

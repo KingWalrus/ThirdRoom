@@ -5,7 +5,7 @@
 //*******************************************************************
 //By: Colin Honigman (Programmer/Designer)
 //    Andrew Walton  (Designer)
-//    Ajay Kapur phd (Sponsor)
+//    Ajay Kapur (Sponsor)
 //*******************************************************************
 //*******************************************************************
 
@@ -22,7 +22,11 @@
 #include <math.h>
 #include <stdlib.h>
 
-#include "Bounce.h"
+#include "MoveBehavior.h"
+#include "BounceAll.h"
+#include "BounceUpDown.h"
+#include "Instrument.h"
+#include "Ball.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -53,41 +57,49 @@ struct Box{
 
 class ThirdRoomApp : public AppBasic {
 public:
-    void prepareSettings( Settings *settings);
-	void setup();
-	void update();
-	void draw();
-    void mouseDown( MouseEvent event );
-    void drawRoomSkeleton(float width, float length, float height); //draw a room skeleton (for developing) custom width/length/height for installation room
-    void setupGrid(float w, float h, float l);
-    
-    void wallHit(Bounce& balls);
-    void animateBox(Box* box);
+    void                prepareSettings( Settings *settings);
+	void                setup();
+	void                update();
+	void                draw();
+    void                mouseDown( MouseEvent event );
+                        /*! \brief Draw Room Skeleton
+                         *draw a room skeleton custom width/length/height for installation room */
+    void                drawRoomSkeleton(float width, float length, float height); 
+    void                setupGrid(float w, float h, float l);
+    void                wallHit(Ball* ball);
+    void                animateBox(Box* box);
+    void                oscUpdate();
     
 private:
-    float roomWidth, roomLength, roomHeight; //variables for room sizes
-    float eyePointx, eyePointy, eyePointz;
-    float centerPointx, centerPointy, centerPointz;
-    Anim<Vec3f>	eyePoint;
-    Anim<Vec3f>	centerPoint;
-    bool loaded;
+    float               roomWidth, roomLength, roomHeight; //variables for room sizes
+    float               eyePointx, eyePointy, eyePointz;
+    float               centerPointx, centerPointy, centerPointz;
+    Anim<Vec3f>         eyePoint;
+    Anim<Vec3f>         centerPoint;
+    bool                loaded;
     
-    Box grid[600];
+    Box                 grid[600];
     
-    bool animateGrid;
-    int county;
-    bool hit;
-    bool lookat;
-    Vec3f lookie;
-    CameraPersp cam;
+    bool                animateGrid;
+    int                 county;
+    bool                hit;
+    bool                lookat;
+    Vec3f               lookie;
+    CameraPersp         cam;
     
+    osc::Listener       oscListener;
+    osc::Sender         oscSender;
+    
+    string              host;
+    int                 port;
+    vector<Instrument*> instruments;
+    Ball                ballOne, ballTwo;
 protected:
-    MayaCamUI mayaCam; //mayaCam to move through 3d space
-    Matrix44f mTransform;
-    Vec2i mousePos;
-    double mTime;
-    InterfaceGl mParams;
-    Bounce ball;
+    MayaCamUI           mayaCam; //mayaCam to move through 3d space
+    Matrix44f           mTransform;
+    Vec2i               mousePos;
+    double              mTime;
+    InterfaceGl         mParams;
     
 };
 
@@ -98,14 +110,14 @@ void ThirdRoomApp::prepareSettings( Settings *settings ){
 
 void ThirdRoomApp::setup(){
     //setup viewing camera
-    eyePoint = Vec3f(0, 100, -500);
-    centerPoint = Vec3f(0, 0, 50);
-    eyePointx = 0;
-    eyePointy =  -20;
-    eyePointz =  -50;
-    centerPointx = 0;
-    centerPointy = 0;
-    centerPointz = 50;
+    eyePoint        = Vec3f(0, 100, -500);
+    centerPoint     = Vec3f(0, 0, 50);
+    eyePointx       = 0;
+    eyePointy       = -20;
+    eyePointz       = -50;
+    centerPointx    = 0;
+    centerPointy    = -20;
+    centerPointz    = 50;
     
     mParams = InterfaceGl("Menu", Vec2i(200, 200));
     mParams.addParam("Eye Point X", &eyePointx, "min=-1000 max=1000");
@@ -136,9 +148,30 @@ void ThirdRoomApp::setup(){
     glDisable(GL_DEPTH_TEST);
     glEnable (GL_BLEND);
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    ball = Bounce();
     
     lookat = false;
+    
+    host = "127.0.0.1";
+    port = 13000;
+    oscSender.setup(host, port);
+    oscListener.setup(12000);
+    
+    
+    ballOne.setMoveBehavior(new BounceAll);
+    ballOne.setPosition(ci::Vec3f(0, 0, 0));
+    ballOne.setSize(ci::Vec3f(2, 4, 4));
+    ballOne.setVelocity(ci::Vec3f(-3, 1, 2));
+    ballOne.bMoving = true;
+    
+    instruments.push_back(&ballOne);
+    
+    ballTwo.setMoveBehavior(new BounceUpDown);
+    ballTwo.setPosition(ci::Vec3f(10, -40, 20));
+    ballTwo.setSize(ci::Vec3f(2, 4, 4));
+    ballTwo.setVelocity(ci::Vec3f(1, 5, 3));
+    ballTwo.bMoving = true;
+    instruments.push_back(&ballTwo);
+    
     
 }
 
@@ -155,7 +188,7 @@ void ThirdRoomApp::update(){
     cam.setPerspective(80.0f, getWindowAspectRatio(), 1.0f, 1000.0f);
     mayaCam.setCurrentCam( cam );
     if(!loaded){
-        timeline().apply( &eyePoint, Vec3f(0, -20, -50), 5.0f, EaseInQuad() );
+        timeline().apply( &eyePoint, Vec3f(0, -30, -50), 5.0f, EaseInQuad() );
         loaded = true;
     }
     else{
@@ -183,35 +216,53 @@ void ThirdRoomApp::update(){
             county = 0;
         }
     }
-    if(hit){
-        
-        ball.setVelocity(rand()%5, rand()%5, rand()%5);
-        hit = false;
-    }
-    ball.update();
-    wallHit(ball);
     
+    for(int i = 0; i < instruments.size(); i++){
+        Instrument* t = *(instruments.begin() + i);
+        t->update();
+        wallHit((Ball*) t);
+    }
+    
+    oscUpdate();
 }
 
+
+void ThirdRoomApp::oscUpdate(){
+    while(oscListener.hasWaitingMessages()){
+        osc::Message message;
+        oscListener.getNextMessage(&message);
+        
+        if(message.getAddress() == "/skeleton"){
+            //iterate through active users, connect incoming data with correct user
+            //need to use dynamic array and/or user manager
+        }
+    }
+}
 void ThirdRoomApp::draw(){
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     gl::pushMatrices();
+
     gl::setMatrices( mayaCam.getCamera() );
+    for(int i = 0; i < instruments.size(); i++){
+        Instrument* t = *(instruments.begin() + i);
+        t->display();
+    }
     drawRoomSkeleton(roomWidth, roomHeight, roomLength);
-    ball.display();
     InterfaceGl::draw();
+
     // gl::drawSphere(Vec3f(100, -100, 60), 10);
     
 }
 
-void ThirdRoomApp::wallHit(Bounce &balls){
+void ThirdRoomApp::wallHit(Ball *ball){
     for(int i = 0; i < 520; i++){
-        if(grid[i].withinBounds(balls.getPosition())){
+        if(grid[i].withinBounds(ball->getPosition())){
             animateBox(&grid[i]);
         }
     }
 }
+
 
 void ThirdRoomApp::animateBox(Box* box){
     timeline().apply( &box->mSize, Vec3f(10, 10, 10), .05f, EaseInQuad() );

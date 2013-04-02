@@ -22,12 +22,12 @@ public:
     Ball();
     ~Ball();
     
-    void display();
-    void update();
-    bool hitTest(User* user);
+    void        display();
+    void        update();
+    bool        hitTest(User* user);
     
 private:
-    User* mUser;
+    User*       mUser;
     
 };
 

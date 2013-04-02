@@ -19,11 +19,17 @@
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		53E3CDFC0E86099300238D2B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		C2263D9C16D7514D0021B2FE /* Bounce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2263D9B16D7514D0021B2FE /* Bounce.cpp */; };
 		C27BF4F4170203F80063600C /* Instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F3170203F80063600C /* Instrument.cpp */; };
 		C27BF4F717020B340063600C /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F517020B340063600C /* Ball.cpp */; };
 		C27BF4FB17020CFA0063600C /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F917020CFA0063600C /* User.cpp */; };
 		C27BF4FE17021D450063600C /* UserManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4FC17021D450063600C /* UserManager.cpp */; };
+		C27BF503170262A60063600C /* OscBundle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4FF170262A60063600C /* OscBundle.cpp */; };
+		C27BF504170262A60063600C /* OscListener.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF500170262A60063600C /* OscListener.cpp */; };
+		C27BF505170262A60063600C /* OscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF501170262A60063600C /* OscMessage.cpp */; };
+		C27BF506170262A60063600C /* OscSender.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF502170262A60063600C /* OscSender.cpp */; };
+		C2820347170A5CF700D6E8DA /* MoveBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2820345170A5CF700D6E8DA /* MoveBehavior.cpp */; };
+		C282034A170A5DF400D6E8DA /* BounceAll.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2820348170A5DF400D6E8DA /* BounceAll.cpp */; };
+		C282034D170A678F00D6E8DA /* BounceUpDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C282034B170A678F00D6E8DA /* BounceUpDown.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,8 +51,6 @@
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* ThirdRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirdRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2263D9B16D7514D0021B2FE /* Bounce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bounce.cpp; sourceTree = "<group>"; };
-		C2263D9D16D7515B0021B2FE /* Bounce.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bounce.h; sourceTree = "<group>"; };
 		C27BF4F2170203EC0063600C /* Instrument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Instrument.h; sourceTree = "<group>"; };
 		C27BF4F3170203F80063600C /* Instrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Instrument.cpp; sourceTree = "<group>"; };
 		C27BF4F517020B340063600C /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
@@ -55,6 +59,16 @@
 		C27BF4FA17020CFA0063600C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		C27BF4FC17021D450063600C /* UserManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UserManager.cpp; sourceTree = "<group>"; };
 		C27BF4FD17021D450063600C /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		C27BF4FF170262A60063600C /* OscBundle.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscBundle.cpp; sourceTree = "<group>"; };
+		C27BF500170262A60063600C /* OscListener.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscListener.cpp; sourceTree = "<group>"; };
+		C27BF501170262A60063600C /* OscMessage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscMessage.cpp; sourceTree = "<group>"; };
+		C27BF502170262A60063600C /* OscSender.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OscSender.cpp; sourceTree = "<group>"; };
+		C2820345170A5CF700D6E8DA /* MoveBehavior.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MoveBehavior.cpp; sourceTree = "<group>"; };
+		C2820346170A5CF700D6E8DA /* MoveBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveBehavior.h; sourceTree = "<group>"; };
+		C2820348170A5DF400D6E8DA /* BounceAll.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BounceAll.cpp; sourceTree = "<group>"; };
+		C2820349170A5DF400D6E8DA /* BounceAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BounceAll.h; sourceTree = "<group>"; };
+		C282034B170A678F00D6E8DA /* BounceUpDown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BounceUpDown.cpp; sourceTree = "<group>"; };
+		C282034C170A678F00D6E8DA /* BounceUpDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BounceUpDown.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,11 +96,14 @@
 			isa = PBXGroup;
 			children = (
 				00BAE6590E7ED9C10018A608 /* ThirdRoomApp.cpp */,
-				C2263D9B16D7514D0021B2FE /* Bounce.cpp */,
 				C27BF4F3170203F80063600C /* Instrument.cpp */,
 				C27BF4F517020B340063600C /* Ball.cpp */,
 				C27BF4F917020CFA0063600C /* User.cpp */,
 				C27BF4FC17021D450063600C /* UserManager.cpp */,
+				C2820345170A5CF700D6E8DA /* MoveBehavior.cpp */,
+				C2820348170A5DF400D6E8DA /* BounceAll.cpp */,
+				C282034B170A678F00D6E8DA /* BounceUpDown.cpp */,
+				C2C2F31D170B4AF4002FA306 /* OSC */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -142,9 +159,11 @@
 			isa = PBXGroup;
 			children = (
 				32CA4F630368D1EE00C91783 /* ThirdRoom_Prefix.pch */,
-				C2263D9D16D7515B0021B2FE /* Bounce.h */,
 				C27BF4F617020B340063600C /* Ball.h */,
+				C2820349170A5DF400D6E8DA /* BounceAll.h */,
+				C282034C170A678F00D6E8DA /* BounceUpDown.h */,
 				C27BF4F2170203EC0063600C /* Instrument.h */,
+				C2820346170A5CF700D6E8DA /* MoveBehavior.h */,
 				C27BF4FA17020CFA0063600C /* User.h */,
 				C27BF4FD17021D450063600C /* UserManager.h */,
 			);
@@ -167,6 +186,17 @@
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2C2F31D170B4AF4002FA306 /* OSC */ = {
+			isa = PBXGroup;
+			children = (
+				C27BF4FF170262A60063600C /* OscBundle.cpp */,
+				C27BF500170262A60063600C /* OscListener.cpp */,
+				C27BF501170262A60063600C /* OscMessage.cpp */,
+				C27BF502170262A60063600C /* OscSender.cpp */,
+			);
+			name = OSC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,11 +258,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BAE65A0E7ED9C10018A608 /* ThirdRoomApp.cpp in Sources */,
-				C2263D9C16D7514D0021B2FE /* Bounce.cpp in Sources */,
 				C27BF4F4170203F80063600C /* Instrument.cpp in Sources */,
 				C27BF4F717020B340063600C /* Ball.cpp in Sources */,
 				C27BF4FB17020CFA0063600C /* User.cpp in Sources */,
 				C27BF4FE17021D450063600C /* UserManager.cpp in Sources */,
+				C27BF503170262A60063600C /* OscBundle.cpp in Sources */,
+				C27BF504170262A60063600C /* OscListener.cpp in Sources */,
+				C27BF505170262A60063600C /* OscMessage.cpp in Sources */,
+				C27BF506170262A60063600C /* OscSender.cpp in Sources */,
+				C2820347170A5CF700D6E8DA /* MoveBehavior.cpp in Sources */,
+				C282034A170A5DF400D6E8DA /* BounceAll.cpp in Sources */,
+				C282034D170A678F00D6E8DA /* BounceUpDown.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
