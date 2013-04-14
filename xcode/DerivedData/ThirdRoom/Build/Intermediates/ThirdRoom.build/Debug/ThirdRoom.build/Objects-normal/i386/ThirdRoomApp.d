@@ -466,6 +466,9 @@ dependencies: \
   ../../../include/cinder/Timeline.h \
   ../../../include/cinder/TimelineItem.h \
   ../../../include/cinder/Easing.h ../../../include/cinder/Tween.h \
+  ../../../include/cinder/cairo/Cairo.h \
+  ../../../include/cinder/ImageIo.h ../../../include/cinder/DataTarget.h \
+  ../../../include/cinder/Text.h ../../../include/cinder/gl/Texture.h \
   ../../../blocks/osc/include/OscListener.h \
   ../../../blocks/osc/include/OscMessage.h \
   ../../../blocks/osc/include/OscArg.h \

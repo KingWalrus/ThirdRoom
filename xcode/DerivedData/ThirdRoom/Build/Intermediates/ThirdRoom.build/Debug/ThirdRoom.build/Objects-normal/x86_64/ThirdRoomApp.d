@@ -466,9 +466,17 @@ dependencies: \
   ../../../include/cinder/Timeline.h \
   ../../../include/cinder/TimelineItem.h \
   ../../../include/cinder/Easing.h ../../../include/cinder/Tween.h \
+  ../../../include/cinder/cairo/Cairo.h \
+  ../../../include/cinder/ImageIo.h ../../../include/cinder/DataTarget.h \
+  ../../../include/cinder/Text.h ../../../include/cinder/gl/Texture.h \
   ../../../blocks/osc/include/OscListener.h \
   ../../../blocks/osc/include/OscMessage.h \
   ../../../blocks/osc/include/OscArg.h \
   ../../../blocks/osc/include/OscSender.h \
   ../../../blocks/osc/include/OscBundle.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Bounce.h
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.h

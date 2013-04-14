@@ -59,3 +59,7 @@ void Instrument::setSize(ci::Vec3f newSize){
 void Instrument::setMoveBehavior(MoveBehavior *mb){
     moveBehavior = mb;
 }
+
+double Instrument::getTime(){
+    return cinder::app::getElapsedSeconds() - createdAt;
+}

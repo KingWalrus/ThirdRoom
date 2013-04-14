@@ -20,11 +20,14 @@
 class Ball : public Instrument{
 public:
     Ball();
+    Ball(ci::Vec3f position);
     ~Ball();
     
     void        display();
     void        update();
     bool        hitTest(User* user);
+    float       getDifference(int axis);
+    float       getVecDifference();
     
 private:
     User*       mUser;

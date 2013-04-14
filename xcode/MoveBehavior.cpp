@@ -7,7 +7,7 @@
 //
 
 #include "MoveBehavior.h"
-/*
+
 MoveBehavior::MoveBehavior(){
     
 }
@@ -15,4 +15,3 @@ MoveBehavior::MoveBehavior(){
 MoveBehavior::~MoveBehavior(){
     
 }
-*/

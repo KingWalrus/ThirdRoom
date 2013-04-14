@@ -1,19 +1,26 @@
-//*******************************************************************
-//*************************             *****************************
+//************************************************************************************************
+//*************************             **********************************************************
+//
 //                         The Third Room
-//*************************             *****************************
-//*******************************************************************
-//By: Colin Honigman (Programmer/Designer)
-//    Andrew Walton  (Designer)
-//    Ajay Kapur (Sponsor)
-//*******************************************************************
-//*******************************************************************
+//
+//*************************             **********************************************************
+//************************************************************************************************
+//By: Colin Honigman    (Programmer/Designer)
+//    Andrew Walton     (Designer)
+//    Ajay Kapur        (Sponsor)
+//************************************************************************************************
+//************************************************************************************************
 
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 #include "cinder/params/Params.h"
 #include "cinder/MayaCamUI.h"
 #include "cinder/Timeline.h"
+#include "cinder/Font.h"
+#include "cinder/cairo/Cairo.h"
+#include "cinder/Text.h"
+#include "cinder/gl/Texture.h"
+
 
 #include "OscListener.h"
 #include "OscSender.h"
@@ -62,13 +69,15 @@ public:
 	void                update();
 	void                draw();
     void                mouseDown( MouseEvent event );
-                        /*! \brief Draw Room Skeleton
-                         *draw a room skeleton custom width/length/height for installation room */
-    void                drawRoomSkeleton(float width, float length, float height); 
+    /*! \brief Draw Room Skeleton
+     *draw a room skeleton custom width/length/height for installation room */
+    void                drawRoomSkeleton(float width, float length, float height);
     void                setupGrid(float w, float h, float l);
     void                wallHit(Ball* ball);
     void                animateBox(Box* box);
     void                oscUpdate();
+    void                drawCharacterVerbose( cairo::Context &ctx, Vec2f where );
+    
     
 private:
     float               roomWidth, roomLength, roomHeight; //variables for room sizes
@@ -93,13 +102,36 @@ private:
     string              host;
     int                 port;
     vector<Instrument*> instruments;
-    Ball                ballOne, ballTwo;
+    vector<User>       users;
+    TextLayout          text;
+    gl::Texture         mLabelText;
+    
+    
+    
 protected:
     MayaCamUI           mayaCam; //mayaCam to move through 3d space
     Matrix44f           mTransform;
     Vec2i               mousePos;
     double              mTime;
     InterfaceGl         mParams;
+    bool                clickSwitch;
+    
+    enum jointNamesGlobal{
+        head = 0,
+        neck,
+        leftShoulder,
+        rightShoulder,
+        leftElbow,
+        rightElbow,
+        leftHand,
+        rightHand,
+        leftHip,
+        rightHip,
+        leftKnee,
+        rightKnee,
+        leftFoot,
+        rightFoot
+    };
     
 };
 
@@ -110,14 +142,14 @@ void ThirdRoomApp::prepareSettings( Settings *settings ){
 
 void ThirdRoomApp::setup(){
     //setup viewing camera
-    eyePoint        = Vec3f(0, 100, -500);
-    centerPoint     = Vec3f(0, 0, 50);
-    eyePointx       = 0;
+    eyePoint        = Vec3f(0, 100, 500);
+    centerPoint     = Vec3f(0, 0, -50);
+    eyePointx       =   0;
     eyePointy       = -20;
-    eyePointz       = -50;
-    centerPointx    = 0;
+    eyePointz       = 50;
+    centerPointx    =   0;
     centerPointy    = -20;
-    centerPointz    = 50;
+    centerPointz    =  -50;
     
     mParams = InterfaceGl("Menu", Vec2i(200, 200));
     mParams.addParam("Eye Point X", &eyePointx, "min=-1000 max=1000");
@@ -131,8 +163,9 @@ void ThirdRoomApp::setup(){
     mParams.addParam("Room Length", &roomLength, "min=50 max=500");
     mParams.addParam("Animate", &animateGrid);
     mParams.addParam("Hit", &hit);
+    mParams.addParam("Switch", & clickSwitch);
     mParams.addParam("LookAt", &lookat);
-    mParams.addParam("Look At What?", &lookie, "min=-100 max=100");
+    mParams.addParam("Look At What?", &lookie);
     mTransform.setToIdentity();
     loaded = false;
     animateGrid = false;
@@ -157,25 +190,22 @@ void ThirdRoomApp::setup(){
     oscListener.setup(12000);
     
     
-    ballOne.setMoveBehavior(new BounceAll);
-    ballOne.setPosition(ci::Vec3f(0, 0, 0));
-    ballOne.setSize(ci::Vec3f(2, 4, 4));
-    ballOne.setVelocity(ci::Vec3f(-3, 1, 2));
-    ballOne.bMoving = true;
-    
-    instruments.push_back(&ballOne);
-    
-    ballTwo.setMoveBehavior(new BounceUpDown);
-    ballTwo.setPosition(ci::Vec3f(10, -40, 20));
-    ballTwo.setSize(ci::Vec3f(2, 4, 4));
-    ballTwo.setVelocity(ci::Vec3f(1, 5, 3));
-    ballTwo.bMoving = true;
-    instruments.push_back(&ballTwo);
+    text.clear(Color::white());
+    text.setColor(Color(1.0f, 1.0f, 1.0f));
+    try {
+        text.setFont( Font( "Futura-CondensedMedium", 50 ) );
+    }
+    catch( ... ) {
+        text.setFont( Font( "Arial", 50 ) );
+    }
+    mLabelText = gl::Texture( text.render( true ) );
+    clickSwitch = false;
     
     
 }
 
 void ThirdRoomApp::mouseDown( MouseEvent event ){
+    
 }
 
 void ThirdRoomApp::update(){
@@ -188,7 +218,7 @@ void ThirdRoomApp::update(){
     cam.setPerspective(80.0f, getWindowAspectRatio(), 1.0f, 1000.0f);
     mayaCam.setCurrentCam( cam );
     if(!loaded){
-        timeline().apply( &eyePoint, Vec3f(0, -30, -50), 5.0f, EaseInQuad() );
+        timeline().apply( &eyePoint, Vec3f(0, -30, 50), 5.0f, EaseInQuad() );
         loaded = true;
     }
     else{
@@ -217,11 +247,39 @@ void ThirdRoomApp::update(){
         }
     }
     
-    for(int i = 0; i < instruments.size(); i++){
-        Instrument* t = *(instruments.begin() + i);
-        t->update();
-        wallHit((Ball*) t);
+    
+    for(int i = 0; i < users.size(); i++){
+        //        if(users[i].isWaving()){
+        //            text.addLine("Hello");
+        //            cout << "Hello" << endl;
+        //            gl::draw( mLabelText, Vec2f(0,0) );
+        //
+        //        }
+        if(users[i].isWavingLeft() && !users[i].isActive(leftHand)){
+            instruments.push_back(new Ball(users[i].getJointPosition(leftHand)));
+        }
+        else if(users[i].isWavingRight() && !users[i].isActive(rightHand)){
+            instruments.push_back(new Ball(users[i].getJointPosition(rightHand)));
+        }
+        //cout << users[i].getJointPosition(users[i].leftHand) << "   " << users[i].getJointPosition(users[i].rightHand) << endl;
+        users[i].update();
+        for(int j = 0; j < instruments.size(); j++){
+            
+            Instrument* in = *(instruments.begin()+j);
+            
+            in->update();
+            in->hitTest(&users[i]);
+            wallHit((Ball*) in);
+            
+        }
+        
     }
+    //    for(int i = 0; i < instruments.size(); i++){
+    //        Instrument* in = *(instruments.begin()+i);
+    //        in->update();
+    //        wallHit((Ball*) in);
+    //
+    //    }
     
     oscUpdate();
 }
@@ -233,8 +291,41 @@ void ThirdRoomApp::oscUpdate(){
         oscListener.getNextMessage(&message);
         
         if(message.getAddress() == "/skeleton"){
-            //iterate through active users, connect incoming data with correct user
-            //need to use dynamic array and/or user manager
+            int tempID = message.getArgAsInt32(0);
+            for(int i = 0; i < users.size(); i++){
+                if(users[i].getUserID() == tempID){
+                    users[i].setJointPosition(users[i].head,            Vec3f( message.getArgAsFloat(1),message.getArgAsFloat(2),message.getArgAsFloat(3) ));
+                    users[i].setJointPosition(users[i].neck,            Vec3f( message.getArgAsFloat(4),message.getArgAsFloat(5),message.getArgAsFloat(6) ));
+                    users[i].setJointPosition(users[i].leftShoulder,    Vec3f( message.getArgAsFloat(7),message.getArgAsFloat(8),message.getArgAsFloat(9) ));
+                    users[i].setJointPosition(users[i].rightShoulder,   Vec3f( message.getArgAsFloat(10),message.getArgAsFloat(11),message.getArgAsFloat(12) ));
+                    users[i].setJointPosition(users[i].leftElbow,       Vec3f( message.getArgAsFloat(13),message.getArgAsFloat(14),message.getArgAsFloat(15) ));
+                    users[i].setJointPosition(users[i].rightElbow,      Vec3f( message.getArgAsFloat(16),message.getArgAsFloat(17),message.getArgAsFloat(18) ));
+                    users[i].setJointPosition(users[i].leftHand,        Vec3f( message.getArgAsFloat(19),message.getArgAsFloat(20),message.getArgAsFloat(21) ));
+                    users[i].setJointPosition(users[i].rightHand,       Vec3f( message.getArgAsFloat(22),message.getArgAsFloat(23),message.getArgAsFloat(24) ));
+                    users[i].setJointPosition(users[i].leftHip,         Vec3f( message.getArgAsFloat(25),message.getArgAsFloat(26),message.getArgAsFloat(27) ));
+                    users[i].setJointPosition(users[i].rightHip,        Vec3f( message.getArgAsFloat(28),message.getArgAsFloat(29),message.getArgAsFloat(30) ));
+                    users[i].setJointPosition(users[i].leftKnee,        Vec3f( message.getArgAsFloat(31),message.getArgAsFloat(32),message.getArgAsFloat(33) ));
+                    users[i].setJointPosition(users[i].rightKnee,       Vec3f( message.getArgAsFloat(34),message.getArgAsFloat(35),message.getArgAsFloat(36) ));
+                    users[i].setJointPosition(users[i].leftFoot,        Vec3f( message.getArgAsFloat(37),message.getArgAsFloat(38),message.getArgAsFloat(39) ));
+                    users[i].setJointPosition(users[i].rightFoot,       Vec3f( message.getArgAsFloat(40),message.getArgAsFloat(41),message.getArgAsFloat(42) ));
+                }
+            }
+        }
+        
+        else if(message.getAddress() == "/newUser"){
+            int tempID = message.getArgAsInt32(0);
+            users.push_back(User(tempID));
+            cout << "NEW USER!  " << tempID <<  endl;
+        }
+        
+        else if(message.getAddress() == "/lostUser"){
+            for(int i = 0; i < users.size(); i++){
+                int tempID = message.getArgAsInt32(0);
+                if(users[i].getUserID() == tempID){
+                    users.erase(users.begin() + i);
+                    cout << "LOST USER!" << endl;
+                }
+            }
         }
     }
 }
@@ -242,16 +333,19 @@ void ThirdRoomApp::draw(){
 	// clear out the window with black
 	gl::clear( Color( 0, 0, 0 ) );
     gl::pushMatrices();
-
+    
+    
     gl::setMatrices( mayaCam.getCamera() );
-    for(int i = 0; i < instruments.size(); i++){
-        Instrument* t = *(instruments.begin() + i);
-        t->display();
+    for(int i = 0; i < users.size(); i++){
+        users[i].display();
     }
+    for(int i = 0; i < instruments.size(); i++){
+        Instrument* in = *(instruments.begin()+i);
+        in->display();
+    }
+    
     drawRoomSkeleton(roomWidth, roomHeight, roomLength);
     InterfaceGl::draw();
-
-    // gl::drawSphere(Vec3f(100, -100, 60), 10);
     
 }
 

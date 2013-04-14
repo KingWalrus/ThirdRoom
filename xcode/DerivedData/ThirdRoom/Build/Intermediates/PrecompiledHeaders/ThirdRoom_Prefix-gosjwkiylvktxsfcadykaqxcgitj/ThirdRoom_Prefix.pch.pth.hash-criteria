@@ -1,0 +1,25 @@
+Contents of /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/ThirdRoom_Prefix.pch
+
+i386-apple-darwin11.4.2
+-x
+c++
+-arch
+i386
+-fmessage-length=0
+-fpascal-strings
+-O0
+-fasm-blocks
+-fstrict-aliasing
+-mmacosx-version-min=10.7
+-g
+-iquote
+-iquote
+-iquote../../../include
+-iquote../include
+-iquote../../../blocks/osc/include
+-iquote../../../blocks/osc/include/ip
+-iquote../../../blocks/osc/include/osc
+-I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Products/Debug/include
+-I../../../boost
+-F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Products/Debug
+SDK_PRODUCT_BUILD_VERSION=11G63

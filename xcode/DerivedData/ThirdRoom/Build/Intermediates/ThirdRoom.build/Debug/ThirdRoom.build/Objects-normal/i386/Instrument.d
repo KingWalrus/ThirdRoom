@@ -451,4 +451,16 @@ dependencies: \
   ../../../include/cinder/AxisAlignedBox.h ../../../include/cinder/Ray.h \
   /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.h \
   /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h \
+  ../../../include/cinder/app/App.h \
+  ../../../include/cinder/app/Renderer.h \
+  ../../../include/cinder/Surface.h ../../../include/cinder/Channel.h \
+  ../../../boost/boost/logic/tribool.hpp \
+  ../../../boost/boost/logic/tribool_fwd.hpp \
+  ../../../include/cinder/Display.h \
+  ../../../include/cinder/app/MouseEvent.h \
+  ../../../include/cinder/app/Event.h \
+  ../../../include/cinder/app/KeyEvent.h \
+  ../../../include/cinder/app/FileDropEvent.h \
+  ../../../include/cinder/app/ResizeEvent.h \
+  ../../../include/cinder/Timer.h ../../../include/cinder/Function.h
