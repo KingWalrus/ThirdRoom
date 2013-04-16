@@ -54,11 +54,12 @@ struct Box{
     Anim<Vec3f> mSize;
     
     bool withinBounds(Vec3f objectPosition){
-        if(objectPosition.distance(mPos) < 7){
+        if(objectPosition.distance(mPos) < 5){
             return true;
         }
         else return false;
     };
+    
     
 };
 
@@ -86,6 +87,7 @@ private:
     Anim<Vec3f>         eyePoint;
     Anim<Vec3f>         centerPoint;
     bool                loaded;
+    bool                doneLoading;
     
     Box                 grid[600];
     
@@ -200,6 +202,7 @@ void ThirdRoomApp::setup(){
     }
     mLabelText = gl::Texture( text.render( true ) );
     clickSwitch = false;
+    doneLoading = false;
     
     
 }
@@ -220,11 +223,20 @@ void ThirdRoomApp::update(){
     if(!loaded){
         timeline().apply( &eyePoint, Vec3f(0, -30, 50), 5.0f, EaseInQuad() );
         loaded = true;
+        doneLoading = true;
+        
     }
     else{
         
         eyePoint = Vec3f(eyePointx, eyePointy, eyePointz);
     }
+        if(doneLoading){
+            for(int i = 0; i < 600; i++){
+                timeline().appendTo( &grid[i].mColor, ColorA(1.0f, 1.0f, 1.0f, 0.0f), 6.60f, EaseInQuad() );
+            }
+            doneLoading = false;
+        }
+    
     if(animateGrid){
         
         timeline().apply( &grid[county%600].mSize, Vec3f(10, 10, 10), .10f, EaseInQuad() );
@@ -261,19 +273,29 @@ void ThirdRoomApp::update(){
         else if(users[i].isWavingRight() && !users[i].isActive(rightHand)){
             instruments.push_back(new Ball(users[i].getJointPosition(rightHand)));
         }
-        //cout << users[i].getJointPosition(users[i].leftHand) << "   " << users[i].getJointPosition(users[i].rightHand) << endl;
-        users[i].update();
+        
         for(int j = 0; j < instruments.size(); j++){
             
             Instrument* in = *(instruments.begin()+j);
-            
             in->update();
             in->hitTest(&users[i]);
             wallHit((Ball*) in);
             
         }
-        
+        for(int b = 0; b < 600; b++){
+            if(grid[b].withinBounds(users[i].getJointPosition(users[i].leftFoot)) || grid[b].withinBounds(users[i].getJointPosition(users[i].rightFoot))){
+                timeline().apply(&grid[b].mColor, ColorA(1.0, 0, 0, 1.0), 1.50);
+            }
+            else{
+                if((ColorA)grid[b].mColor == ColorA(1.0, 1.0, 1.0, 1.0)){
+                    timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), 2);
+                }
+            }
+            
+        }
+      users[i].update();  
     }
+
     //    for(int i = 0; i < instruments.size(); i++){
     //        Instrument* in = *(instruments.begin()+i);
     //        in->update();
@@ -282,6 +304,7 @@ void ThirdRoomApp::update(){
     //    }
     
     oscUpdate();
+    
 }
 
 
@@ -374,8 +397,8 @@ void ThirdRoomApp::animateBox(Box* box){
     else if (box->id >= 420 && box->id < 520){
         timeline().appendTo( &box->mSize, Vec3f(10, 0, 10), .10f, EaseOutQuad() );
     }
-    timeline().apply( &box->mColor, ColorA((rand()%100)*.01, (rand()%100)*.01, (rand()%100)*.01, 1.0f), .10f, EaseInQuad() );
-    timeline().appendTo( &box->mColor, ColorA(1.0f, 1.0f, 1.0f, 1.0f), .10f, EaseInQuad() );
+    timeline().apply( &box->mColor, ColorA(1.0, 1.0, 1.0, 1.0f), .10f, EaseInQuad() );
+    timeline().appendTo( &box->mColor, ColorA(0, 0, 1.0f, 0.0f), .50f, EaseInQuad() );
     
 }
 

@@ -34,7 +34,7 @@ void User::update(){
 
 void User::display(){
     
-    ci::gl::color(mColor.x, mColor.y, mColor.z);
+    ci::gl::color(mColor.x, mColor.y, mColor.z, 255);
     ci::gl::drawVector(allJoints[0], allJoints[2]);
     //ci::gl::drawVector(allJoints[1], allJoints[2]);
     ci::gl::drawVector(allJoints[0], allJoints[3]);
@@ -125,25 +125,27 @@ bool User::isWavingRight(){
 }
 
 bool User::isThrowingLeft(){
-    if(activeJoints[leftHand]){
-        if(getVecDifference(leftHand) > 2){
-            std::cout << "throwing left" << std::endl;
+    //if(activeJoints[leftHand]){
+        if(getVecDifference(leftHand) > 1.5){
+            //std::cout << "throwing left" << std::endl;
             return true;
         }
         else return false;
-    }
-    else return false;
+    //}
+   // else return false;
 }
 
 bool User::isThrowingRight(){
-    if(activeJoints[rightHand]){
-        if(getVecDifference(rightHand) > 2){
-            std::cout << "throwing right" << std::endl;
+   // if(activeJoints[rightHand]){
+        //std::cout << "active Right" << std::endl;
+   // std::cout << getVecDifference(rightHand) << std::endl;
+        if(getVecDifference(rightHand) > 1.5){
+           // std::cout << "throwing right" << std::endl;
             return true;
         }
         else return false;
-    }
-    else return false;
+    //}
+    //else return false;
 }
 
 //******************************************************************************

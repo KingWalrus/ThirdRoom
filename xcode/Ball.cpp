@@ -84,17 +84,20 @@ void Ball::update(){
 
 bool Ball::hitTest(User* user){
     
-    if(user->getJointPosition(user->leftHand).distance(mPosition) > -3 && user->getJointPosition(user->leftHand).distance(mPosition) < 3){
+    if(user->getJointPosition(user->leftHand).distance(mPosition) > -5 && user->getJointPosition(user->leftHand).distance(mPosition) < 5){
         bHit = true;
         setPosition(user->getJointPosition(user->leftHand));
         user->setActive(user->leftHand);
         mControllerPosition = user->getJointPosition(user->leftHand);
+        
         if(user->isThrowingLeft()){
+            //std::cout << "user throwing left" << std::endl;
             setVelocity(ci::Vec3f(user->getDifference(user->leftHand, 0), user->getDifference(user->leftHand,1), user->getDifference(user->leftHand,2)));
-            std::cout << mVelocity << std::endl;
+            //std::cout << mVelocity << std::endl;
             bHit = false;
             bMoving = true;
         }
+        
         return bHit;
         
     }
@@ -102,12 +105,15 @@ bool Ball::hitTest(User* user){
         user->setUnactive(user->leftHand);
         bHit = false;
     }
-    if(user->getJointPosition(user->rightHand).distance(mPosition) > -3 && user->getJointPosition(user->rightHand).distance(mPosition) < 3){
+    
+    if(user->getJointPosition(user->rightHand).distance(mPosition) > -5 && user->getJointPosition(user->rightHand).distance(mPosition) < 5){
         bHit = true;
         setPosition(user->getJointPosition(user->rightHand));
         user->setActive(user->rightHand);
         mControllerPosition = user->getJointPosition(user->rightHand);
+        
         if(user->isThrowingRight()){
+            //std::cout << "user throwing right" << std::endl;
             setVelocity(ci::Vec3f(user->getDifference(user->rightHand, 0), user->getDifference(user->rightHand,1), user->getDifference(user->rightHand,2)));
             bHit = false;
             bMoving = true;
