@@ -23,7 +23,7 @@ Ball::Ball(ci::Vec3f position){
     bHit = true;
     mPositionZ = position;
     setMoveBehavior(new BounceAll());
-    std::cout << "Ball Created" << std::endl;
+    //std::cout << "Ball Created" << std::endl;
     createdAt = cinder::app::getElapsedSeconds();
 }
 
@@ -36,7 +36,7 @@ Ball::~Ball(){
 }
 
 void Ball::display(){
-    
+    ci::gl::color(mColor.x, mColor.y, mColor.z);
     ci::gl::drawSphere(mPosition, mSize.x, 18);
     
 }
@@ -44,32 +44,17 @@ void Ball::display(){
 void Ball::update(){
     if(bHit){
         bMoving = false;
-//        if(mPosition.distance(mPositionZ) > 2 && getTime() > 2){
-//            
-//            bMoving = true;
-//            setVelocity(ci::Vec3f(getDifference(0), getDifference(1), getDifference(2)));
-//            bHit = false;
-//            //std::cout << "throw " << mVelocity << std::endl;
-//        }
-        
     }
-//    if(!bHit && bHitZ && getTime() > 2){
-//        bMoving = true;
-//        
-//        setVelocity(ci::Vec3f(getDifference(0), getDifference(1), getDifference(2)));
-//        std::cout << "throw" << mVelocity << mPosition << mPositionZ << std::endl;
-//    }
     if(bMoving){
-        //std::cout << "moving " << mVelocity << mPosition << std::endl;
-        //mPosition += mVelocity;
+
         move(mVelocity, mPosition);
-        if(mPosition.x > 45 || mPosition.x < -45){
+        if(mPosition.x > 50 || mPosition.x < -50){
             mVelocity.x = -1*mVelocity.x;
         }
         if(mPosition.y > 40 || mPosition.y < -40){
             mVelocity.y = -1*mVelocity.y;
         }
-        if(mPosition.z > 50 || mPosition.z < -50){
+        if(mPosition.z > 75 || mPosition.z < -75){
             mVelocity.z = -1*mVelocity.z;
         }
     }
@@ -84,18 +69,19 @@ void Ball::update(){
 
 bool Ball::hitTest(User* user){
     
-    if(user->getJointPosition(user->leftHand).distance(mPosition) > -5 && user->getJointPosition(user->leftHand).distance(mPosition) < 5){
+    if(user->getJointPosition(user->leftHand).distance(mPosition) > -4 && user->getJointPosition(user->leftHand).distance(mPosition) < 4 && !user->isActive(user->leftHand)){
         bHit = true;
         setPosition(user->getJointPosition(user->leftHand));
         user->setActive(user->leftHand);
         mControllerPosition = user->getJointPosition(user->leftHand);
-        
-        if(user->isThrowingLeft()){
+        setColor(ci::Vec3f(1.0, 0, 0));
+        if(user->isThrowingLeft() && ci::app::getElapsedSeconds()-createdAt > 3){
             //std::cout << "user throwing left" << std::endl;
             setVelocity(ci::Vec3f(user->getDifference(user->leftHand, 0), user->getDifference(user->leftHand,1), user->getDifference(user->leftHand,2)));
             //std::cout << mVelocity << std::endl;
             bHit = false;
             bMoving = true;
+            setColor(ci::Vec3f(1.0, 1.0, 1.0));
         }
         
         return bHit;
@@ -106,17 +92,18 @@ bool Ball::hitTest(User* user){
         bHit = false;
     }
     
-    if(user->getJointPosition(user->rightHand).distance(mPosition) > -5 && user->getJointPosition(user->rightHand).distance(mPosition) < 5){
+    if(user->getJointPosition(user->rightHand).distance(mPosition) > -4 && user->getJointPosition(user->rightHand).distance(mPosition) < 4 && !user->isActive(user->rightHand)){
         bHit = true;
         setPosition(user->getJointPosition(user->rightHand));
         user->setActive(user->rightHand);
         mControllerPosition = user->getJointPosition(user->rightHand);
-        
-        if(user->isThrowingRight()){
+        setColor(ci::Vec3f(1.0, 0, 0));
+        if(user->isThrowingRight() && ci::app::getElapsedSeconds()-createdAt > 3){
             //std::cout << "user throwing right" << std::endl;
             setVelocity(ci::Vec3f(user->getDifference(user->rightHand, 0), user->getDifference(user->rightHand,1), user->getDifference(user->rightHand,2)));
             bHit = false;
             bMoving = true;
+            setColor(ci::Vec3f(1.0, 1.0, 1.0));
         }
         return bHit;
         

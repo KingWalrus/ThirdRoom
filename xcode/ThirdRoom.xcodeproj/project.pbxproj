@@ -31,6 +31,8 @@
 		C2820347170A5CF700D6E8DA /* MoveBehavior.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2820345170A5CF700D6E8DA /* MoveBehavior.cpp */; };
 		C282034A170A5DF400D6E8DA /* BounceAll.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2820348170A5DF400D6E8DA /* BounceAll.cpp */; };
 		C282034D170A678F00D6E8DA /* BounceUpDown.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C282034B170A678F00D6E8DA /* BounceUpDown.cpp */; };
+		C297E539171DFAF600E776DA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C297E538171DFAF600E776DA /* Info.plist */; };
+		C297E53B171E019500E776DA /* lava.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C297E53A171E019500E776DA /* lava.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +73,8 @@
 		C2820349170A5DF400D6E8DA /* BounceAll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BounceAll.h; sourceTree = "<group>"; };
 		C282034B170A678F00D6E8DA /* BounceUpDown.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BounceUpDown.cpp; sourceTree = "<group>"; };
 		C282034C170A678F00D6E8DA /* BounceUpDown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BounceUpDown.h; sourceTree = "<group>"; };
+		C297E538171DFAF600E776DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C297E53A171E019500E776DA /* lava.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lava.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C297E53A171E019500E776DA /* lava.jpg */,
+				C297E538171DFAF600E776DA /* Info.plist */,
 				00CCAF14116A9FEE008396D5 /* CinderApp.icns */,
 			);
 			name = Resources;
@@ -253,6 +259,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				00CCAF15116A9FEE008396D5 /* CinderApp.icns in Resources */,
+				C297E539171DFAF600E776DA /* Info.plist in Resources */,
+				C297E53B171E019500E776DA /* lava.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

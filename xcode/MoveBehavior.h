@@ -14,8 +14,8 @@
 
 class MoveBehavior {
 public:
-      MoveBehavior();
-    ~MoveBehavior();
+    MoveBehavior();
+    virtual ~MoveBehavior();
     
     virtual void move(ci::Vec3f& velocity, ci::Vec3f& position) = 0;
 };

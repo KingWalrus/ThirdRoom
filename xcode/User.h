@@ -11,6 +11,9 @@
 
 #include <iostream>
 #include "cinder/gl/gl.h"
+#include "cinder/TriMesh.h"
+#include "cinder/app/AppBasic.h"
+
 
 /*! \brief User Class
  * Stores status, userID, and joint positions */
@@ -32,6 +35,7 @@ public:
         rightElbow,
         leftHand,
         rightHand,
+        torso,
         leftHip,
         rightHip,
         leftKnee,
@@ -53,21 +57,26 @@ public:
     bool            isWavingRight();
     bool            isThrowingLeft();
     bool            isThrowingRight();
+    void            prepareToClear();
+    bool            isClearing();
     bool            isActive(int whichJoint);
     void            setActive(int whichJoint);
     void            setUnactive(int whichJoint);
     int             getUserID();
     float           getDifference(int whichJoint, int axis);
     float           getVecDifference(int whichJoint);
+    ci::ColorA      getColor();
     
 private:
-    ci::Vec3f       allJoints[14], allJointsZ[14];
+    ci::Vec3f       allJoints[15], allJointsZ[15];
     ci::Vec3f       mSize, mColor;
     bool            active;
-    bool            activeJoints[14];
+    bool            activeJoints[15];
     int             userID;
     bool            wave;
-
+    ci::TriMesh     mesh;
+    double          time;
+    bool            preparingToClear;
 
     
 };

@@ -450,9 +450,8 @@ dependencies: \
   ../../../boost/boost/iostreams/device/array.hpp \
   ../../../include/cinder/PolyLine.h \
   ../../../include/cinder/AxisAlignedBox.h ../../../include/cinder/Ray.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h \
+  ../../../include/cinder/TriMesh.h ../../../include/cinder/DataTarget.h \
+  ../../../include/cinder/app/AppBasic.h \
   ../../../include/cinder/app/App.h \
   ../../../include/cinder/app/Renderer.h \
   ../../../include/cinder/Surface.h ../../../include/cinder/Channel.h \
@@ -464,4 +463,8 @@ dependencies: \
   ../../../include/cinder/app/KeyEvent.h \
   ../../../include/cinder/app/FileDropEvent.h \
   ../../../include/cinder/app/ResizeEvent.h \
-  ../../../include/cinder/Timer.h ../../../include/cinder/Function.h
+  ../../../include/cinder/Timer.h ../../../include/cinder/Function.h \
+  ../../../include/cinder/app/TouchEvent.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h

@@ -40,8 +40,8 @@ void Instrument::setVelocity(ci::Vec3f newVelocity){
     mVelocity = newVelocity;
 }
 
-ci::Vec3f Instrument::getColor(){
-    return mColor;
+ci::ColorA Instrument::getColor(){
+    return ci::ColorA(mColor.x, mColor.y, mColor.z, 1.0);
 }
 
 void Instrument::setColor(ci::Vec3f newColor){
@@ -63,3 +63,4 @@ void Instrument::setMoveBehavior(MoveBehavior *mb){
 double Instrument::getTime(){
     return cinder::app::getElapsedSeconds() - createdAt;
 }
+

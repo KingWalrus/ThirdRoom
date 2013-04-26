@@ -33,7 +33,7 @@ public:
     void            setPosition(ci::Vec3f newPosition);
     ci::Vec3f       getVelocity();
     void            setVelocity(ci::Vec3f newVelocity);
-    ci::Vec3f       getColor();
+    ci::ColorA      getColor();
     void            setColor(ci::Vec3f newColor);
     ci::Vec3f       getSize();
     void            setSize(ci::Vec3f newSize);

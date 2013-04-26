@@ -448,4 +448,19 @@ dependencies: \
   ../../../boost/boost/iostreams/detail/is_dereferenceable.hpp \
   ../../../boost/boost/iostreams/device/array.hpp \
   ../../../include/cinder/PolyLine.h \
-  ../../../include/cinder/AxisAlignedBox.h ../../../include/cinder/Ray.h
+  ../../../include/cinder/AxisAlignedBox.h ../../../include/cinder/Ray.h \
+  ../../../include/cinder/TriMesh.h ../../../include/cinder/DataTarget.h \
+  ../../../include/cinder/app/AppBasic.h \
+  ../../../include/cinder/app/App.h \
+  ../../../include/cinder/app/Renderer.h \
+  ../../../include/cinder/Surface.h ../../../include/cinder/Channel.h \
+  ../../../boost/boost/logic/tribool.hpp \
+  ../../../boost/boost/logic/tribool_fwd.hpp \
+  ../../../include/cinder/Display.h \
+  ../../../include/cinder/app/MouseEvent.h \
+  ../../../include/cinder/app/Event.h \
+  ../../../include/cinder/app/KeyEvent.h \
+  ../../../include/cinder/app/FileDropEvent.h \
+  ../../../include/cinder/app/ResizeEvent.h \
+  ../../../include/cinder/Timer.h ../../../include/cinder/Function.h \
+  ../../../include/cinder/app/TouchEvent.h
