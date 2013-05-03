@@ -19,8 +19,8 @@
 
 class Ball : public Instrument{
 public:
-    Ball();
-    Ball(ci::Vec3f position);
+    Ball(bool isHit);
+    Ball(ci::Vec3f position, ci::Vec3f roomDimensions);
     ~Ball();
     
     void        display();
@@ -28,9 +28,13 @@ public:
     bool        hitTest(User* user);
     float       getDifference(int axis);
     float       getVecDifference();
-    
+    void        wallHit(int side);
+    bool        ballHit(Instrument* ball);
+    bool        collisionTest(Instrument* instrument);
 private:
     User*       mUser;
+    long        lastThrown;
+
     
 };
 

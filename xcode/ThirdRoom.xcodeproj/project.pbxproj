@@ -19,7 +19,7 @@
 		5323E6B60EAFCA7E003A9687 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5323E6B50EAFCA7E003A9687 /* QTKit.framework */; };
 		53E3CDFC0E86099300238D2B /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53E3CDFB0E86099300238D2B /* Carbon.framework */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
-		C2748BC71714105B00E97791 /* InstrumentDecorator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C2748BC61714105B00E97791 /* InstrumentDecorator.cpp */; };
+		C243DB02172CB164009F79C6 /* Screen.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C243DB00172CB164009F79C6 /* Screen.cpp */; };
 		C27BF4F4170203F80063600C /* Instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F3170203F80063600C /* Instrument.cpp */; };
 		C27BF4F717020B340063600C /* Ball.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F517020B340063600C /* Ball.cpp */; };
 		C27BF4FB17020CFA0063600C /* User.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C27BF4F917020CFA0063600C /* User.cpp */; };
@@ -53,8 +53,8 @@
 		5323E6B50EAFCA7E003A9687 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		53E3CDFB0E86099300238D2B /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		8D1107320486CEB800E47090 /* ThirdRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThirdRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2748BC51714105500E97791 /* InstrumentDecorator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InstrumentDecorator.h; sourceTree = "<group>"; };
-		C2748BC61714105B00E97791 /* InstrumentDecorator.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InstrumentDecorator.cpp; sourceTree = "<group>"; };
+		C243DB00172CB164009F79C6 /* Screen.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Screen.cpp; sourceTree = "<group>"; };
+		C243DB01172CB164009F79C6 /* Screen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Screen.h; sourceTree = "<group>"; };
 		C27BF4F2170203EC0063600C /* Instrument.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Instrument.h; sourceTree = "<group>"; };
 		C27BF4F3170203F80063600C /* Instrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Instrument.cpp; sourceTree = "<group>"; };
 		C27BF4F517020B340063600C /* Ball.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ball.cpp; sourceTree = "<group>"; };
@@ -102,14 +102,14 @@
 			isa = PBXGroup;
 			children = (
 				00BAE6590E7ED9C10018A608 /* ThirdRoomApp.cpp */,
-				C27BF4F3170203F80063600C /* Instrument.cpp */,
 				C27BF4F517020B340063600C /* Ball.cpp */,
-				C27BF4F917020CFA0063600C /* User.cpp */,
-				C2748BC61714105B00E97791 /* InstrumentDecorator.cpp */,
-				C27BF4FC17021D450063600C /* UserManager.cpp */,
-				C2820345170A5CF700D6E8DA /* MoveBehavior.cpp */,
 				C2820348170A5DF400D6E8DA /* BounceAll.cpp */,
 				C282034B170A678F00D6E8DA /* BounceUpDown.cpp */,
+				C27BF4F3170203F80063600C /* Instrument.cpp */,
+				C2820345170A5CF700D6E8DA /* MoveBehavior.cpp */,
+				C243DB00172CB164009F79C6 /* Screen.cpp */,
+				C27BF4F917020CFA0063600C /* User.cpp */,
+				C27BF4FC17021D450063600C /* UserManager.cpp */,
 				C2C2F31D170B4AF4002FA306 /* OSC */,
 			);
 			name = Source;
@@ -171,8 +171,8 @@
 				C282034C170A678F00D6E8DA /* BounceUpDown.h */,
 				C27BF4F2170203EC0063600C /* Instrument.h */,
 				C2820346170A5CF700D6E8DA /* MoveBehavior.h */,
+				C243DB01172CB164009F79C6 /* Screen.h */,
 				C27BF4FA17020CFA0063600C /* User.h */,
-				C2748BC51714105500E97791 /* InstrumentDecorator.h */,
 				C27BF4FD17021D450063600C /* UserManager.h */,
 			);
 			name = Headers;
@@ -283,7 +283,7 @@
 				C2820347170A5CF700D6E8DA /* MoveBehavior.cpp in Sources */,
 				C282034A170A5DF400D6E8DA /* BounceAll.cpp in Sources */,
 				C282034D170A678F00D6E8DA /* BounceUpDown.cpp in Sources */,
-				C2748BC71714105B00E97791 /* InstrumentDecorator.cpp in Sources */,
+				C243DB02172CB164009F79C6 /* Screen.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #include "User.h"
 
+
 User::User(){
     active = true;
     
@@ -136,18 +137,33 @@ int User::getUserID(){
 //******************************************************************************
 //                  Gestures
 //******************************************************************************
+
+Instrument* User::isGesturing(){
+    if(isWavingLeft()){
+        Ball* b = new Ball(true);
+        b->initializePosition(getJointPosition(leftHand));
+        b->setSize(ci::Vec3f (2.0, 2.0, 2.0));
+        b->setColor(ci::Vec3f(1.0, 1.0, 1.0));
+        b->setMoveBehavior(new BounceAll());
+        b->setCreatedAt(ci::app::getElapsedSeconds());
+        b->setNote = cinder::randInt(40, 100);
+        
+        
+    }
+}
+
 bool User::isWaving(){
     
     if(allJoints[rightHand].y > allJoints[rightElbow].y){
         
-        if(getDifference(rightHand, 0) < -2 && getVecDifference(rightHand) > 2){
+        if(getDifference(rightHand, 0) < -2 && getPositionDistance(rightHand) > 2){
             return true;
         }
         
     }
     else if(allJoints[leftHand].y > allJoints[leftElbow].y){
         
-        if(getDifference(leftHand, 0) < -2 && getVecDifference(leftHand) > 2){
+        if(getDifference(leftHand, 0) < -2 && getPositionDistance(leftHand) > 2){
             return true;
         }
     }
@@ -162,7 +178,7 @@ bool User::isWaving(){
 bool User::isWavingLeft(){
     if(allJoints[leftHand].y > allJoints[leftElbow].y){
         
-        if(getDifference(leftHand, 0) < -2 && getVecDifference(leftHand) > 2){
+        if(getDifference(leftHand, 0) < -2 && getPositionDistance(leftHand) > 2){
             //std::cout << "Waving left" << std::endl;
             return true;
         }
@@ -176,12 +192,13 @@ bool User::isWavingLeft(){
 }
 
 bool User::isWavingRight(){
-    if(allJoints[rightHand].y > allJoints[rightElbow].y){
+    if(allJoints[rightHand].y > allJoints[rightShoulder].y){
         
-        if(getDifference(rightHand, 0) < -2 && getVecDifference(rightHand) > 2){
+        if(getDifference(rightHand, 0) < -2 && getPositionDistance(rightHand) > 2){
            // std::cout << "Waving right" << std::endl;
             return true;
         }
+
         else return false;
         
     }
@@ -192,10 +209,23 @@ bool User::isWavingRight(){
 
 bool User::isThrowingLeft(){
     //if(activeJoints[leftHand]){
-        if(getVecDifference(leftHand) > 1.0){
-            //std::cout << "throwing left" << std::endl;
+        if(getPositionDistance(leftHand) > 2.0){
+           // std::cout << "throwing left" << std::endl;
+            lastLeftThrow = ci::app::getElapsedSeconds();
             return true;
         }
+    else if(getDifference(leftHand, x) > 2){
+        lastLeftThrow = ci::app::getElapsedSeconds();
+        return true;
+    }
+    else if(getDifference(leftHand, y) > 2){
+        lastLeftThrow = ci::app::getElapsedSeconds();
+        return true;
+    }
+    else if(getDifference(leftHand, z) > 2){
+        lastLeftThrow = ci::app::getElapsedSeconds();
+        return true;
+    }
         else return false;
     //}
    // else return false;
@@ -204,27 +234,41 @@ bool User::isThrowingLeft(){
 bool User::isThrowingRight(){
    // if(activeJoints[rightHand]){
         //std::cout << "active Right" << std::endl;
-    //std::cout << getVecDifference(rightHand) << std::endl;
-        if(getVecDifference(rightHand) > 1.0){
+    //std::cout << getPositionDistance(rightHand) << std::endl;
+    if(getPositionDistance(rightHand) > 2.0){
+        lastRightThrow = ci::app::getElapsedSeconds();
+        return true;
+    }
            // std::cout << "throwing right" << std::endl;
-            return true;
-        }
-        else return false;
+    else if(getDifference(rightHand, x) > 2){
+        lastRightThrow = ci::app::getElapsedSeconds();
+        return true;
+    }
+    else if(getDifference(rightHand, y) > 2){
+        lastRightThrow = ci::app::getElapsedSeconds();
+        return true;
+    }
+    else if(getDifference(rightHand, z) > 2){
+        lastRightThrow = ci::app::getElapsedSeconds();
+        return true;
+    }
+
+    else return false;
     //}
     //else return false;
 }
 
 void User::prepareToClear(){
-    if(allJoints[rightHand].x < allJoints[leftShoulder].x && allJoints[rightHand].y > allJoints[leftElbow].y){
+    if(allJointsZ[rightHand].x < allJoints[leftShoulder].x && allJointsZ[rightHand].y > allJoints[leftElbow].y){
         preparingToClear = true;
     }
     else preparingToClear = false;
 }
 
 bool User::isClearing(){
-    if(allJoints[rightHand].x < allJoints[leftShoulder].x && allJoints[rightHand].y > allJoints[leftElbow].y){
+    if(allJointsZ[rightHand].x < allJointsZ[leftShoulder].x && allJointsZ[rightHand].y > allJointsZ[leftElbow].y){
         //std::cout << getDifference(rightHand, 0) << std::endl;
-        if((getDifference(rightHand, 0) < -2 || getDifference(rightHand, 0) > 2) && getVecDifference(rightHand) > 2){
+        if((getDifference(rightHand, 0) < -2 || getDifference(rightHand, 0) > 2) && getPositionDistance(rightHand) > 2){
             std::cout << "CLEARING!!!" << std::endl;
             return true;
         }
@@ -253,8 +297,28 @@ float User::getDifference(int whichJoint, int axis){
     
 }
 
-float User::getVecDifference(int whichJoint){
+float User::getPositionDistance(int whichJoint){
     return allJoints[whichJoint].distance(allJointsZ[whichJoint]);
+}
+
+float User::getJointDifferenceX(int whichJoint1, int whichJoint2){
+    return std::abs(allJoints[whichJoint1].x - allJoints[whichJoint2].x);
+}
+
+float User::getJointDifferenceY(int whichJoint1, int whichJoint2){
+    return std::abs(allJoints[whichJoint1].y - allJoints[whichJoint2].y);
+}
+
+float User::getJointDifferenceZ(int whichJoint1, int whichJoint2){
+    return std::abs(allJoints[whichJoint1].z - allJoints[whichJoint2].z);
+}
+
+float User::getJointDistance(int whichJoint1, int whichJoint2){
+    return allJoints[whichJoint1].distance(allJoints[whichJoint2]);
+}
+
+ci::Vec3f User::getPositionDifference(int whichJoint){
+    return ci::Vec3f(allJoints[whichJoint].x-allJointsZ[whichJoint].x, allJoints[whichJoint].y-allJointsZ[whichJoint].y, allJoints[whichJoint].z-allJointsZ[whichJoint].z);
 }
 
 bool User::isActive(int whichJoint){
@@ -271,4 +335,44 @@ void User::setUnactive(int whichJoint){
 
 ci::ColorA User::getColor(){
     return ci::ColorA(mColor.x, mColor.y, mColor.z, 1.0);
+}
+
+float User::getLastThrowLeft(){
+    return lastLeftThrow;
+}
+
+float User::getLastThrowRight(){
+    return lastRightThrow;
+}
+
+void User::setGroup(bool inGroup){
+    grouped = inGroup;
+}
+
+bool User::isGrouped(){
+    return grouped;
+}
+
+void User::setLastThrowLeft(double time){
+    lastLeftThrow = time;
+}
+
+void User::setLastThrowRight(double time){
+    lastRightThrow = time;
+}
+
+bool User::hasScreen(){
+    return screen;
+}
+
+void User::setScreen(bool screenStatus){
+    screen = screenStatus;
+}
+
+ci::Vec3f User::getMidpoint(int whichJoint1, int whichJoint2){
+    float x = (getJointPosition(whichJoint1).x + getJointPosition(whichJoint2).x)*.5;
+    float y = (getJointPosition(whichJoint1).y + getJointPosition(whichJoint2).y)*.5;
+    float z = (getJointPosition(whichJoint1).z + getJointPosition(whichJoint2).z)*.5;
+    
+    return ci::Vec3f(x, y, z);
 }

@@ -13,6 +13,9 @@
 #include "cinder/gl/gl.h"
 #include "cinder/TriMesh.h"
 #include "cinder/app/AppBasic.h"
+#include "Instrument.h"
+#include "Ball.h"
+#include "Screen.h"
 
 
 /*! \brief User Class
@@ -64,8 +67,23 @@ public:
     void            setUnactive(int whichJoint);
     int             getUserID();
     float           getDifference(int whichJoint, int axis);
-    float           getVecDifference(int whichJoint);
+    float           getPositionDistance(int whichJoint);
+    float           getJointDifferenceX(int whichJoint1, int whichJoint2);
+    float           getJointDifferenceY(int whichJoint1, int whichJoint2);
+    float           getJointDifferenceZ(int whichJoint1, int whichJoint2);
+    float           getJointDistance(int whichJoint1, int whichJoint2);
+    ci::Vec3f       getPositionDifference(int whichJoint);
+    float           getLastThrowLeft();
+    float           getLastThrowRight();
+    void            setLastThrowLeft(double time);
+    void            setLastThrowRight(double time);
+    bool            isGrouped();
+    void            setGroup(bool );
     ci::ColorA      getColor();
+    bool            hasScreen();
+    void            setScreen(bool );
+    ci::Vec3f       getMidpoint(int whichJoint1, int whichJoint2);
+    Instrument*     isGesturing();
     
 private:
     ci::Vec3f       allJoints[15], allJointsZ[15];
@@ -77,6 +95,9 @@ private:
     ci::TriMesh     mesh;
     double          time;
     bool            preparingToClear;
+    double          lastLeftThrow, lastRightThrow;
+    bool            grouped;
+    bool            screen;
 
     
 };

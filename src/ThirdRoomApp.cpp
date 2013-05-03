@@ -1,18 +1,17 @@
 /**************************************************************************************************************************
- *     ______  __  __   ______       ______  __  __   __   ______   _____       ______   ______   ______   __    __
- *    /\__  _\/\ \_\ \ /\  ___\     /\__  _\/\ \_\ \ /\ \ /\  == \ /\  __-.    /\  == \ /\  __ \ /\  __ \ /\ "-./  \
- *    \/_/\ \/\ \  __ \\ \  __\     \/_/\ \/\ \  __ \\ \ \\ \  __< \ \ \/\ \   \ \  __< \ \ \/\ \\ \ \/\ \\ \ \-./\ \
- *       \ \_\ \ \_\ \_\\ \_____\      \ \_\ \ \_\ \_\\ \_\\ \_\ \_\\ \____-    \ \_\ \_\\ \_____\\ \_____\\ \_\ \ \_\
- *        \/_/  \/_/\/_/ \/_____/       \/_/  \/_/\/_/ \/_/ \/_/ /_/ \/____/     \/_/ /_/ \/_____/ \/_____/ \/_/  \/_/
- *
- *
- *
- *  By: Colin Honigman    (Programmer/Designer)
- *      Andrew Walton     (Designer)
- *      Ajay Kapur        (Sponsor)
- ****************************************************************************************************************************
- ****************************************************************************************************************************/
-
+ *     ______  __  __   ______       ______  __  __   __   ______   _____       ______   ______   ______   __    __       *
+ *    /\__  _\/\ \_\ \ /\  ___\     /\__  _\/\ \_\ \ /\ \ /\  == \ /\  __-.    /\  == \ /\  __ \ /\  __ \ /\ "-./  \      *
+ *    \/_/\ \/\ \  __ \\ \  __\     \/_/\ \/\ \  __ \\ \ \\ \  __< \ \ \/\ \   \ \  __< \ \ \/\ \\ \ \/\ \\ \ \-./\ \     *
+ *       \ \_\ \ \_\ \_\\ \_____\      \ \_\ \ \_\ \_\\ \_\\ \_\ \_\\ \____-    \ \_\ \_\\ \_____\\ \_____\\ \_\ \ \_\    *
+ *        \/_/  \/_/\/_/ \/_____/       \/_/  \/_/\/_/ \/_/ \/_/ /_/ \/____/     \/_/ /_/ \/_____/ \/_____/ \/_/  \/_/    *
+ *                                                                                                                        *
+ *                                                                                                                        *
+ *                                                                                                                        *
+ *  By: Colin Honigman    (Programmer/Designer)                                                                           *
+ *      Andrew Walton     (Designer)                                                                                      *
+ *      Ajay Kapur        (Sponsor)                                                                                       *
+ **************************************************************************************************************************
+ **************************************************************************************************************************/
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 #include "cinder/params/Params.h"
@@ -39,6 +38,7 @@
 #include "BounceUpDown.h"
 #include "Instrument.h"
 #include "Ball.h"
+#include "Screen.h"
 
 #define RES_PREVIEW_IMAGE			CINDER_RESOURCE( ../resources/, lava.jpg, 128, IMAGE )
 #define BUFSIZE 80
@@ -49,33 +49,73 @@ using namespace ci::app;
 using namespace std;
 using namespace params;
 
-GLfloat mat_diffuse[]		= { 0.3, 0.5, 0.8, 1.0 };
+GLfloat mat_diffuse[]		= { 0.5, 0.5, 0.8, 1.0 };
+GLfloat mat_emission[]		= { 1.0, 0.0, 1.0, 0.0 };
+GLfloat mat_shininess[]     = { 50.0 };
+
+
 
 struct Box{
     Box() : mColor( Color( 1, 1, 1) ), mPos( Vec3f(0, 0, 0) ), mSize( Vec3f(10, 10, 10) ) {}
     Box( Color color, Vec3f pos, Vec3f size, int ID) : mColor( color ), mPos( pos ), mSize ( size ), id ( ID ){}
     
-    int id;
-    int width;
-    int height;
-    int length;
-    int x, y, z;
-    int wallID;
+    int     id;
+    int     width;
+    int     height;
+    int     length;
+    int     x, y, z;
+    int     wallID;
+    bool    on;
+    int     note;
     Anim<ColorA> mColor;
     Anim<Vec3f> mPos;
     Anim<Vec3f> mSize;
     
     
     bool withinBounds(Vec3f objectPosition){
-        if(objectPosition.distance(mPos) < 6){
-            return true;
+        //        if(objectPosition.distance(mPos) < 5){
+        //
+        //            return true;
+        //        }
+        Vec3f pos = mPos.value();
+        if(objectPosition.distance(pos) < 5){
+            if(wallID == 0){
+                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.y < pos.y && objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5){
+                    return true;
+                }
+            }
+            else if(wallID == 1){
+                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.y > pos.y && objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5){
+                    cout << "Ceiling panel " << id << endl;
+                    return true;
+                }
+            }
+            else if(wallID == 2){
+                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.z > pos.z && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
+                    return true;
+                }
+            }
+            else if(wallID == 3){
+                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.z < pos.z && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
+                    return true;
+                }
+            }
+            else if(wallID == 4){
+                if(objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5 && objectPosition.x > pos.x && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
+                    return true;
+                }
+            }
+            else if(wallID == 5){
+                if(objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5 && objectPosition.x < pos.x && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
+                    return true;
+                }
+            }
+            else return false;
         }
         else return false;
-    };
-    
-    
+        return false;
+    }
 };
-
 
 
 class ThirdRoomApp : public AppBasic {
@@ -95,6 +135,8 @@ public:
     void                oscUpdate();
     void                drawCharacterVerbose( cairo::Context &ctx, Vec2f where );
     void                introduction();
+    void                updateSerial();
+    void                sendOscWall(int _wall, int _note);
     
     
 private:
@@ -123,6 +165,7 @@ private:
     vector<Instrument*> instruments;
     vector<User>        users;
     vector<TriMesh>     meshes;
+    vector<Vec2i>       groups;
     
     //Text variables
     TextLayout          text;
@@ -164,6 +207,7 @@ protected:
         leftFoot,
         rightFoot
     };
+    
     enum side{
         floor = 0,
         ceiling,
@@ -173,16 +217,18 @@ protected:
         rightWall
     };
     
+    
     qtime::MovieWriter	mMovieWriter;
     TriMesh             mesh;
     Vec3f               textVec;
     //Serial Variables
-    bool                sendSerialMessage, textureComplete;
+    bool                serialFound, sendSerialMessage, textureComplete;
     Serial              serial;
     uint8_t             ctr;
     std::string         lastString;
     double              sinceLastRead, lastUpdate;
     gl::Texture         mTexture;
+    
     
 };
 
@@ -192,15 +238,16 @@ void ThirdRoomApp::prepareSettings( Settings *settings ){
 }
 
 void ThirdRoomApp::setup(){
+    glShadeModel(GL_SMOOTH);
     //setup viewing camera
     eyePoint        = Vec3f(0, 100, 500);
     centerPoint     = Vec3f(0, 0, -50);
     eyePointx       =   0;
     eyePointy       = -20;
-    eyePointz       = 50;
+    eyePointz       =  50;
     centerPointx    =   0;
     centerPointy    = -20;
-    centerPointz    =  -50;
+    centerPointz    = -50;
     
     mParams = InterfaceGl("Menu", Vec2i(200, 200));
     mParams.addParam("Eye Point X", &eyePointx, "min=-1000 max=1000");
@@ -268,10 +315,10 @@ void ThirdRoomApp::setup(){
     textColor   = ColorA(1.0f, 1.0f, 1.0f, 0.0f);
     textVec     = Vec3f(-400, 500, -900);
     
-//    fs::path path = getSaveFilePath();
-//	if( path.empty() )
-//		return; // user cancelled save
-//    
+    //    fs::path path = getSaveFilePath();
+    //	if( path.empty() )
+    //		return; // user cancelled save
+    //
     //Serial Setup
     ctr = 0;
     lastString = "";
@@ -288,39 +335,43 @@ void ThirdRoomApp::setup(){
 	try {
 		Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial");
 		serial = Serial( dev, 57600);
+        serialFound = true;
+        
+        
 	}
 	catch( ... ) {
 		console() << "There was an error initializing the serial device!" << std::endl;
-		exit( -1 );
+        serialFound = false;
+		//exit( -1 );
 	}
-    
-    // wait for * as a sign for first contact
-	char contact = 0;
-	while(contact != '*')
-	{
-		contact = (char) serial.readByte();
-	}
-    // request actual data
-	serial.writeByte(ctr);
-	
-	// clear accumulated contact messages in buffer
-	char b = '*';
-	while(serial.getNumBytesAvailable() > -1)
-	{
-		b = serial.readByte();
-		console() << b << "_";
-	}
-    
-	serial.flush();
-    
-    
+    if(serialFound){
+        // wait for * as a sign for first contact
+        char contact = 0;
+        while(contact != '*')
+        {
+            contact = (char) serial.readByte();
+        }
+        // request actual data
+        serial.writeByte(ctr);
+        
+        // clear accumulated contact messages in buffer
+        char b = '*';
+        while(serial.getNumBytesAvailable() > -1)
+        {
+            b = serial.readByte();
+            console() << b << "_";
+        }
+        
+        serial.flush();
+        
+    }
     
     
     //Quicktime save filepath -- intialize all variables before this point
-//    qtime::MovieWriter::Format format;
-//    if( qtime::MovieWriter::getUserCompressionSettings( &format, loadImage( loadResource( RES_PREVIEW_IMAGE ) ) ) ) {
-//        mMovieWriter = qtime::MovieWriter( path, getWindowWidth(), getWindowHeight(), format );
-//    }
+    //    qtime::MovieWriter::Format format;
+    //    if( qtime::MovieWriter::getUserCompressionSettings( &format, loadImage( loadResource( RES_PREVIEW_IMAGE ) ) ) ) {
+    //        mMovieWriter = qtime::MovieWriter( path, getWindowWidth(), getWindowHeight(), format );
+    //    }
     
     
 }
@@ -344,9 +395,6 @@ void ThirdRoomApp::update(){
         timeline().apply( &eyePoint, Vec3f(0, -30, 50), 5.0f, EaseInQuad() );
         loaded = true;
         doneLoading = true;
-        
-        
-        
     }
     else{
         
@@ -379,145 +427,252 @@ void ThirdRoomApp::update(){
             animateGrid = false;
             county = 0;
         }
-    }
-    
-    
-    
-    
-    
+    } 
     for(int i = 0; i < users.size(); i++){
         if(intro){
-            
             if(users[i].isWaving()){
                 cout << "waving hello" << endl;
                 introduction();
             }
+        }
+        //*************************
+        //Gestures and Consequences
+        //*************************
+        else{
             
-        }
-        else if(!intro){
-            // Detect a wave gesture in left and right hand - create new object
-            if(users[i].isWavingLeft() && !users[i].isActive(leftHand)){
-                instruments.push_back(new Ball(users[i].getJointPosition(leftHand)));
+        //    Instrument* theObj = users[i].isGesturing();
+      //if theObj is not null then push back
+            // Detect a wave gesture in left and right hand - start intro or create new object
+            if(users[i].isWavingLeft() && !users[i].isActive(leftHand) && (getElapsedSeconds()-users[i].getLastThrowLeft() > 4)){
+                
+                Instrument* instrument = new Ball(users[i].getJointPosition(leftHand), Vec3f(roomWidth, roomHeight, roomLength));
+                instrument->setUserID(users[i].getUserID());
+
+                instruments.push_back(instrument);
+                
             }
-            else if(users[i].isWavingRight() && !users[i].isActive(rightHand)){
-                instruments.push_back(new Ball(users[i].getJointPosition(rightHand)));
+            else if(users[i].isWavingRight() && !users[i].isActive(rightHand) && (getElapsedSeconds()-users[i].getLastThrowLeft() > 4)){
+                instruments.push_back(new Ball(users[i].getJointPosition(rightHand), Vec3f(roomWidth, roomHeight, roomLength)));
             }
+            // Detect Clearing Gesture
             if(users[i].isClearing()){
-                
                 instruments.erase(instruments.begin(), instruments.end());
-                
+                for(int u = 0; u < users.size(); u++){
+                    users[u].setUnactive(leftHand);
+                    users[u].setUnactive(rightHand);
+                    users[u].setScreen(false);
+                }
+            }
+            // Detect Two Hand Power Up
+            if(users[i].getJointDistance(leftHand, rightHand) < 1.5 && !users[i].hasScreen()){
+                users[i].setScreen(true);
+                instruments.push_back(new Screen(users[i].getJointPosition(leftHand)));
+
             }
         }
-        
+    }
+    
+    for(int i = 0; i < users.size(); i++){
+        // Hit Test Instruments
         for(int j = 0; j < instruments.size(); j++){
             Instrument* in = *(instruments.begin()+j);
-            //in->update();
-            in->hitTest(&users[i]);
-            //wallHit((Ball*) in);
+            if(in->getName() == "Screen"){
+                if(!in->hitTest(&users[i])){
+                    instruments.erase(instruments.begin()+j);
+                }
+            }
+            else{
+               in->hitTest(&users[i]); 
+            }
+
         }
         
         // Billie Jean Disco Floor
-        // only floor boxes
         for(int b = 0; b < 600; b++){
-            if(grid[b].withinBounds(users[i].getJointPosition(leftFoot)) || grid[b].withinBounds(users[i].getJointPosition(rightFoot))){
-                timeline().apply(&grid[b].mColor, ColorA(1.0, 0, 0, 1.0), .50);
-            }
-            else{
-                if((ColorA)grid[b].mColor == ColorA(1.0, 0, 0, 1.0)){
-                    timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), 1.0);
+            if(grid[b].wallID == floor){
+                if(grid[b].withinBounds(users[i].getJointPosition(leftFoot)) || grid[b].withinBounds(users[i].getJointPosition(rightFoot))){
+                    timeline().apply(&grid[b].mColor, ColorA(1.0, 0, 0, 1.0), .50);
+                }
+                else{
+                    if((ColorA)grid[b].mColor == ColorA(1.0, 0, 0, 1.0)){
+                        timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), 1.0);
+                    }
                 }
             }
         }
-        
-        for(int u = i; u < users.size(); u++){
-            if(u != i){
-                // Grouping Detection
-                ci::Vec3f tempJoint = users[i].getJointPosition(torso);
-                if(tempJoint.distance(users[u].getJointPosition(torso)) < 8 ){
-                    std::cout << "Users " << i << " and " << u << " are grouped" << std::endl;
-                    meshes.push_back(TriMesh());
-                    for(int meshy = 0; meshy < meshes.size(); meshy++){
-                        for(int joint = 0; joint < 15; joint++){
-                            meshes[meshy].appendVertex(users[i].getJointPosition(joint));
-                            meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                            meshes[meshy].appendVertex(users[u].getJointPosition(joint));
-                            meshes[meshy].appendColorRGB(Color(0, 1, 1));
-                            
-                        }
-                    }
+        //*******************
+        // Grouping Detection
+        //*******************
+        for(int u = i+1; u < users.size(); u++){
+            ci::Vec3f tempJoint = users[i].getJointPosition(torso);
+            if(tempJoint.distance(users[u].getJointPosition(torso)) < 10 && ( !users[i].isGrouped() || !users[u].isGrouped() )){
+                std::cout << "Users " << i << " and " << u << " are grouped" << std::endl;
+                meshes.push_back(TriMesh());
+                users[i].setGroup(true);
+                users[u].setGroup(true);
+                for(int meshy = 0; meshy < meshes.size(); meshy++){
                     
+                    meshes[meshy].appendVertex(users[i].getJointPosition(head));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(head));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(head));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(leftShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[i].getJointPosition(head));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[u].getJointPosition(head));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(leftShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[u].getJointPosition(leftShoulder));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(leftHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftFoot));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(leftFoot));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[u].getJointPosition(leftHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(leftFoot));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightFoot));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightFoot));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[u].getJointPosition(rightFoot));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
+                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
+                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
                 }
+                
+            }
+            else{
+                users[i].setGroup(false);
+                users[u].setGroup(false);
             }
         }
         // Always update user last, for correct Z values
+        
+    }
+    
+    for(int j = 0; j < instruments.size(); j++){
+        Instrument* in = *(instruments.begin()+j);
+        in->update();
+        if(in->getName() == "Ball"){
+            wallHit((Ball*) in);
+        }
+        for(int i = j+1; i < instruments.size(); i++){
+            Instrument* in2 = *(instruments.begin()+i);
+            if(in->getName() == "Ball" && in2->getName() == "Ball"){
+                in->collisionTest(in2);
+            }
+        }
+    }
+    for(int i = 0; i < users.size(); i++){
         users[i].update();
-        
-        
-        
     }
-    
-    // In cas there is no user. Keep updating instruments
-    if(users.size() == 0){
-        for(int j = 0; j < instruments.size(); j++){
-            
-            Instrument* in = *(instruments.begin()+j);
-            in->update();
-            wallHit((Ball*) in);
-        }
+    if(serialFound){
+        updateSerial();
     }
-    else{
-        for(int j = 0; j < instruments.size(); j++){
-            Instrument* in = *(instruments.begin()+j);
-            in->update();
-            wallHit((Ball*) in);
-        }
-    }
-    
-    double now = getElapsedSeconds();
-	double deltaTime = now - lastUpdate;
-	lastUpdate = now;
-	sinceLastRead += deltaTime;
-	
-	if(sinceLastRead > READ_INTERVAL)
-	{
-		sendSerialMessage = true;
-		sinceLastRead = 0.0;
-	}
-    
-	
-	if (sendSerialMessage)
-	{
-		// request next chunk
-		serial.writeByte(ctr);
-		
-		try{
-			// read until newline, to a maximum of BUFSIZE bytes
-			lastString = serial.readStringUntil('\n', BUFSIZE );
-            
-		} catch(SerialTimeoutExc e) {
-			console() << "timeout" << endl;
-		}
-		
-		
-		sendSerialMessage = false;
-		
-		ctr+=8;
-		console() << lastString << endl;
-		
-		
-		TextLayout simple;
-		simple.setFont( Font( "Arial Black", 24 ) );
-		simple.setColor( Color( .7, .7, .2 ) );
-		simple.addLine( lastString );
-		simple.setLeadingOffset( 0 );
-		mTexture = gl::Texture( simple.render( true, false ) );
-		textureComplete = true;
-		
-		serial.flush();
-    }    
     oscUpdate();
-        
+}
+
+void ThirdRoomApp::updateSerial(){
+    double now = getElapsedSeconds();
+    double deltaTime = now - lastUpdate;
+    lastUpdate = now;
+    sinceLastRead += deltaTime;
     
+    if(sinceLastRead > READ_INTERVAL)
+    {
+        sendSerialMessage = true;
+        sinceLastRead = 0.0;
+    }
+    
+    
+    if (sendSerialMessage)
+    {
+        // request next chunk
+        serial.writeByte(ctr);
+        
+        try{
+            // read until newline, to a maximum of BUFSIZE bytes
+            lastString = serial.readStringUntil('\n', BUFSIZE );
+            
+        } catch(SerialTimeoutExc e) {
+            console() << "timeout" << endl;
+        }
+        
+        
+        sendSerialMessage = false;
+        
+        ctr+=8;
+        console() << lastString << endl;
+        
+        
+        TextLayout simple;
+        simple.setFont( Font( "Arial Black", 24 ) );
+        simple.setColor( Color( .7, .7, .2 ) );
+        simple.addLine( lastString );
+        simple.setLeadingOffset( 0 );
+        mTexture = gl::Texture( simple.render( true, false ) );
+        textureComplete = true;
+        
+        serial.flush();
+    }
 }
 
 
@@ -565,14 +720,16 @@ void ThirdRoomApp::oscUpdate(){
         }
     }
 }
+
 void ThirdRoomApp::draw(){
     gl::clear( Color( 0, 0, 0 ) );
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
     glDisable(GL_LIGHTING);
-//    if(textureComplete){
-//		glColor3f( 1.0f, 1.0f, 1.0f );
-//		gl::draw( mTexture, Vec2f( 10, 10 ) );
-//	}
+    //    if(textureComplete){
+    //		glColor3f( 1.0f, 1.0f, 1.0f );
+    //		gl::draw( mTexture, Vec2f( 10, 10 ) );
+    //	}
     gl::disableDepthWrite();
     gl::disableDepthRead();
     //gl::disableAlphaBlending();
@@ -608,21 +765,34 @@ void ThirdRoomApp::draw(){
         }
         
     }
+    
+    
+    GLfloat light_position[] = { -30.0f, 0.0f, 40.0f, 1.0 };
+    GLfloat light1_position[] = {30.0f, 0.0f, 40.0f, 1.0 };
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
-    GLfloat light_position[] = { 0.0f, 0.0f, 60.0f, 1000.0 };
+    glEnable(GL_COLOR_MATERIAL);
+    //    glLightf( GL_LIGHT0, GL_CONSTANT_ATTENUATION, 0.0f );
+    //	glLightf( GL_LIGHT0, GL_LINEAR_ATTENUATION, 1.0f );
+    //glLightf( GL_LIGHT1, GL_QUADRATIC_ATTENUATION, 0.00015f );
+    
     glLightfv( GL_LIGHT0, GL_POSITION, light_position );
+    glLightfv( GL_LIGHT1, GL_POSITION, light1_position);
+    glLightfv( GL_LIGHT1, GL_SHININESS, mat_shininess);
+    glMaterialfv( GL_FRONT_AND_BACK, GL_SHININESS, mat_shininess);
+    //  glMaterialfv( GL_FRONT, GL_EMISSION, mat_emission );
+    
     for(int i = 0; i < instruments.size(); i++){
         Instrument* in = *(instruments.begin()+i);
         glMaterialfv( GL_FRONT_AND_BACK, GL_DIFFUSE, in->getColor() );
-        
         in->display();
     }
     
     InterfaceGl::draw();
     if( mMovieWriter )
         mMovieWriter.addFrame( copyWindowSurface() );
+    glFlush();
     
 }
 
@@ -630,6 +800,9 @@ void ThirdRoomApp::wallHit(Ball *ball){
     for(int i = 0; i < 520; i++){
         if(grid[i].withinBounds(ball->getPosition())){
             animateBox(&grid[i]);
+            //ball->wallHit(grid[i].wallID);
+            sendOscWall(grid[i].wallID, ball->getNote());
+            
         }
     }
 }
@@ -654,13 +827,23 @@ void ThirdRoomApp::animateBox(Box* box){
     timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 1.0, 0.0f), .10f, EaseInQuad() );
 }
 
+void ThirdRoomApp::sendOscWall(int _wall, int _note){
+    osc::Message msg;
+    msg.setAddress("/wall");
+    msg.setRemoteEndpoint(host, port);
+    msg.addIntArg(_wall);
+    msg.addIntArg(_note);
+    oscSender.sendMessage(msg);
+}
+
 void ThirdRoomApp::drawRoomSkeleton(float width,float height, float length){
     
-    gl::color(1.0f, 1.0f, 1.0f, .3f);
+    //gl::color(1.0f, 1.0f, 1.0f, .3f);
     // gl::drawCube(Vec3f(0, 0, 0), Vec3f(width, height, length));
     for(int i = 0; i < 600; i++){
         gl::color(grid[i].mColor);
         gl::drawStrokedCube(grid[i].mPos, grid[i].mSize);
+        //gl::drawSphere(grid[i].mPos, .5);
     }
     
 }
