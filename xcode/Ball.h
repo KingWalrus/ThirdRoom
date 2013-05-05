@@ -9,9 +9,12 @@
 #ifndef __ThirdRoom__Ball__
 #define __ThirdRoom__Ball__
 
+//class Instrument;
+class User;
+
 #include <iostream>
 #include "Instrument.h"
-#include "User.h"
+//#include "User.h"
 
 /*! \brief The Ball Class
  * The first kind of instrument that is sphere shaped and can be directly

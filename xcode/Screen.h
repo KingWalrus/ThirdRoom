@@ -9,11 +9,15 @@
 #ifndef __ThirdRoom__Screen__
 #define __ThirdRoom__Screen__
 
+class Instrument;
+class User;
+
 #include <iostream>
 #include "Instrument.h"
 
 class Screen : public Instrument {
 public:
+    Screen(bool isHit);
     Screen(ci::Vec3f position);
     ~Screen();
     

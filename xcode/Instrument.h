@@ -9,23 +9,27 @@
 #ifndef ThirdRoom_Instrument_h
 #define ThirdRoom_Instrument_h
 
+class User;
+
 #include <vector>
 //#include <string>
 #include "cinder/Vector.h"
-#include "User.h"
+//#include "User.h"
 #include "MoveBehavior.h"
 #include "BounceAll.h"
 #include "BounceUpDown.h"
 #include "cinder/app/App.h"
 #include "cinder/gl/gl.h"
 
+
 /*! \brief Instrument class
  * The abstract parent of all instruments */
  
 class Instrument {
 public:
-                    Instrument(bool isHit);
-                    Instrument();
+    Instrument();
+    Instrument(bool isHit);
+
     virtual         ~Instrument();
     virtual void    display() = 0;
     virtual void    update() = 0;
@@ -35,11 +39,12 @@ public:
     
     void            initializePosition(ci::Vec3f firstPosition); //sets mPosition and mPositionZ
     ci::Vec3f       getPosition();
+    ci::Vec3f*      getPositionPtr();
     ci::Vec3f       getZposition();
     void            setPosition(ci::Vec3f newPosition);
     void            setZposition(ci::Vec3f lastPosition);
     
-    ci::Vec3f       getVelocity();
+    ci::Vec3f getVelocity();
     ci::Vec3f*      getVelocityPtr();
     void            setVelocity(ci::Vec3f newVelocity);
     
@@ -52,7 +57,8 @@ public:
    
     void            setCreatedAt(double creationTime);
     double          getTime();
-    void            setLastThrown(double thrownTime);;
+    void            setLastThrown(double thrownTime);
+    double          getLastThrownMinus();
     
     void            setNote(int newNote);
     int             getNote();
@@ -65,6 +71,8 @@ public:
     
     int             getUserID();
     void            setUserID(int _userID);
+    int             getUserHand();
+    void            setUserHand(int);
     
     void            setMoveBehavior(MoveBehavior* mb);
     void            setBoundaries(ci::Vec3f boundaries);
@@ -75,9 +83,6 @@ public:
     void            setMoving(bool moving);
     bool            isMoving();
     
-private:
-    
-    MoveBehavior* moveBehavior;
     ci::Vec3f   roomSize;
     
     ci::Vec3f       mPosition;
@@ -96,6 +101,31 @@ private:
     std::string     name;
     int             userID;
     double          lastThrown;
+    int             hand;
+    
+    enum JointNames{
+        head = 0,
+        neck,
+        leftShoulder,
+        rightShoulder,
+        leftElbow,
+        rightElbow,
+        leftHand,
+        rightHand,
+        torso,
+        leftHip,
+        rightHip,
+        leftKnee,
+        rightKnee,
+        leftFoot,
+        rightFoot
+        
+    };
+    
+private:
+    
+    MoveBehavior* moveBehavior;
+
 
 
 

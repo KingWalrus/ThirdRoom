@@ -7,7 +7,12 @@
 //
 
 #include "Screen.h"
+#include "User.h"
 #include "cinder/gl/gl.h"
+
+Screen::Screen(bool isHit){
+    setHit(isHit);
+}
 
 Screen::Screen(ci::Vec3f position){
     setPosition(position);
@@ -27,7 +32,7 @@ Screen::~Screen(){
 }
 
 void Screen::update(){
-    if(bMoving){
+    if(isMoving()){
         move(mVelocity, mPosition);
       //  std::cout << "am i moving?" << std::endl;
     }
@@ -56,26 +61,15 @@ bool Screen::hitTest(User* user){
         user->setActive(user->leftHand);
         setPosition(user->getMidpoint(user->leftHand, user->rightHand));
         if(user->getJointDifferenceZ(user->leftHand, user->rightHand) > 5.0+mSize.x){
-            bHit = false;
+           // bHit = false;
             user->setUnactive(user->leftHand);
             user->setUnactive(user->rightHand);
             user->setScreen(false);
+            setHit(false);
             std::cout<< "released" << std::endl;
         }
     }
-    else{
-        if(user->getJointPosition(user->leftHand).distance(mPosition) < 4 && !user->isActive((user->leftHand))){
-           // std::cout << "hit screen" << std::endl;
-            bHit = true;
-            bMoving = false;
-        }
-        if(user->getJointPosition(user->rightHand).distance(mPosition) < 4 && !user->isActive((user->rightHand))){
-           // std::cout << "i should be moving now" << std::endl;
-            bMoving = true;
-            bHit = false;
-            setVelocity(ci::Vec3f(1.0, 1.0, 1.0));
-        }
-    }
+
     return bHit;
     
 }

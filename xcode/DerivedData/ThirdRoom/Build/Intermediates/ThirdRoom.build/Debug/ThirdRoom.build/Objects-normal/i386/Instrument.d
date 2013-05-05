@@ -37,8 +37,12 @@ dependencies: \
   ../../../boost/boost/smart_ptr/detail/yield_k.hpp \
   ../../../boost/boost/memory_order.hpp \
   ../../../boost/boost/smart_ptr/detail/operator_bool.hpp \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.h \
-  ../../../include/cinder/gl/gl.h ../../../include/cinder/Exception.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h \
+  ../../../include/cinder/app/App.h \
+  ../../../include/cinder/app/Renderer.h ../../../include/cinder/gl/gl.h \
+  ../../../include/cinder/Exception.h \
   ../../../include/cinder/Quaternion.h ../../../include/cinder/Matrix.h \
   ../../../include/cinder/Matrix22.h \
   ../../../include/cinder/MatrixAffine2.h \
@@ -449,10 +453,6 @@ dependencies: \
   ../../../boost/boost/iostreams/device/array.hpp \
   ../../../include/cinder/PolyLine.h \
   ../../../include/cinder/AxisAlignedBox.h ../../../include/cinder/Ray.h \
-  ../../../include/cinder/TriMesh.h ../../../include/cinder/DataTarget.h \
-  ../../../include/cinder/app/AppBasic.h \
-  ../../../include/cinder/app/App.h \
-  ../../../include/cinder/app/Renderer.h \
   ../../../include/cinder/Surface.h ../../../include/cinder/Channel.h \
   ../../../boost/boost/logic/tribool.hpp \
   ../../../boost/boost/logic/tribool_fwd.hpp \
@@ -462,8 +462,4 @@ dependencies: \
   ../../../include/cinder/app/KeyEvent.h \
   ../../../include/cinder/app/FileDropEvent.h \
   ../../../include/cinder/app/ResizeEvent.h \
-  ../../../include/cinder/Timer.h ../../../include/cinder/Function.h \
-  ../../../include/cinder/app/TouchEvent.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h
+  ../../../include/cinder/Timer.h ../../../include/cinder/Function.h

@@ -9,13 +9,19 @@
 #ifndef __ThirdRoom__User__
 #define __ThirdRoom__User__
 
+//class Instrument;
+//class Ball;
+//class Screen;
+
+#include "Instrument.h"
+#include "Ball.h"
+#include "Screen.h"
 #include <iostream>
 #include "cinder/gl/gl.h"
 #include "cinder/TriMesh.h"
 #include "cinder/app/AppBasic.h"
-#include "Instrument.h"
-#include "Ball.h"
-#include "Screen.h"
+
+
 
 
 /*! \brief User Class
@@ -62,6 +68,7 @@ public:
     bool            isThrowingRight();
     void            prepareToClear();
     bool            isClearing();
+    bool            isTouchingHands();
     bool            isActive(int whichJoint);
     void            setActive(int whichJoint);
     void            setUnactive(int whichJoint);
@@ -75,6 +82,10 @@ public:
     ci::Vec3f       getPositionDifference(int whichJoint);
     float           getLastThrowLeft();
     float           getLastThrowRight();
+    void            setLastCatchLeft(double left);
+    void            setLastCatchRight(double right);
+    double          getLastCatchLeft();
+    double          getLastCatchRight();
     void            setLastThrowLeft(double time);
     void            setLastThrowRight(double time);
     bool            isGrouped();
@@ -95,10 +106,13 @@ private:
     ci::TriMesh     mesh;
     double          time;
     bool            preparingToClear;
-    double          lastLeftThrow, lastRightThrow;
+    double          lastLeftThrow, lastRightThrow, catchLeft, catchRight;
     bool            grouped;
     bool            screen;
-
+    int             waveCountLeft;
+    int             waveCountRight;
+    
+    
     
 };
 

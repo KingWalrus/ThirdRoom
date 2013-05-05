@@ -12,6 +12,7 @@
  *      Ajay Kapur        (Sponsor)                                                                                       *
  **************************************************************************************************************************
  **************************************************************************************************************************/
+
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
 #include "cinder/params/Params.h"
@@ -25,6 +26,7 @@
 #include "cinder/CinderResources.h"
 #include "cinder/TriMesh.h"
 #include "cinder/Serial.h"
+#include "cinder/Thread.h"
 
 #include "OscListener.h"
 #include "OscSender.h"
@@ -39,6 +41,7 @@
 #include "Instrument.h"
 #include "Ball.h"
 #include "Screen.h"
+#include "User.h"
 
 #define RES_PREVIEW_IMAGE			CINDER_RESOURCE( ../resources/, lava.jpg, 128, IMAGE )
 #define BUFSIZE 80
@@ -56,8 +59,8 @@ GLfloat mat_shininess[]     = { 50.0 };
 
 
 struct Box{
-    Box() : mColor( Color( 1, 1, 1) ), mPos( Vec3f(0, 0, 0) ), mSize( Vec3f(10, 10, 10) ) {}
-    Box( Color color, Vec3f pos, Vec3f size, int ID) : mColor( color ), mPos( pos ), mSize ( size ), id ( ID ){}
+    Box() : mColor( Color( 1, 1, 1) ), mPos( Vec3f(0, 0, 0) ), mSize( Vec3f(10, 10, 10) ), on(false) {}
+    Box( Color color, Vec3f pos, Vec3f size, int ID) : mColor( color ), mPos( pos ), mSize ( size ), id ( ID ), on (false){}
     
     int     id;
     int     width;
@@ -67,6 +70,7 @@ struct Box{
     int     wallID;
     bool    on;
     int     note;
+    double  lastTouch;
     Anim<ColorA> mColor;
     Anim<Vec3f> mPos;
     Anim<Vec3f> mSize;
@@ -86,7 +90,7 @@ struct Box{
             }
             else if(wallID == 1){
                 if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.y > pos.y && objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5){
-                    cout << "Ceiling panel " << id << endl;
+                    //  cout << "Ceiling panel " << id << endl;
                     return true;
                 }
             }
@@ -115,6 +119,29 @@ struct Box{
         else return false;
         return false;
     }
+    
+    bool touched(Vec3f userHand){
+        Vec3f pos = mPos.value();
+        if(pos.distance(userHand) < 5 && (getElapsedSeconds() -lastTouch) > 5){
+            on = !on;
+            lastTouch = getElapsedSeconds();
+            cout << "touched " << on << endl;
+        }
+        
+        return on;
+    }
+    
+    
+    bool isOn(){
+        if(on){
+            mColor = ColorA(1.0, 1.0, 0, .7);
+        }
+        else{
+            mColor = ColorA(1.0, 1.0, 1.0, 0);
+        }
+        return on;
+    }
+    
 };
 
 
@@ -137,8 +164,12 @@ public:
     void                introduction();
     void                updateSerial();
     void                sendOscWall(int _wall, int _note);
+    void                threadedUpdate();
+    void                shutdown();
+    double              nowMinus(double time);
     
-    
+    std::thread         mThread;
+    bool                mShouldQuit;
 private:
     float               roomWidth, roomLength, roomHeight; //variables for room sizes
     float               eyePointx, eyePointy, eyePointz;
@@ -167,6 +198,7 @@ private:
     vector<TriMesh>     meshes;
     vector<Vec2i>       groups;
     
+    
     //Text variables
     TextLayout          text;
     gl::Texture         mLabelText;
@@ -176,7 +208,7 @@ private:
     string              welcome;
     string              would;
     bool                intro;
-    
+    double              introTime;
     
     
 protected:
@@ -229,6 +261,9 @@ protected:
     double              sinceLastRead, lastUpdate;
     gl::Texture         mTexture;
     
+    int                 howManyGrouped;
+    
+    int                 mouseCount;
     
 };
 
@@ -248,6 +283,10 @@ void ThirdRoomApp::setup(){
     centerPointx    =   0;
     centerPointy    = -20;
     centerPointz    = -50;
+    
+    mThread = thread( bind( &ThirdRoomApp::threadedUpdate, this));
+    mThread.detach();
+    mShouldQuit = false;
     
     mParams = InterfaceGl("Menu", Vec2i(200, 200));
     mParams.addParam("Eye Point X", &eyePointx, "min=-1000 max=1000");
@@ -337,7 +376,6 @@ void ThirdRoomApp::setup(){
 		serial = Serial( dev, 57600);
         serialFound = true;
         
-        
 	}
 	catch( ... ) {
 		console() << "There was an error initializing the serial device!" << std::endl;
@@ -377,10 +415,95 @@ void ThirdRoomApp::setup(){
 }
 
 void ThirdRoomApp::mouseDown( MouseEvent event ){
-    
+    mouseCount++;
 }
 
-
+void ThirdRoomApp::threadedUpdate(){
+    ci::ThreadSetup threadSetup;
+    while(!mShouldQuit){
+        if(!intro && nowMinus(introTime) > 5){
+            for(int i = 0; i < users.size(); i++){
+                
+                //************************************************
+                //Gestures and Consequences
+                //************************************************
+                Instrument* theInstrument = users[i].isGesturing();
+                if(theInstrument != NULL){
+                    theInstrument->setBoundaries(Vec3f(roomWidth, roomHeight, roomLength));
+                    instruments.push_back(theInstrument);
+                }
+                
+                
+                // Hit Test Instruments
+                for(int j = 0; j < instruments.size(); j++){
+                    Instrument* in = *(instruments.begin()+j);
+                    if(in->getName() == "Screen"){
+                        if(in->getUserID() == users[i].getUserID() && !in->hitTest(&users[i])){
+                            instruments.erase(instruments.begin()+j);
+                        }
+                    }
+                    else{
+                        if(!in->isHit()){
+                            in->hitTest(&users[i]);
+                        }
+                        else if(in->isHit() && in->getUserID() == users[i].getUserID()){
+                            
+                            in->setPosition(users[i].getJointPosition(in->getUserHand()));
+                            if(in->getUserHand() == leftHand && in->getTime() > 1 && users[i].isThrowingLeft() ){
+                                
+                                in->setHit(false);
+                                in->setMoving(true);
+                                in->setVelocity(users[i].getPositionDifference(leftHand));
+                                in->setLastThrown(getElapsedSeconds());
+                                in->setColor(ColorA(1.0, 1.0, 0.0, 1.0));
+                                users[i].setUnactive(leftHand);
+                                //cout << "throwing left " << in->getVelocity() <<  endl;
+                            }
+                            else if(in->getUserHand() == rightHand && in->getTime() > 1 && users[i].isThrowingRight()){
+                                
+                                in->setHit(false);
+                                in->setMoving(true);
+                                in->setVelocity(users[i].getPositionDifference(rightHand));
+                                in->setLastThrown(getElapsedSeconds());
+                                in->setColor(ColorA(1.0, 1.0, 0.0, 1.0));
+                                users[i].setUnactive(rightHand);
+                                //cout << "throwing right " <<  in->getVelocity() << endl;
+                            }
+                        }
+                    }
+                }
+                
+                
+                //*******************************************************************************************************************
+                // Grouping Detection
+                //*******************************************************************************************************************
+                for(int u = i+1; u < users.size(); u++){
+                    ci::Vec3f tempJoint = users[i].getJointPosition(torso);
+                    if(!users[i].isGrouped() && !users[u].isGrouped() && tempJoint.distance(users[u].getJointPosition(torso)) < 15){
+                        users[i].setGroup(true);
+                        users[u].setGroup(true);
+                       // meshes.push_back(TriMesh());
+                        cout << "setting true" << endl;
+                        
+                    }
+                    else if(users[i].isGrouped() && users[i].isGrouped() && tempJoint.distance(users[u].getJointPosition(torso)) > 15){
+                        users[i].setGroup(false);
+                        users[u].setGroup(false);
+                        cout << "setting false" << endl;
+//                        if(meshes.size() > 0){
+//                            meshes.erase(meshes.end());
+//                        }
+                   
+                    }
+ 
+                }
+                
+            }
+        }
+        
+    }
+    
+}
 
 void ThirdRoomApp::update(){
     
@@ -427,184 +550,72 @@ void ThirdRoomApp::update(){
             animateGrid = false;
             county = 0;
         }
-    } 
+    }
+    mesh.clear();
     for(int i = 0; i < users.size(); i++){
         if(intro){
             if(users[i].isWaving()){
-                cout << "waving hello" << endl;
+                //  cout << "waving hello" << endl;
                 introduction();
+                introTime = getElapsedSeconds();
             }
         }
-        //*************************
-        //Gestures and Consequences
-        //*************************
         else{
-            
-        //    Instrument* theObj = users[i].isGesturing();
-      //if theObj is not null then push back
-            // Detect a wave gesture in left and right hand - start intro or create new object
-            if(users[i].isWavingLeft() && !users[i].isActive(leftHand) && (getElapsedSeconds()-users[i].getLastThrowLeft() > 4)){
-                
-                Instrument* instrument = new Ball(users[i].getJointPosition(leftHand), Vec3f(roomWidth, roomHeight, roomLength));
-                instrument->setUserID(users[i].getUserID());
-
-                instruments.push_back(instrument);
-                
-            }
-            else if(users[i].isWavingRight() && !users[i].isActive(rightHand) && (getElapsedSeconds()-users[i].getLastThrowLeft() > 4)){
-                instruments.push_back(new Ball(users[i].getJointPosition(rightHand), Vec3f(roomWidth, roomHeight, roomLength)));
-            }
-            // Detect Clearing Gesture
             if(users[i].isClearing()){
                 instruments.erase(instruments.begin(), instruments.end());
+                //cout << "clearing" << endl;
                 for(int u = 0; u < users.size(); u++){
                     users[u].setUnactive(leftHand);
                     users[u].setUnactive(rightHand);
                     users[u].setScreen(false);
                 }
             }
-            // Detect Two Hand Power Up
-            if(users[i].getJointDistance(leftHand, rightHand) < 1.5 && !users[i].hasScreen()){
-                users[i].setScreen(true);
-                instruments.push_back(new Screen(users[i].getJointPosition(leftHand)));
+            
+            if(users[i].isGrouped()){
+                mesh.appendColorRGB(Color(1.0, 0, 1.0));
+                mesh.appendVertex(users[i].getJointPosition(head));
+                mesh.appendColorRGB(Color(1.0, 0, .8));
+                mesh.appendVertex(users[i].getJointPosition(leftShoulder));
+                mesh.appendColorRGB(Color(1.0, 0, 1.0));
+                mesh.appendVertex(users[i].getJointPosition(rightShoulder));
+                mesh.appendColorRGB(Color(.8, 0, 1.0));
+                mesh.appendVertex(users[i].getJointPosition(leftElbow));
+                mesh.appendColorRGB(Color(.7, 0, .8));
+                mesh.appendVertex(users[i].getJointPosition(rightElbow));
+                mesh.appendColorRGB(Color(1.0, 0, 1.0));
+                mesh.appendVertex(users[i].getJointPosition(leftHand));
+                mesh.appendColorRGB(Color(.5, 0, 1.0));
+                mesh.appendVertex(users[i].getJointPosition(rightHand));
+                mesh.appendColorRGB(Color(.6, 0, 1.0));
+                mesh.appendVertex(users[i].getJointPosition(leftFoot));
+                mesh.appendColorRGB(Color(.5, 0, .5));
+                mesh.appendVertex(users[i].getJointPosition(rightFoot));
+                mesh.appendColorRGB(Color(.3, 0, .3));
 
+                
+                
             }
         }
-    }
-    
-    for(int i = 0; i < users.size(); i++){
-        // Hit Test Instruments
-        for(int j = 0; j < instruments.size(); j++){
-            Instrument* in = *(instruments.begin()+j);
-            if(in->getName() == "Screen"){
-                if(!in->hitTest(&users[i])){
-                    instruments.erase(instruments.begin()+j);
-                }
-            }
-            else{
-               in->hitTest(&users[i]); 
-            }
-
-        }
-        
-        // Billie Jean Disco Floor
         for(int b = 0; b < 600; b++){
             if(grid[b].wallID == floor){
                 if(grid[b].withinBounds(users[i].getJointPosition(leftFoot)) || grid[b].withinBounds(users[i].getJointPosition(rightFoot))){
                     timeline().apply(&grid[b].mColor, ColorA(1.0, 0, 0, 1.0), .50);
                 }
                 else{
-                    if((ColorA)grid[b].mColor == ColorA(1.0, 0, 0, 1.0)){
+                    if(!grid[b].isOn() && (ColorA)grid[b].mColor == ColorA(1.0, 0, 0, 1.0)){
                         timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), 1.0);
+                    }
+                    else if(grid[b].isOn() && (ColorA)grid[b].mColor == ColorA(1.0, 0, 0, 1.0)){
+                        timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 0.0, 1.0), 1.0);
                     }
                 }
             }
-        }
-        //*******************
-        // Grouping Detection
-        //*******************
-        for(int u = i+1; u < users.size(); u++){
-            ci::Vec3f tempJoint = users[i].getJointPosition(torso);
-            if(tempJoint.distance(users[u].getJointPosition(torso)) < 10 && ( !users[i].isGrouped() || !users[u].isGrouped() )){
-                std::cout << "Users " << i << " and " << u << " are grouped" << std::endl;
-                meshes.push_back(TriMesh());
-                users[i].setGroup(true);
-                users[u].setGroup(true);
-                for(int meshy = 0; meshy < meshes.size(); meshy++){
-                    
-                    meshes[meshy].appendVertex(users[i].getJointPosition(head));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(head));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(head));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(leftShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[i].getJointPosition(head));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[u].getJointPosition(head));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(leftShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[u].getJointPosition(leftShoulder));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(leftHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftFoot));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(leftFoot));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[u].getJointPosition(leftHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(leftFoot));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(leftHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightFoot));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightFoot));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[u].getJointPosition(rightFoot));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                    meshes[meshy].appendVertex(users[i].getJointPosition(rightHand));
-                    meshes[meshy].appendColorRGB(Color(1, 0, 1));
-                }
-                
+            if(grid[b].touched(users[i].getJointPosition(leftHand)) || grid[b].touched(users[i].getJointPosition(rightHand))){
+                grid[b].isOn();
             }
-            else{
-                users[i].setGroup(false);
-                users[u].setGroup(false);
-            }
+            
         }
-        // Always update user last, for correct Z values
+        users[i].update();
         
     }
     
@@ -621,13 +632,15 @@ void ThirdRoomApp::update(){
             }
         }
     }
-    for(int i = 0; i < users.size(); i++){
-        users[i].update();
-    }
+    
+    // Billie Jean Disco Floor
+    
+    
     if(serialFound){
         updateSerial();
     }
     oscUpdate();
+    
 }
 
 void ThirdRoomApp::updateSerial(){
@@ -740,31 +753,18 @@ void ThirdRoomApp::draw(){
     gl::drawStringCentered(welcome, Vec2f(getWindowWidth()/2.0f, getWindowHeight()/2.0f), helloColor, mFont);
     
     gl::enableDepthWrite();
-	gl::enableDepthRead();
-	gl::enableAlphaBlending();
+    gl::enableDepthRead();
+    gl::enableAlphaBlending();
     
     gl::setMatrices( mayaCam.getCamera() );
+    
     
     for(int i = 0; i < users.size(); i++){
         users[i].display();
         
-        
     }
-    if(meshes.size() > 0){
-        for(int i = 0; i < meshes.size(); i++){
-            meshes[i].clear();
-            for(int j = 0; j < 15; j++){
-                meshes[i].appendTriangle(i, j, 0);
-                meshes[i].appendTriangle(j, i, 0);
-                meshes[i].appendTriangle(i, 0, j);
-                meshes[i].appendTriangle(j, 0, i);
-                meshes[i].appendTriangle(0, j, i);
-                meshes[i].appendTriangle(0, i, j);
-            }
-            gl::draw(meshes[i]);
-        }
-        
-    }
+
+    
     
     
     GLfloat light_position[] = { -30.0f, 0.0f, 40.0f, 1.0 };
@@ -788,7 +788,21 @@ void ThirdRoomApp::draw(){
         glMaterialfv( GL_FRONT_AND_BACK, GL_DIFFUSE, in->getColor() );
         in->display();
     }
-    
+    if(mesh.getNumVertices() > 0){
+        for(int i = 0; i < mesh.getNumVertices(); i++){
+            mesh.appendTriangle(i, (i+2)%mesh.getNumVertices(), (i+4)%mesh.getNumVertices());
+            mesh.appendTriangle(i, (i+1)%mesh.getNumVertices(), (i+3)%mesh.getNumVertices());
+            for(int j = mesh.getNumVertices(); j > 0; j--){
+
+                mesh.appendTriangle(i, j, ((j+i)%mesh.getNumVertices()));
+
+            }
+            
+        }
+        gl::draw(mesh);
+        
+    }
+
     InterfaceGl::draw();
     if( mMovieWriter )
         mMovieWriter.addFrame( copyWindowSurface() );
@@ -823,8 +837,12 @@ void ThirdRoomApp::animateBox(Box* box){
         timeline().appendTo( &box->mSize, Vec3f(10, 0, 10), .10f, EaseOutQuad() );
     }
     
-    
-    timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 1.0, 0.0f), .10f, EaseInQuad() );
+    if(box->isOn()){
+        timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 0.0, .6), .10f, EaseOutQuad() );
+    }
+    else{
+        timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 1.0, 0.0f), .10f, EaseInQuad() );
+    }
 }
 
 void ThirdRoomApp::sendOscWall(int _wall, int _note){
@@ -929,6 +947,15 @@ void ThirdRoomApp::introduction(){
     
     intro = false;
     
+}
+
+double ThirdRoomApp::nowMinus(double time){
+    return getElapsedSeconds() - time;
+}
+
+void ThirdRoomApp::shutdown(){
+    mShouldQuit = true;
+    mThread.join();
 }
 
 CINDER_APP_BASIC( ThirdRoomApp, RendererGl )

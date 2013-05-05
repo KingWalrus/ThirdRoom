@@ -595,5 +595,6 @@ dependencies: \
   /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.h \
   /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.h \
   /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.h \
-  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.h
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.h \
+  /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.h

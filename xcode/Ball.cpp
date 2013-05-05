@@ -7,11 +7,12 @@
 //
 
 #include "Ball.h"
+#include "User.h"
 #include "cinder/gl/gl.h"
 #include "cinder/Rand.h"
 
 Ball::Ball(bool isHit){
-    bHit = isHit;
+    setHit(isHit);
 }
 
 Ball::Ball(ci::Vec3f position, ci::Vec3f roomDimensions){
@@ -23,9 +24,9 @@ Ball::Ball(ci::Vec3f position, ci::Vec3f roomDimensions){
     setMoveBehavior(new BounceAll());
     //std::cout << "Ball Created" << std::endl;
     //createdAt = cinder::app::getElapsedSeconds();
-
+    
     //note = cinder::randInt(40, 100);
-   // roomSize = cinder::Vec3f(roomDimensions.x/2, roomDimensions.y/2, roomDimensions.z/2);
+    // roomSize = cinder::Vec3f(roomDimensions.x/2, roomDimensions.y/2, roomDimensions.z/2);
     setName("Ball");
     lastThrown = 0;
 }
@@ -44,138 +45,78 @@ void Ball::display(){
 }
 
 void Ball::update(){
-    if(isHit()){
-        setMoving(false);
-//        if(getPosition().distance(getZposition()) > 3){
-//            std::cout << "throwing" << std::endl;
-//            setVelocity(getPositionDifference());
-//            bHit = false;
-//            bMoving = true;
-//            setColor(ci::Vec3f(1.0, 1.0, 1.0));
-//            lastThrown = ci::app::getElapsedSeconds();
-//            
-//        }
-//            if(mUser->isThrowingRight() && ci::app::getElapsedSeconds()-createdAt > 3){
-//                std::cout << "throwing right" << std::endl;
-//                //std::cout << "user throwing right" << std::endl;
-//                setVelocity(ci::Vec3f(mUser->getDifference(mUser->rightHand, 0), mUser->getDifference(mUser->rightHand,1), mUser->getDifference(mUser->rightHand,2)));
-//                bHit = false;
-//                bMoving = true;
-//                setColor(ci::Vec3f(1.0, 1.0, 1.0));
-//            }
-    }
-    if(isMoving()){
 
-        move(getVelocity(), getPosition());
+    if(isMoving()){
+        
+        move(mVelocity, mPosition);
         ci::Vec3f tempVelocity = getVelocity();
-        if(getPosition().x > getBoundaries().x || getPosition().x < -getBoundaries().x){            
+        if(getPosition().x > getBoundaries().x || getPosition().x < -getBoundaries().x){
             tempVelocity.x = -1*tempVelocity.x;
             setVelocity(tempVelocity);
         }
         if(getPosition().y > getBoundaries().y-5 || getPosition().y < -getBoundaries().y-5){
-            mVelocity.y = -1*mVelocity.y;
+            tempVelocity.y = -1*tempVelocity.y;
+            setVelocity(tempVelocity);
         }
         if(getPosition().z > getBoundaries().z || getPosition().z < -getBoundaries().z-5){
-            mVelocity.z = -1*mVelocity.z;
+            tempVelocity.z = -1*tempVelocity.z;
+            setVelocity(tempVelocity);
         }
     }
     
-    
-    mPositionZ = mPosition;
-    bHitZ = bHit;
-    mControllerPositionZ = mControllerPosition;
+    setZposition(getPosition());
+    // bHitZ = bHit;
     
 }
 
 void Ball::wallHit(int side){
-    switch(side){
-        case 0:
-            mVelocity.y *= -1;
-            break;
-        case 1:
-            mVelocity.y *= -1;
-            break;
-        case 2:
-            mVelocity.z *= -1;
-            break;
-        case 3:
-            mVelocity.z *= -1;
-            break;
-        case 4:
-            mVelocity.x *= -1;
-            break;
-        case 5:
-            mVelocity.x *= -1;
-            break;
-        default:
-            break;
-
-    }
+    //    switch(side){
+    //        case 0:
+    //            mVelocity.y *= -1;
+    //            break;
+    //        case 1:
+    //            mVelocity.y *= -1;
+    //            break;
+    //        case 2:
+    //            mVelocity.z *= -1;
+    //            break;
+    //        case 3:
+    //            mVelocity.z *= -1;
+    //            break;
+    //        case 4:
+    //            mVelocity.x *= -1;
+    //            break;
+    //        case 5:
+    //            mVelocity.x *= -1;
+    //            break;
+    //        default:
+    //            break;
+    //
+    //    }
 }
 
+
 bool Ball::hitTest(User* user){
-    double currentTime = ci::app::getElapsedSeconds();
-    
-    if( user->getJointPosition(user->leftHand).distance(mPosition) > -8 && user->getJointPosition(user->leftHand).distance(mPosition) < 8 && !user->isActive(user->leftHand) && currentTime-lastThrown > 5 && currentTime-(user->getLastThrowLeft()) >3 ){
-        bHit = true;
-        mUser = user;
-        setPosition(user->getJointPosition(user->leftHand));
-        user->setActive(user->leftHand);
-        mControllerPosition = user->getJointPosition(user->leftHand);
-        setColor(ci::Vec3f(1.0, 0, 0));
-        if(user->isThrowingLeft() && currentTime - createdAt > 3){
-            std::cout << "user throwing left" << std::endl;
-            setVelocity(user->getPositionDifference(user->leftHand));
-            //std::cout << mVelocity << std::endl;
-            bHit = false;
-            bMoving = true;
-            setColor(ci::randVec3f());
-            lastThrown = currentTime;
-            move(mVelocity, mPosition);
-            user->setUnactive(user->leftHand);
-            user->setLastThrowLeft(currentTime);
-            mUser = NULL;
+        if(!user->isActive(user->leftHand) && user->getJointPosition(user->leftHand).distance(getPosition()) < 5 && getLastThrownMinus() > 3){
+            user->setActive(user->leftHand);
+            setHit(true);
+            setMoving(false);
+            initializePosition(user->getJointPosition(user->leftHand));
+            setColor(ci::ColorA(1.0, 0, 0, 1.0));
+            user->setLastCatchLeft(ci::app::getElapsedSeconds());
+            
         }
-        
-    }
-    else{
-        user->setUnactive(user->leftHand);
-        mUser = NULL;
-        bHit = false;
-    }
-    
-    
-    if( user->getJointPosition(user->rightHand).distance(mPosition) >-8 && user->getJointPosition(user->rightHand).distance(mPosition) < 8 && !user->isActive(user->rightHand) && currentTime-lastThrown > 5 && currentTime-(user->getLastThrowRight() > 3)){
-        //std::cout << user->getJointPosition(user->rightHand).distance(mPosition) << std::endl;
-        bHit = true;
-        mUser = user;
-        setPosition(user->getJointPosition(user->rightHand));
-        user->setActive(user->rightHand);
-        mControllerPosition = user->getJointPosition(user->rightHand);
-        
-        setColor(ci::Vec3f(1.0, 0, 0));
-        if(user->isThrowingRight() && currentTime-createdAt > 3){
-            std::cout << "user throwing right" << std::endl;
-            setVelocity(user->getPositionDifference(user->rightHand));
-            bHit = false;
-            bMoving = true;
-            setColor(ci::randVec3f());
-            lastThrown = currentTime;
-            user->setUnactive(user->rightHand);
-            user->setLastThrowRight(currentTime);
-            mUser = NULL;
+
+        if( !user->isActive(user->rightHand) &&  user->getJointPosition(user->rightHand).distance(getPosition()) < 5 && getLastThrownMinus() > 3){
+            user->setActive(user->rightHand);
+            setHit(true);
+            setMoving(false);
+            initializePosition(user->getJointPosition(user->rightHand));
+            user->setLastCatchRight(ci::app::getElapsedSeconds());
+            setColor(ci::Vec3f(1.0, 0, 0));
         }
-        
-    }
-    else{
-        user->setUnactive(user->rightHand);
-        bHit = false;
-        mUser = NULL;
-        
-    }
     
-    
-    return bHit;
+    return isHit();
     
 }
 
@@ -183,7 +124,7 @@ bool Ball::ballHit(Instrument* ball){
     if(getPosition().distance(ball->getPosition()) < 4){
         setVelocity(getVelocity()-ball->getVelocity());
         ball->setVelocity(ball->getVelocity()-getVelocity());
-       // std::cout << "hit balls!" << std::endl;
+        // std::cout << "hit balls!" << std::endl;
         return true;
     }
     else return false;
@@ -204,13 +145,13 @@ bool Ball::collisionTest(Instrument* instrument){
 
 float Ball::getDifference(int axis){
     if(axis == 0){
-        return mPosition.x - mPositionZ.x;
+        return getPosition().x - getZposition().x;
     }
     else if(axis == 1){
-        return mPosition.y - mPositionZ.y;
+        return getPosition().y - getZposition().y;
     }
     else if(axis == 2){
-        return mPosition.z - mPositionZ.z;
+        return getPosition().z - getZposition().z;
     }
     else{
         return 0;
@@ -219,5 +160,5 @@ float Ball::getDifference(int axis){
 }
 
 float Ball::getVecDifference(){
-    return mPosition.distance(mPositionZ);
+    return getPosition().distance(getZposition());
 }

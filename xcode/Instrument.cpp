@@ -7,6 +7,7 @@
 //
 
 #include "Instrument.h"
+//#include "User.h"
 
 Instrument::Instrument(){
     
@@ -35,9 +36,17 @@ ci::Vec3f Instrument::getPosition(){
     return mPosition;
 }
 
+ci::Vec3f* Instrument::getPositionPtr(){
+    return &mPosition;
+}
+
 void Instrument::initializePosition(ci::Vec3f firstPosition){
-    mPosition = firstPosition;
-    mPositionZ = mPosition;
+    mPosition = mPositionZ = firstPosition;
+    
+    //setZposition(firstPosition);
+    //setPosition(firstPosition);
+    
+
 }
 
 void Instrument::setPosition(ci::Vec3f newPosition){
@@ -65,11 +74,11 @@ void Instrument::setVelocity(ci::Vec3f newVelocity){
 }
 
 ci::ColorA Instrument::getColor(){
-    return ci::ColorA(mColor.x, mColor.y, mColor.z, 1.0);
+    return mColorA;
 }
 
 void Instrument::setColor(ci::Vec3f newColor){
-    mColor = newColor;
+    mColorA = ci::ColorA(newColor.x, newColor.y, newColor.z, 1.0);
 }
 
 void Instrument::setColor(ci::ColorA newColor){
@@ -128,12 +137,23 @@ void Instrument::setUserID(int _userID){
     
 }
 
+void Instrument::setUserHand(int whichHand){
+    hand = whichHand;
+}
+
+int Instrument::getUserHand(){
+    return hand;
+}
 void Instrument::setCreatedAt(double creationTime){
     createdAt = creationTime;
 }
 
+double Instrument::getLastThrownMinus(){
+    return ci::app::getElapsedSeconds()-lastThrown;
+}
+
 void Instrument::setBoundaries(ci::Vec3f boundaries){
-    roomSize = boundaries;
+    roomSize = ci::Vec3f(boundaries.x*.5, boundaries.y*.5, boundaries.z*.5);
 }
 
 ci::Vec3f Instrument::getBoundaries(){
@@ -154,4 +174,8 @@ void Instrument::setHit(bool hit){
 
 void Instrument::setMoving(bool moving){
     bMoving = moving;
+}
+
+void Instrument::setLastThrown(double thrown){
+    lastThrown = thrown;
 }
