@@ -270,49 +270,28 @@ bool User::isThrowingLeft(){
         waveCountLeft = 0;
         return true;
     }
-    //    else if(getDifference(leftHand, x) > 1.5){
-    //        lastLeftThrow = ci::app::getElapsedSeconds();
-    //        return true;
-    //    }
-    //    else if(getDifference(leftHand, y) > 1.5){
-    //        lastLeftThrow = ci::app::getElapsedSeconds();
-    //        return true;
-    //    }
-    //    else if(getDifference(leftHand, z) > 1.5){
-    //        lastLeftThrow = ci::app::getElapsedSeconds();
-    //        return true;
-    //    }
+
     else return false;
-    //}
-    // else return false;
+
 }
 
 bool User::isThrowingRight(){
-    // if(activeJoints[rightHand]){
-    //std::cout << "active Right" << std::endl;
-    //std::cout << getPositionDistance(rightHand) << std::endl;
     if(getPositionDistance(rightHand) > 2.0){
         lastRightThrow = ci::app::getElapsedSeconds();
         waveCountRight = 0;
         return true;
     }
-    // std::cout << "throwing right" << std::endl;
-    //    else if(getDifference(rightHand, x) > 2){
-    //        lastRightThrow = ci::app::getElapsedSeconds();
-    //        return true;
-    //    }
-    //    else if(getDifference(rightHand, y) > 2){
-    //        lastRightThrow = ci::app::getElapsedSeconds();
-    //        return true;
-    //    }
-    //    else if(getDifference(rightHand, z) > 2){
-    //        lastRightThrow = ci::app::getElapsedSeconds();
-    //        return true;
-    //    }
+
     
     else return false;
-    //}
-    //else return false;
+}
+
+bool User::isStomping(){
+    if(getPositionDistance(leftKnee) > 3.0 || getPositionDistance(rightKnee) > 3.0 ){
+        std::cout<< "STOMP" << std::endl;
+        return true;
+    }
+    else return false;
 }
 
 void User::prepareToClear(){
@@ -335,8 +314,20 @@ bool User::isClearing(){
     
 }
 
+bool User::isFullClearing(){
+    if(allJointsZ[rightHand].x < allJointsZ[leftShoulder].x && allJointsZ[leftHand].x > allJoints[rightShoulder].x){
+        std::cout << getDifference(rightHand, x) << " " << getDifference(leftHand, x) << std::endl;
+        if(getDifference(rightHand, x) > 2  && getDifference(leftHand, x) < -2){
+            std::cout << "FULL CLEAR" << std::endl;
+            return true;
+        }
+        else return false;
+    }
+    else return false;
+}
+
 bool User::isTouchingHands(){
-    if(getJointDistance(leftHand, rightHand) < 2 && !isActive(rightHand) && !isActive(leftHand) && !hasScreen()){
+    if(!isActive(rightHand) && !isActive(leftHand) && !hasScreen() && getJointPosition(rightHand).y > getJointPosition(rightHip).y && getJointDistance(leftHand, rightHand) < 2 ){
         return true;
     }
     else{

@@ -61,6 +61,7 @@ public:
     
     ci::Vec3f       getJointPosition(int whichJoint);
     void            setJointPosition(int whichJoint, ci::Vec3f newJointPosition);
+    //Gestures
     bool            isWaving();
     bool            isWavingLeft();
     bool            isWavingRight();
@@ -68,7 +69,10 @@ public:
     bool            isThrowingRight();
     void            prepareToClear();
     bool            isClearing();
+    bool            isFullClearing();
     bool            isTouchingHands();
+    bool            isStomping();
+    
     bool            isActive(int whichJoint);
     void            setActive(int whichJoint);
     void            setUnactive(int whichJoint);
