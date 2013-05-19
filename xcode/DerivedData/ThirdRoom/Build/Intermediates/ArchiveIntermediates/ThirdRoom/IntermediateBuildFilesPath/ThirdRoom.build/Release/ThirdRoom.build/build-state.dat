@@ -1,0 +1,595 @@
+TThirdRoom
+v5
+r1
+cCheck dependencies
+cProcessInfoPlistFile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Info.plist Info.plist
+cSymLink /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/ThirdRoom.app /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+cCpResource ../resources/CinderApp.icns DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/CinderApp.icns
+cCopyPlistFile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/Info.plist Info.plist
+cCpResource lava.jpg DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/lava.jpg
+cProcessPCH++ /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom normal i386
+cTouch /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+cStrip /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom
+cSetOwnerAndGroup CHIBI:staff /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+cSetMode u+w,go-w,a+rX /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk
+c000000004F90F72900000000000000CC
+t1334900521
+s204
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Accelerate.framework/Accelerate
+c000000005136783D0000000000002400
+t1362524221
+s9216
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AudioToolbox.framework/AudioToolbox
+c000000005136783D0000000000023FF4
+t1362524221
+s147444
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/AudioUnit.framework/AudioUnit
+c000000005136783D00000000000061F4
+t1362524221
+s25076
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c000000005136783E00000000000001E5
+t1362524222
+s485
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk/System/Library/Frameworks/CoreAudio.framework/CoreAudio
+c000000005136783E000000000000E8A8
+t1362524222
+s59560
+
+N/System/Library/Frameworks/Carbon.framework/Carbon
+c0000000050EE36270000000000006530
+t1357788711
+s25904
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c0000000050EE36280000000000006560
+t1357788712
+s25952
+
+N/System/Library/Frameworks/CoreVideo.framework/CoreVideo
+c0000000050EE362A000000000007CED0
+t1357788714
+s511696
+
+N/System/Library/Frameworks/OpenGL.framework/OpenGL
+c0000000050EE362F000000000002D360
+t1357788719
+s185184
+
+N/System/Library/Frameworks/QTKit.framework/QTKit
+c0000000050EE363200000000004B9FB0
+t1357788722
+s4956080
+
+N/System/Library/Frameworks/QuickTime.framework/QuickTime
+c0000000051954BC3000000000032B7E0
+t1368738755
+s3323872
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../resources/CinderApp.icns
+c000000004EA0B145000000000001BEB5
+t1319153989
+s114357
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp
+c000000005198F9AF000000000000BA1A
+t1368979887
+s47642
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp
+c0000000051983F4C00000000000012B0
+t1368932172
+s4784
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp
+c0000000051873A5D000000000000010B
+t1367816797
+s267
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp
+c00000000515A872C000000000000012A
+t1364887340
+s298
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/ThirdRoom.app
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Info.plist
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/PkgInfo
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/CinderApp.icns
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/Info.plist
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/lava.jpg
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoom.LinkFileList
+c000000005198F9B40000000000000C25
+t1368979892
+s3109
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.o
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.pth
+t2
+s0
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Info.plist
+c0000000050EA1E240000000000000352
+t1357520420
+s850
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp
+c000000005185E8E70000000000000D2C
+t1367730407
+s3372
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp
+c000000005163D8B500000000000000BF
+t1365498037
+s191
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp
+c000000004EA0B14100000000000007E1
+t1319153985
+s2017
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cpp
+c0000000050CF9D5500000000000016AA
+t1355783509
+s5802
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cpp
+c000000004EA0B14100000000000010AD
+t1319153985
+s4269
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp
+c0000000050CF9D51000000000000104E
+t1355783505
+s4174
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp
+c0000000051892FDE0000000000000AF8
+t1367945182
+s2808
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/ThirdRoom_Prefix.pch
+c0000000050EA1E240000000000000093
+t1357520420
+s147
+i<Cocoa/Cocoa.h>
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp
+c0000000051983F330000000000003BB9
+t1368932147
+s15289
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp
+c000000005151E5C40000000000000072
+t1364321732
+s114
+
+N/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/lava.jpg
+c000000004EA0B1440000000000013B0E
+t1319153988
+s80654
+
+NInfo.plist
+c0000000050EA1E240000000000000352
+t1357520420
+s850
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp
+r0
+
+CBuild AST from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies3e2030343149b741^59e0cf343149b741^-100"Warning: The Copy Bundle Resources build phase contains this target's Info.plist file 'Info.plist'.1(21%IDEActivityLogMessage2@99"Warning: The Copy Bundle Resources build phase contains this target's Info.plist file 'Info.plist'.-390672692#18446744073709551615#0#-1#27"com.apple.dt.IDE.LogMessage-27"Dependency Analysis Warning--0#1#0#--18"Check dependencies36"FC5BF410-3A38-44E1-AC99-CBCD8F610117-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672699.399296
+e390672719.098943
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp4357663b3149b741^9b21654f3149b741^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp0000000000000000^4306"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.o Ball.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Ball.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Ball.o36"16EEA022-6AC1-49C5-BDCB-F775A688F5BC-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672723.584601
+e390672724.136700
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp61c595533149b741^d52523543149b741^---0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp0000000000000000^4336"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.o BounceAll.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceAll.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceAll.o36"1A6E4709-67B1-48DF-AE25-DD7000CDCDC4-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672724.138618
+e390672724.817970
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp3d9923543149b741^9b76d1543149b741^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp0000000000000000^4354"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.o BounceUpDown.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/BounceUpDown.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/BounceUpDown.o36"68F2106F-C501-454C-951D-BBB80A82D4F4-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672693.037671
+e390672699.398010
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp88bc09353149b741^6ff4653b3149b741^---0#0#0#-19%DVTDocumentLocation2@97"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp0000000000000000^4342"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.o Instrument.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Instrument.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Instrument.o36"1AB6B503-29FE-4307-9A9C-267959F722D0-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672723.117035
+e390672723.582440
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp2f161e533149b741^773195533149b741^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp0000000000000000^4354"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.o MoveBehavior.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/MoveBehavior.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/MoveBehavior.o36"9DDCBF35-AFDD-466B-B601-B970F8D23482-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672720.107814
+e390672720.840869
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp20b71b503149b741^8942d7503149b741^---0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp0000000000000000^4336"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.o OscBundle.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscBundle.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscBundle.o36"1D938CA5-EA11-48AC-BFB3-B2D2F5023501-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672720.172228
+e390672724.902249
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cppa4372c503149b741^f207e7543149b741^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cpp0000000000000000^4348"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.o OscListener.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscListener.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscListener.o36"453FA7F0-2E5C-4DEA-8475-33196F2479AC-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672720.842204
+e390672721.951054
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cppd7bfd7503149b741^1288f3513149b741^---0#0#0#-19%DVTDocumentLocation2@97"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cpp0000000000000000^4342"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.o OscMessage.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscMessage.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscMessage.o36"F41D468C-E12F-4AC5-8C33-1B7B9C7DBB4C-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672721.953451
+e390672723.115713
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection88"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp8062f4513149b741^d2ab1d533149b741^---0#0#0#-19%DVTDocumentLocation2@96"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp0000000000000000^4336"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.o OscSender.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/OscSender.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/OscSender.o36"AD0FFAAE-1871-488E-8B48-DC00F28EB906-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672724.819211
+e390672728.849763
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp91d5d1543149b741^4d31ef583149b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp0000000000000000^4318"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.o Screen.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Screen.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/Screen.o36"9204F36B-3805-4694-A8DC-92C3123804F0-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672693.037131
+e390672704.335814
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+oIn file included from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp:19:
+o../../../include/cinder/MayaCamUI.h:84:10: warning: unused variable 'mV' [-Wunused-variable]
+o                        Vec3f mV = mW.cross( mU ).normalized();
+o                              ^
+o1 warning generated.
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection98"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp17a009353149b741^920356403149b741^-327"In file included from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp:19:../../../include/cinder/MayaCamUI.h:84:10: warning: unused variable 'mV' [-Wunused-variable]                        Vec3f mV = mW.cross( mU ).normalized();                              ^1 warning generated.1(36%IDEClangDiagnosticActivityLogMessage2@20"Unused variable 'mV'-390672704#18446744073709551615#0#1(2@116"In file included from /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp:19:-390672704#18446744073709551615#0#-0#27"com.apple.dt.IDE.diagnostic23%DVTTextDocumentLocation3@97"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/src/ThirdRoomApp.cpp0000000000000000^18#9#18#9#1840#0#21"Clang LLVM 1.0 Notice--1#27"com.apple.dt.IDE.diagnostic3@84"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/include/cinder/MayaCamUI.h0000000000000000^83#9#83#9#3461#0#19"Unused Entity Issue--0#0#0#-19%DVTDocumentLocation4@106"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp0000000000000000^4368"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o ../src/ThirdRoomApp.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../src/ThirdRoomApp.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoomApp.o36"34FD0892-3102-4811-8E75-4417D09448FF-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672704.338187
+e390672720.170903
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection83"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp4bae56403149b741^83bf2b503149b741^---0#0#0#-19%DVTDocumentLocation2@91"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp0000000000000000^4306"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.o User.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/User.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/User.o36"230CD642-10E1-45D0-A3D1-9B799A7E9B87-
+
+CCompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672719.100203
+e390672720.106531
+r1
+xCompileC
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.o
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection90"Compile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp81d1194f3149b741^d4441b503149b741^---0#0#0#-19%DVTDocumentLocation2@98"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp0000000000000000^4348"CompileC DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.o UserManager.cpp normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++ -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -include /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.d --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/UserManager.cpp -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/UserManager.o36"39D7A821-982E-4411-992D-9F5F2BDE5C7E-
+
+CCopyPlistFile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/Info.plist Info.plist
+s390672692.870480
+e390672692.882506
+r1
+xCopyPlistFile
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/Info.plist
+xInfo.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection15"Copy Info.plist3ee7de343149b741^1362e2343149b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Info.plist0000000000000000^582"CopyPlistFile DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/Info.plist Info.plist    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    builtin-copyPlist --outdir /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources -- Info.plist36"8403C22B-154E-44F1-B9E6-748BDAA9129F-
+
+CCpResource ../resources/CinderApp.icns DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/CinderApp.icns
+s390672692.869979
+e390672692.889750
+r1
+xCpResource
+x../resources/CinderApp.icns
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/CinderApp.icns
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection199"Copy DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/CinderApp.icns10cbde343149b741^90a4e4343149b741^---0#0#0#-19%DVTDocumentLocation2@277"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/CinderApp.icns000000000080d041^888"CpResource ../resources/CinderApp.icns DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/CinderApp.icns    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/../resources/CinderApp.icns /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources36"ADD03FDF-592D-4FA5-88BD-AE2F34242A7F-
+
+CCpResource lava.jpg DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/lava.jpg
+s390672692.883805
+e390672692.944960
+r1
+xCpResource
+xlava.jpg
+xDerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/lava.jpg
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection193"Copy DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/lava.jpgac52e2343149b741^64ebf1343149b741^---0#0#0#-19%DVTDocumentLocation2@271"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/lava.jpg000000000080d041^844"CpResource lava.jpg DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources/lava.jpg    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -strip-debug-symbols -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip -resolve-src-symlinks /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/lava.jpg /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Resources36"EFE2D74C-4A84-4BF5-8D70-3D1F4F8DB3D7-
+
+CLd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom normal i386
+s390672728.934922
+e390672730.804632
+r1
+xLd
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom
+xnormal
+xi386
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection257"Link /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom5d6fef583149b741^910bce5a3149b741^---0#0#0#--1687"Ld DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom normal i386    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv MACOSX_DEPLOYMENT_TARGET 10.7    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++ -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -L/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release -filelist /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/Objects-normal/i386/ThirdRoom.LinkFileList -mmacosx-version-min=10.7 -dead_strip ../../../lib/libcinder.a ../../../blocks/osc/lib/macosx/osc.a -framework Cocoa -framework OpenGL -framework Carbon -framework CoreVideo -framework QTKit -framework QuickTime -framework Accelerate -framework AudioToolbox -framework AudioUnit -framework CoreAudio -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom36"871A6FFB-149E-4FD8-95C2-3564CD136FBC-
+
+CProcessInfoPlistFile /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Info.plist Info.plist
+s390672692.834161
+e390672692.858165
+r1
+xProcessInfoPlistFile
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Info.plist
+xInfo.plist
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Process Info.plist2637d6343149b741^3754dc343149b741^---0#0#0#-19%DVTDocumentLocation2@93"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/Info.plist0000000000000000^873"ProcessInfoPlistFile DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Info.plist Info.plist    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    builtin-infoPlistUtility Info.plist -genpkginfo /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/Info.plist36"98A101A1-984D-4678-8C6F-C93A49E4200E-
+
+CProcessPCH++ /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler
+s390672692.953367
+e390672693.029664
+r1
+xProcessPCH++
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.pth
+xThirdRoom_Prefix.pch
+xnormal
+xi386
+xc++
+xcom.apple.compilers.llvm.clang.1_0.compiler
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection31"Precompile ThirdRoom_Prefix.pchdc2ef4343149b741^fcab07353149b741^---0#0#0#-19%DVTDocumentLocation2@103"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/ThirdRoom_Prefix.pch0000000000000000^4086"ProcessPCH++ DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.compiler    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    setenv LANG en_US.US-ASCII    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x c++-header -arch i386 -fmessage-length=0 -Wno-trigraphs -fpascal-strings -O3 -Wno-missing-field-initializers -Wno-missing-prototypes -Wreturn-type -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-enum-conversion -Wno-shorten-64-to-32 -Wno-newline-eof -Wno-c++11-extensions -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk -fasm-blocks -ffast-math -fstrict-aliasing -Wdeprecated-declarations -Winvalid-offsetof -mmacosx-version-min=10.7 -Wno-sign-conversion -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-generated-files.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-own-target-headers.hmap -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-all-target-headers.hmap -iquote /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/ThirdRoom-project-headers.hmap -iquote../../../include -iquote../include -iquote../../../blocks/osc/include -iquote../../../blocks/osc/include/ip -iquote../../../blocks/osc/include/osc -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/include -I../../../boost -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources/i386 -I/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/IntermediateBuildFilesPath/ThirdRoom.build/Release/ThirdRoom.build/DerivedSources -F/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release --serialize-diagnostics /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.dia -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/ThirdRoom_Prefix.pch -o /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.pth -MMD -MT dependencies -MF /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/PrecompiledHeaders/ThirdRoom_Prefix-efuvwkypwbejovdlgdyfreennhai/ThirdRoom_Prefix.pch.d36"5ABB9CA2-200F-4FFA-AAB5-6DF43CE3F189-
+
+CProcessPCH++ /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Index/PrecompiledHeaders/ThirdRoom_Prefix-agydvvsyawebohcpjkmtwvozdvpf_ast/ThirdRoom_Prefix.pch.pth ThirdRoom_Prefix.pch normal i386 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CSetMode u+w,go-w,a+rX /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+s390672730.912955
+e390672730.919123
+r1
+xSetMode
+xu+w,go-w,a+rX
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection182"SetMode u+w,go-w,a+rX DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app7dcae95a3149b741^0551eb5a3149b741^---0#0#0#-19%DVTDocumentLocation2@244"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/0000000000000000^518"SetMode u+w,go-w,a+rX DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    /bin/chmod -RH u+w,go-w,a+rX /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app36"4CC858B1-A4D8-472C-9184-D38CA2DC87E4-
+
+CSetOwnerAndGroup CHIBI:staff /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+s390672730.894816
+e390672730.905118
+r1
+xSetOwnerAndGroup
+xCHIBI:staff
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection189"SetOwnerAndGroup CHIBI:staff DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.appa12fe55a3149b741^a0c0e75a3149b741^---0#0#0#-19%DVTDocumentLocation2@244"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/0000000000000000^532"SetOwnerAndGroup "CHIBI:staff" DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    /usr/sbin/chown -RH "CHIBI:staff" /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app36"CA3CDBFA-C123-49BB-B1C7-D4DE0665D0C6-
+
+CStrip /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom
+s390672730.832717
+e390672730.885803
+r1
+xStrip
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection191"Strip DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoomaa48d55a3149b741^c6c4e25a3149b741^---0#0#0#-19%DVTDocumentLocation2@268"file://localhost/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom0000000000000000^616"Strip DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app/Contents/MacOS/ThirdRoom36"ABE84836-DD51-4CAB-9521-F3D55E30E282-
+
+CSymLink /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/ThirdRoom.app /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+s390672692.837194
+e390672692.859820
+r1
+xSymLink
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/ThirdRoom.app
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection187"Process /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/ThirdRoom.app1957d8343149b741^0857dc343149b741^---0#0#0#--780"SymLink DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/ThirdRoom.app DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    /bin/ln -sf /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/BuildProductsPath/Release/ThirdRoom.app36"D2FA9B2F-3D28-45A8-A403-4F59ACFD1F85-
+
+CTouch /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+s390672730.813419
+e390672730.822765
+r1
+xTouch
+x/Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app
+lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection233"Touch /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.appdb4dd05a3149b741^d6a9d25a3149b741^---0#0#0#--491"Touch DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app    cd /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode    /usr/bin/touch -c /Volumes/HeavyD/Users/CHIBI/cinder_master/Projects/ThirdRoom/xcode/DerivedData/ThirdRoom/Build/Intermediates/ArchiveIntermediates/ThirdRoom/InstallationBuildProductsLocation/Volumes/HeavyD/Users/CHIBI/Applications/ThirdRoom.app36"6414C7BB-70B1-4676-82EF-4F786142EE2D-
+

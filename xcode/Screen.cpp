@@ -47,7 +47,7 @@ void Screen::display(){
     ci::gl::enableAlphaBlending();
     ci::gl::pushMatrices();
     ci::gl::translate(mPosition);
-    ci::gl::rotate(mUser->getJointPosition(mUser->rightHand).y - mUser->getJointPosition(mUser->leftHand).y);
+    ci::gl::rotate((mUser->getJointPosition(mUser->rightHand).y - mUser->getJointPosition(mUser->leftHand).y)*90);
     ci::gl::drawTorus(mSize.x/1, 2, 2);
     ci::gl::popMatrices();
 }

@@ -47,6 +47,7 @@
 #define BUFSIZE 80
 #define READ_INTERVAL 0.01
 
+
 using namespace ci;
 using namespace ci::app;
 using namespace std;
@@ -59,7 +60,7 @@ GLfloat mat_shininess[]     = { 50.0 };
 
 
 struct Box{
-    Box() : mColor( Color( 1, 1, 1) ), mPos( Vec3f(0, 0, 0) ), mSize( Vec3f(10, 10, 10) ), on(false) {}
+    Box() : mColor( ColorA( 1, 1, 1, .5) ), mPos( Vec3f(0, 0, 0) ), mSize( Vec3f(10, 10, 10) ), on(false) {}
     Box( Color color, Vec3f pos, Vec3f size, int ID) : mColor( color ), mPos( pos ), mSize ( size ), id ( ID ), on (false){}
     
     int     id;
@@ -69,6 +70,7 @@ struct Box{
     int     x, y, z;
     int     wallID;
     bool    on;
+    bool    states[2][1];
     bool    lastState;
     int     note;
     double  lastTouch;
@@ -83,14 +85,15 @@ struct Box{
         //            return true;
         //        }
         Vec3f pos = mPos.value();
-        if(objectPosition.distance(pos) < 6){
+        if(objectPosition.distance(pos) < 4){
+            return true;
             if(wallID == 0){
-                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.y < pos.y && objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5){
+                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.y > pos.y && objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5){
                     return true;
                 }
             }
             else if(wallID == 1){
-                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.y > pos.y && objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5){
+                if(objectPosition.x < pos.x+5 && objectPosition.x > pos.x-5 && objectPosition.y < pos.y && objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5){
                     //  cout << "Ceiling panel " << id << endl;
                     return true;
                 }
@@ -106,12 +109,12 @@ struct Box{
                 }
             }
             else if(wallID == 4){
-                if(objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5 && objectPosition.x > pos.x && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
+                if(objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5 && objectPosition.x < pos.x && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
                     return true;
                 }
             }
             else if(wallID == 5){
-                if(objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5 && objectPosition.x < pos.x && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
+                if(objectPosition.z < pos.z+5 && objectPosition.z > pos.z-5 && objectPosition.x > pos.x && objectPosition.y < pos.y+5 && objectPosition.y > pos.y-5){
                     return true;
                 }
             }
@@ -121,26 +124,62 @@ struct Box{
         return false;
     }
     
+    
     bool touched(Vec3f userHand){
         Vec3f pos = mPos.value();
-        if(pos.distance(userHand) < 5 && (getElapsedSeconds() - lastTouch) > 3){
+        if(pos.distance(userHand) < 4 && (getElapsedSeconds() - lastTouch) > 3){
+            
             lastState = on;
             on = !on;
             lastTouch = getElapsedSeconds();
-            cout << "touched " << id << " " << on << endl;
-            
+            //cout << "touched " << id << " " << on << endl;
+            //mColor = ColorA(1.0, 1.0, 0.0, 1.0);
+            return true;
+
         }
+        else return false;
         
-        return on;
+        return false;
+    }
+    
+    bool touched(Vec3f userHand, Vec3f rotation){
+        Vec3f pos = mPos.value();
+        if(rotation == Vec3f(0.0, 0.0, 360.0)){
+            if(pos.distance(userHand) < 4 && (getElapsedSeconds() - lastTouch) > 3){
+                lastState = on;
+                on = !on;
+                lastTouch = getElapsedSeconds();
+                cout << "touched " << id << " in second orientation" << endl;
+                //mColor = ColorA(0.0, 1.0, 0.0, 1.0);
+                return true;
+            }
+            else return false;
+        }
+        else if(rotation == Vec3f(0.0, 0.0, 0.0)){
+            if(pos.distance(userHand) < 4 && (getElapsedSeconds() - lastTouch) > 3){
+                lastState = on;
+                on = !on;
+                lastTouch = getElapsedSeconds();
+                cout << "touched " << id << " in first orientation" << endl;
+                //mColor = ColorA(1.0, 1.0, 0.0, 1.0);
+                return true;
+            }
+            else return false;
+        }
+        else{
+            return false;
+        }
+        return false;
     }
     
     
     bool isOn(){
-        if(on){
-            mColor = ColorA(1.0, 1.0, 0, .7);
-        }
-        else{
-            mColor = ColorA(1.0, 1.0, 1.0, 0);
+//        if(on){
+//           // mColor = ColorA(1.0, 1.0, 0, .7);
+//        }
+//        else{
+        if(!on){
+           // mColor = ColorA(1.0, 1.0, 1.0, 0.0);
         }
         return on;
     }
@@ -167,7 +206,13 @@ public:
     void                introduction();
     void                updateSerial();
     void                sendOscWall(int _wall, int _note);
+    void                sendOscCeiling(int _wall, int _note, float velocity);
     void                sendOscSequence(int step, int state);
+    void                sendOscSequence2(int step, int state);
+    void                sendGroupNote(float note);
+    void                sendGroupNoteOff();
+    void                sendGroupParametersOsc(float, float, float);
+    void                sendOscScreen(float, float, float);
     void                threadedUpdate();
     void                shutdown();
     double              nowMinus(double time);
@@ -180,6 +225,7 @@ private:
     float               centerPointx, centerPointy, centerPointz;
     Anim<Vec3f>         eyePoint;
     Anim<Vec3f>         centerPoint;
+    Anim<Vec3f>         roomRotation;
     bool                loaded;
     bool                doneLoading;
     
@@ -189,6 +235,7 @@ private:
     int                 county;
     bool                hit;
     bool                lookat;
+    bool                showRoom;
     Vec3f               lookie;
     CameraPersp         cam;
     
@@ -202,6 +249,7 @@ private:
     vector<TriMesh>     meshes;
     vector<Vec2i>       groups;
     
+    int                 sequences[2][1400];
     
     //Text variables
     TextLayout          text;
@@ -213,7 +261,12 @@ private:
     string              would;
     bool                intro;
     double              introTime;
-    
+    float                 bass[6];
+    int                 bassCount;
+    int                 screenCount;
+    float               storeScreens[3];
+    float               storeScreensZ[3];
+    float               rotateX, rotateY, rotateZ;
     
 protected:
     MayaCamUI           mayaCam; //mayaCam to move through 3d space
@@ -245,8 +298,8 @@ protected:
     };
     
     enum side{
-        floor = 0,
-        ceiling,
+        ceiling = 0,
+        floor,
         frontWall,
         backWall,
         leftWall,
@@ -272,8 +325,9 @@ protected:
 };
 
 void ThirdRoomApp::prepareSettings( Settings *settings ){
-    settings->setFrameRate(60.0f);
+    settings->setFrameRate(40.0f);
     settings->setWindowSize(800, 600);
+    //settings->setDisplay( ci::Display::getDisplays()[1] );
     settings->enableSecondaryDisplayBlanking( false );
 }
 
@@ -288,11 +342,12 @@ void ThirdRoomApp::setup(){
     centerPointx    =   0;
     centerPointy    = -20;
     centerPointz    = -50;
-    
+    rotateX = rotateY = rotateZ = 0;
+    roomRotation = Vec3f(0.0, 0.0, 0.0);
     mThread = thread( bind( &ThirdRoomApp::threadedUpdate, this));
     mThread.detach();
-    mOscThread = thread( bind( &ThirdRoomApp::oscUpdate, this));
-    mOscThread.detach();
+    //mOscThread = thread( bind( &ThirdRoomApp::oscUpdate, this));
+    //mOscThread.detach();
     mShouldQuit = false;
     
     mParams = InterfaceGl("Menu", Vec2i(200, 200));
@@ -306,11 +361,10 @@ void ThirdRoomApp::setup(){
     mParams.addParam("Room Height", &roomHeight, "min=50 max=500");
     mParams.addParam("Room Length", &roomLength, "min=50 max=500");
     mParams.addParam("Animate", &animateGrid);
-    mParams.addParam("Hit", &hit);
-    mParams.addParam("Switch", & clickSwitch);
-    mParams.addParam("LookAt", &lookat);
-    mParams.addParam("Look At What?", &lookie);
-    mParams.addParam("Text", &textVec);
+    mParams.addParam("Show Room", &showRoom);
+    mParams.addParam("Rotate X", &rotateX);
+    mParams.addParam("Rotate Y", &rotateY);
+    mParams.addParam("Rotate Z", &rotateZ);
     mTransform.setToIdentity();
     loaded = false;
     animateGrid = false;
@@ -324,6 +378,7 @@ void ThirdRoomApp::setup(){
     cout << "Total Boxes: " << totalBoxes << endl;
     for(int i = 0; i < totalBoxes; i++){
         grid[i] = Box();
+        grid[i].states[0][0] = grid[i].states[1][0] = false;
     }
     
     setupGrid(roomWidth, roomHeight, roomLength);
@@ -332,6 +387,7 @@ void ThirdRoomApp::setup(){
     glBlendFunc (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     
     lookat = false;
+    
     
     host = "127.0.0.1";
     port = 13000;
@@ -343,9 +399,7 @@ void ThirdRoomApp::setup(){
     clickSwitch = false;
     doneLoading = false;
     
-    
     DIFFUSE = true;
-    
     
     
     hello       = "Hello";
@@ -353,6 +407,8 @@ void ThirdRoomApp::setup(){
     intro       = true;
     textColor   = ColorA(1.0f, 1.0f, 1.0f, 0.0f);
     textVec     = Vec3f(-400, 500, -900);
+    showRoom    = false;
+   // sendOscScreen(20, 20, 20);
     
     //    fs::path path = getSaveFilePath();
     //	if( path.empty() )
@@ -367,22 +423,35 @@ void ThirdRoomApp::setup(){
     textureComplete = false;
     sequencerPosition = -500;
     
-    const vector<Serial::Device> &devices(Serial::getDevices());
-    for( vector<Serial::Device>::const_iterator deviceIt = devices.begin(); deviceIt != devices.end(); ++deviceIt ) {
-		console() << "Device: " << deviceIt->getName() << endl;
-	}
-	
-	try {
-		Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial");
-		serial = Serial( dev, 57600);
-        serialFound = true;
-        
-	}
-	catch( ... ) {
-		console() << "There was an error initializing the serial device!" << std::endl;
-        serialFound = false;
-		//exit( -1 );
-	}
+    bass[0] = 48;
+    bass[1] = 48;
+    bass[2] =  46;
+    bass[3] = 43;
+    bass[4] = 50;
+    bass[5] = 46;
+    bassCount = 0;
+    
+    screenCount = 0;
+    storeScreens[0] = 0;
+    storeScreens[1] = 0;
+    storeScreens[2] = 0;
+    
+//    const vector<Serial::Device> &devices(Serial::getDevices());
+//    for( vector<Serial::Device>::const_iterator deviceIt = devices.begin(); deviceIt != devices.end(); ++deviceIt ) {
+//		console() << "Device: " << deviceIt->getName() << endl;
+//	}
+	serialFound = false;
+//	try {
+//		//Serial::Device dev = Serial::findDeviceByNameContains("tty.usbserial");
+//		//serial = Serial( dev, 57600);
+//        serialFound = false;
+//        
+//	}
+//	catch( ... ) {
+//		console() << "There was an error initializing the serial device!" << std::endl;
+//        serialFound = false;
+//		//exit( -1 );
+//	}
     if(serialFound){
         // wait for * as a sign for first contact
         char contact = 0;
@@ -439,9 +508,13 @@ void ThirdRoomApp::threadedUpdate(){
                 for(int j = 0; j < instruments.size(); j++){
                     Instrument* in = *(instruments.begin()+j);
                     if(in->getName() == "Screen"){
+                        
+                        storeScreens[screenCount%3] = in->getSize().x;
                         if(in->getUserID() == users[i].getUserID() && !in->hitTest(&users[i])){
                             instruments.erase(instruments.begin()+j);
                         }
+                        
+                        screenCount++;
                     }
                     else{
                         if(!in->isHit()){
@@ -455,6 +528,7 @@ void ThirdRoomApp::threadedUpdate(){
                                 in->setHit(false);
                                 in->setMoving(true);
                                 in->setVelocity(users[i].getPositionDifference(leftHand));
+                                in->getVelocityPtr()->limit(5);
                                 in->setLastThrown(getElapsedSeconds());
                                 in->setColor(ColorA(1.0, 1.0, 0.0, 1.0));
                                 users[i].setUnactive(leftHand);
@@ -465,6 +539,7 @@ void ThirdRoomApp::threadedUpdate(){
                                 in->setHit(false);
                                 in->setMoving(true);
                                 in->setVelocity(users[i].getPositionDifference(rightHand));
+                                in->getVelocityPtr()->limit(5);
                                 in->setLastThrown(getElapsedSeconds());
                                 in->setColor(ColorA(1.0, 1.0, 0.0, 1.0));
                                 users[i].setUnactive(rightHand);
@@ -480,23 +555,26 @@ void ThirdRoomApp::threadedUpdate(){
                 //*******************************************************************************************************************
                 for(int u = i+1; u < users.size(); u++){
                     ci::Vec3f tempJoint = users[i].getJointPosition(torso);
-                    if(!users[i].isGrouped() && !users[u].isGrouped() && tempJoint.distance(users[u].getJointPosition(torso)) < 15){
+                    if(!users[i].isGrouped() && !users[u].isGrouped() && tempJoint.distance(users[u].getJointPosition(torso)) < 20){
                         users[i].setGroup(true);
                         users[u].setGroup(true);
-                       // meshes.push_back(TriMesh());
-                        cout << "setting true" << endl;
+                        sendGroupNote(bass[bassCount%6]);
+                        bassCount++;
                         
                     }
-                    else if(users[i].isGrouped() && users[i].isGrouped() && tempJoint.distance(users[u].getJointPosition(torso)) > 15){
+                    else if(users[i].isGrouped() && users[i].isGrouped() && tempJoint.distance(users[u].getJointPosition(torso)) > 20){
                         users[i].setGroup(false);
                         users[u].setGroup(false);
-                        cout << "setting false" << endl;
-//                        if(meshes.size() > 0){
-//                            meshes.erase(meshes.end());
-//                        }
-                   
+                     //   cout << "setting false" << endl;
+                        sendGroupNoteOff();
+                    
                     }
- 
+
+                }
+                if(users.size() == 1 && users[0].isGrouped()){
+                    users[0].setGroup(false);
+                    sendGroupNoteOff();
+                    
                 }
                 
             }
@@ -551,6 +629,14 @@ void ThirdRoomApp::update(){
             county = 0;
         }
     }
+    if(showRoom){
+        for(int i = 0; i < 1008; i++){
+            if(grid[i].mColor.value() != ColorA(1.0, 1.0, 1.0, 1.0)){
+                //grid[i].mColor = ColorA(1.0, 1.0, 1.0, 1.0);
+                timeline().appendTo(&grid[i].mColor, ColorA(1.0f, 1.0f, 1.0f, 1.0f), .5f, EaseInQuad() );
+            }
+        }
+    }
     mesh.clear();
     for(int i = 0; i < users.size(); i++){
         if(intro){
@@ -568,10 +654,17 @@ void ThirdRoomApp::update(){
                     users[u].setUnactive(leftHand);
                     users[u].setUnactive(rightHand);
                     users[u].setScreen(false);
+                    users[u].setGroup(false);
                 }
                 for(int i = 0; i < totalBoxes; i++){
                     grid[i].on = false;
+                    grid[i].states[0][0] = false;
+                    grid[i].states[1][0] = false;
                 }
+                for(int i = 0; i < 48; i++){
+                    sendOscSequence(i, 0);
+                }
+                
             }
             else if(users[i].isClearing()){
                 instruments.erase(instruments.begin(), instruments.end());
@@ -581,6 +674,7 @@ void ThirdRoomApp::update(){
                     users[u].setUnactive(rightHand);
                     users[u].setScreen(false);
                 }
+                sendGroupNoteOff();
             }
             if(users[i].isStomping()){
                 
@@ -597,7 +691,7 @@ void ThirdRoomApp::update(){
                 mesh.appendVertex(users[i].getJointPosition(leftElbow));
                 mesh.appendColorRGB(Color(.7, 0, .8));
                 mesh.appendVertex(users[i].getJointPosition(rightElbow));
-                mesh.appendColorRGB(Color(1.0, 0, 1.0));
+                mesh.appendColorRGB(Color(.6, 0, .6));
                 mesh.appendVertex(users[i].getJointPosition(leftHand));
                 mesh.appendColorRGB(Color(.5, 0, 1.0));
                 mesh.appendVertex(users[i].getJointPosition(rightHand));
@@ -610,27 +704,61 @@ void ThirdRoomApp::update(){
             
             }
         }
+        
+        
         for(int b = 0; b < totalBoxes; b++){
-            if(grid[b].wallID == floor){
+            //Billie Jean Disco Floor
+            if( grid[b].wallID == floor){
+                
                 if(grid[b].withinBounds(users[i].getJointPosition(leftFoot)) || grid[b].withinBounds(users[i].getJointPosition(rightFoot))){
-                    timeline().apply(&grid[b].mColor, ColorA(1.0, 0, 0, 1.0), .50);
+                    timeline().apply(&grid[b].mColor, ColorA(1.0, 0, 0, 1.0), .5);
                 }
                 else{
-                    if(!grid[b].isOn() && (ColorA)grid[b].mColor == ColorA(1.0, 0, 0, 1.0)){
-                        timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), 1.0);
+                    if(roomRotation.value() == Vec3f(0.0, 0.0, 0.0)){
+                        if(!grid[b].states[0][0] && grid[b].mColor.value() != ColorA(1.0, 1.0, 1.0, 0)  ){
+                            timeline().apply(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), .5);
+                        }
+//                        else if(!grid[b].states[0][0] && (ColorA)grid[b].mColor == ColorA(1.0, 1.0, 0.0, .7) ){
+//                            timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), 1.0);
+//                        }
+                        else if(grid[b].states[0][0] && (ColorA)grid[b].mColor != ColorA(1.0, 1.0, 0, .5)){
+                            timeline().apply(&grid[b].mColor, ColorA(1.0, 1.0, 0.0, .5), 1.0);
+                        }
                     }
-                    else if(grid[b].isOn() && (ColorA)grid[b].mColor == ColorA(1.0, 0, 0, 1.0)){
-                        timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 0.0, 1.0), 1.0);
+                    else if(roomRotation.value() == Vec3f(0.0, 0.0, 360.0)){
+                        if(!grid[b].states[1][0] && grid[b].mColor.value() != ColorA(1.0, 1.0, 1.0, 0.0)){
+                            timeline().apply(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), .5);
+                        }
+//                        else if(!grid[b].states[1][0] && (ColorA)grid[b].mColor == ColorA(0, 1.0, 0, .7) ){
+//                            timeline().appendTo(&grid[b].mColor, ColorA(1.0, 1.0, 1.0, 0), 1.0);
+//                        }
+                        else if(grid[b].states[1][0] && grid[b].mColor.value() != ColorA(0.0, 1.0, 0, .5)){
+                            timeline().apply(&grid[b].mColor, ColorA(0.0, 1.0, 0.0, .5), 1.0);
+                        }
+                    }
+                       
+                }
+                //Touch Floor Sequencer
+                if(roomRotation.value() == Vec3f(0.0, 0.0, 0.0)){
+                    if(grid[b].touched(users[i].getJointPosition(leftHand)) ){
+                        sequences[0][b] = !sequences[0][b];
+                        grid[b].states[0][0] = !grid[b].states[0][0];
+                        sendOscSequence(grid[b].id%48, grid[b].states[0][0]);
+                    
                     }
                 }
-                if(grid[b].touched(users[i].getJointPosition(leftHand)) || grid[b].touched(users[i].getJointPosition(rightHand))){
-                    sendOscSequence(grid[b].id%12, grid[b].on);
-                    
+                else if(roomRotation.value() == Vec3f(0.0, 0.0, 360.0)){
+                    if(grid[b].touched(users[i].getJointPosition(leftHand)) ){
+                        sequences[1][b] = !sequences[1][b];
+                        grid[b].states[1][0] = !grid[b].states[1][0];
+                        sendOscSequence2(grid[b].id%48, grid[b].states[1][0]);
+                        
+                    }
                 }
             }
- 
-            
         }
+        
+        
         users[i].update();
         
     }
@@ -641,6 +769,14 @@ void ThirdRoomApp::update(){
         if(in->getName() == "Ball"){
             wallHit((Ball*) in);
         }
+        else if(in->getName() == "Screen"){
+            if(storeScreens != storeScreensZ){
+                sendOscScreen(storeScreens[0], storeScreens[1], storeScreens[2]);
+                storeScreensZ[0] = storeScreens[0];
+                storeScreensZ[1] = storeScreens[1];
+                storeScreensZ[2] = storeScreens[2];
+            }
+        }
         for(int i = j+1; i < instruments.size(); i++){
             Instrument* in2 = *(instruments.begin()+i);
             if(in->getName() == "Ball" && in2->getName() == "Ball"){
@@ -648,14 +784,11 @@ void ThirdRoomApp::update(){
             }
         }
     }
-    
-    // Billie Jean Disco Floor
-    
-    
+        
     if(serialFound){
         updateSerial();
     }
- //   oscUpdate();
+    oscUpdate();
     
 }
 
@@ -692,13 +825,13 @@ void ThirdRoomApp::updateSerial(){
         console() << lastString << endl;
         
         
-        TextLayout simple;
-        simple.setFont( Font( "Arial Black", 24 ) );
-        simple.setColor( Color( .7, .7, .2 ) );
-        simple.addLine( lastString );
-        simple.setLeadingOffset( 0 );
-        mTexture = gl::Texture( simple.render( true, false ) );
-        textureComplete = true;
+//        TextLayout simple;
+//        simple.setFont( Font( "Arial Black", 24 ) );
+//        simple.setColor( Color( .7, .7, .2 ) );
+//        simple.addLine( lastString );
+//        simple.setLeadingOffset( 0 );
+//        mTexture = gl::Texture( simple.render( true, false ) );
+//        textureComplete = true;
         
         serial.flush();
     }
@@ -706,8 +839,8 @@ void ThirdRoomApp::updateSerial(){
 
 
 void ThirdRoomApp::oscUpdate(){
-    ci::ThreadSetup threadSetup2;
-    while(!mShouldQuit){
+   // ci::ThreadSetup threadSetup2;
+   // while(!mShouldQuit){
         while(oscListener.hasWaitingMessages()){
             osc::Message message;
             oscListener.getNextMessage(&message);
@@ -749,13 +882,38 @@ void ThirdRoomApp::oscUpdate(){
                     }
                 }
             }
-            else if(message.getAddress() == "/sequencer"){
-                
-                // cout << "sequencer received " << message.getArgAsFloat(0) << endl;
-                sequencerPosition = 80 - (message.getArgAsFloat(0) * 10);
+            else if(message.getAddress() == "/shakeX"){
+                cout << "Shake X: " <<  message.getArgAsFloat(0) << " " << message.getArgAsInt32(1) << endl;
+                if(roomRotation.value() == Vec3f(0, 0, 0)){
+                    timeline().apply(&roomRotation, Vec3f(0, 0, 360), 4.0);
+                    for(int i = 0; i < totalBoxes; i++){
+                        if(grid[i].states[1][0] && grid[i].mColor.value() != ColorA(0.0, 1.0, 0.0, .7)){
+                            timeline().appendTo(&grid[i].mColor, ColorA(0.0, 1.0, 0.0, .7), 4.0);
+                        }
+                        else if(grid[i].mColor.value() != ColorA(1.0, 1.0, 1.0, 0.0)){
+                            timeline().appendTo(&grid[i].mColor, ColorA(1.0, 1.0, 1.0, 0.0), 2.0);
+                            
+                        }
+                    }
+                }
+                else{
+                    timeline().apply(&roomRotation, Vec3f(0, 0, 0), 4.0);
+                    for(int i = 0; i < totalBoxes; i++){
+                        if(grid[i].states[0][0] && grid[i].mColor.value() != ColorA(1.0, 1.0, 0.0, .7)){
+                            timeline().apply(&grid[i].mColor, ColorA(1.0, 1.0, 0.0, .7), 4.0);
+                        }
+                        else if(grid[i].mColor.value() != ColorA(1.0, 1.0, 1.0, 0.0)) {
+                            timeline().apply(&grid[i].mColor, ColorA(1.0, 1.0, 1.0, 0.0), 2.0);
+                            
+                        }
+                    }
+                }
+            }
+            else if(message.getAddress() == "/shakeY"){
+                cout << "Shake Y: " <<  message.getArgAsFloat(0) << " " << message.getArgAsInt32(1) << endl;
             }
         }
-    }
+//    }
 }
 
 void ThirdRoomApp::draw(){
@@ -765,7 +923,12 @@ void ThirdRoomApp::draw(){
     glDisable(GL_LIGHTING);
     gl::disableDepthWrite();
     gl::disableDepthRead();
+   // gl::popMatrices();
+    gl::enableAlphaBlending();
+
+    gl::rotate(roomRotation);
     drawRoomSkeleton(roomWidth, roomHeight, roomLength);
+   // gl::pushMatrices();
     gl::translate(textVec);
     gl::rotate(Vec3f(0, 180, 180));
     gl::drawStringCentered(hello, Vec2f(getWindowWidth()/2.0f, getWindowHeight()/2.0f), textColor, mFont);
@@ -773,21 +936,19 @@ void ThirdRoomApp::draw(){
     
     gl::enableDepthWrite();
     gl::enableDepthRead();
-    gl::enableAlphaBlending();
-    
     gl::setMatrices( mayaCam.getCamera() );
+
     
    // gl::color(ColorA(0.0, 1.0, 0.0, 1.0));
    // gl::drawLine(Vec3f(sequencerPosition, -40, -55), Vec3f(sequencerPosition, -40, 55));
-    
+  //  gl::pushModelView();
     for(int i = 0; i < users.size(); i++){
         users[i].display();
         
     }
-
-    
-    
-    
+   // gl::popModelView();
+    //gl::pushMatrices();
+    //gl::rotate(roomRotation);
     GLfloat light_position[] = { -30.0f, 0.0f, 40.0f, 1.0 };
     GLfloat light1_position[] = {30.0f, 0.0f, 40.0f, 1.0 };
     glEnable(GL_LIGHTING);
@@ -817,9 +978,13 @@ void ThirdRoomApp::draw(){
             }
             
         }
+        AxisAlignedBox3f b = mesh.calcBoundingBox();
+        Vec3f v = b.getSize();
+        sendGroupParametersOsc(v.x, v.y, v.z);
         gl::draw(mesh);
         
     }
+    //gl::popMatrices();
 
     InterfaceGl::draw();
     if( mMovieWriter )
@@ -833,8 +998,13 @@ void ThirdRoomApp::wallHit(Ball *ball){
         if(grid[i].withinBounds(ball->getPosition())){
             animateBox(&grid[i]);
             //ball->wallHit(grid[i].wallID);
-            sendOscWall(grid[i].wallID, ball->getNote());
-            
+            if(grid[i].wallID == ceiling){
+                sendOscCeiling(grid[i].wallID, grid[i].note, abs(ball->getVelocity().y));
+               // cout << abs(ball->getVelocity().y) << endl;
+            }
+            else{
+                sendOscWall(grid[i].wallID, ball->getNote());
+            }
         }
     }
 }
@@ -842,26 +1012,30 @@ void ThirdRoomApp::wallHit(Ball *ball){
 
 void ThirdRoomApp::animateBox(Box* box){
     
-    timeline().appendTo( &box->mSize, Vec3f(10, 10, 10), .05f, EaseInQuad() );
-    timeline().appendTo( &box->mColor, ColorA(0, 0, 1.0f, 1.0f), .50f, EaseInQuad() );
+    //timeline().apply( &box->mSize, Vec3f(10, 10, 10), .05f, EaseInQuad() );
+    timeline().apply( &box->mColor, ColorA(0, 0, 1.0f, 1.0f), .50f, EaseInQuad() );
     
-    if(box->wallID == frontWall || box->wallID == backWall){
-        timeline().appendTo( &box->mSize, Vec3f(10, 10, 0), .10f, EaseOutQuad() );
-    }
-    else if(box->wallID == leftWall || box->wallID == rightWall){
-        timeline().appendTo( &box->mSize, Vec3f(0, 10, 10), .10f, EaseOutQuad() );
-    }
-    else if (box->wallID == floor || box->wallID == ceiling){
-        timeline().appendTo( &box->mSize, Vec3f(10, 0, 10), .10f, EaseOutQuad() );
-    }
+//    if(box->wallID == frontWall || box->wallID == backWall){
+//        timeline().appendTo( &box->mSize, Vec3f(10, 10, 0), .10f, EaseOutQuad() );
+//    }
+//    else if(box->wallID == leftWall || box->wallID == rightWall){
+//        timeline().appendTo( &box->mSize, Vec3f(0, 10, 10), .10f, EaseOutQuad() );
+//    }
+//    else if (box->wallID == floor || box->wallID == ceiling){
+//        timeline().appendTo( &box->mSize, Vec3f(10, 0, 10), .10f, EaseOutQuad() );
+    //}
     
     if(box->isOn()){
-        timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 0.0, .6), .10f, EaseOutQuad() );
+   //     timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 0.0, .6), .10f, EaseOutQuad() );
     }
     else{
-        timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 1.0, 0.0f), .10f, EaseInQuad() );
+     //   timeline().appendTo( &box->mColor, ColorA(1.0, 1.0, 1.0, 0.0f), .10f, EaseInQuad() );
     }
 }
+
+//***********************************************************************
+//Sending OSC functions
+//***********************************************************************
 
 void ThirdRoomApp::sendOscWall(int _wall, int _note){
     osc::Message msg;
@@ -869,6 +1043,16 @@ void ThirdRoomApp::sendOscWall(int _wall, int _note){
     msg.setRemoteEndpoint(host, port);
     msg.addIntArg(_wall);
     msg.addIntArg(_note);
+    oscSender.sendMessage(msg);
+}
+
+void ThirdRoomApp::sendOscCeiling(int _wall, int _note, float velocity){
+    osc::Message msg;
+    msg.setAddress("/ceiling");
+    msg.setRemoteEndpoint(host, port);
+    msg.addIntArg(_wall);
+    msg.addIntArg(_note);
+    msg.addFloatArg(velocity);
     oscSender.sendMessage(msg);
 }
 
@@ -881,13 +1065,74 @@ void ThirdRoomApp::sendOscSequence(int step, int state){
     oscSender.sendMessage(msg);
 }
 
+void ThirdRoomApp::sendOscSequence2(int step, int state){
+    osc::Message msg;
+    msg.setAddress("/setSequence2");
+    msg.setRemoteEndpoint(host, port);
+    msg.addIntArg(step);
+    msg.addIntArg(state);
+    oscSender.sendMessage(msg);
+}
+
+void ThirdRoomApp::sendGroupNote(float note){
+    cout << note << endl;
+    osc::Message msg;
+    msg.setAddress("/groupNote");
+    msg.setRemoteEndpoint(host, port);
+    msg.addFloatArg(note);
+    oscSender.sendMessage(msg);
+}
+
+void ThirdRoomApp::sendGroupNoteOff(){
+    osc::Message msg;
+    msg.setAddress("/groupNoteOff");
+    msg.setRemoteEndpoint(host, port);
+    msg.addIntArg(1);
+    oscSender.sendMessage(msg);
+}
+
+void ThirdRoomApp::sendGroupParametersOsc(float x, float y, float z){
+    osc::Message msg;
+    msg.setAddress("/groupParams");
+    msg.setRemoteEndpoint(host, port);
+    msg.addFloatArg(x);
+    msg.addFloatArg(y);
+    msg.addFloatArg(z);
+    oscSender.sendMessage(msg);
+}
+
+void ThirdRoomApp::sendOscScreen(float one, float two, float three){
+    osc::Message msg;
+    msg.setAddress("/screen");
+    msg.setRemoteEndpoint(host, port);
+    msg.addFloatArg(one);
+    msg.addFloatArg(two);
+    msg.addFloatArg(three);
+    oscSender.sendMessage(msg);
+}
+/************************************************************************/
+/************************************************************************/
+
 void ThirdRoomApp::drawRoomSkeleton(float width,float height, float length){
     
     //gl::color(1.0f, 1.0f, 1.0f, .3f);
     // gl::drawCube(Vec3f(0, 0, 0), Vec3f(width, height, length));
     for(int i = 0; i < totalBoxes; i++){
-        gl::color(grid[i].mColor);
-        gl::drawStrokedCube(grid[i].mPos, grid[i].mSize);
+        
+        if(grid[i].mColor.value() != ColorA(1.0, 1.0, 1.0, 0.0)){
+//            if(roomRotation.value() == Vec3f(0.0, 0.0, 0.0) && grid[i].states[0][0]){
+//                //grid[i].mColor = ColorA(1.0, 1.0, 0.0, .7);
+//                gl::color(grid[i].mColor);
+//            }
+//            else if(roomRotation.value() == Vec3f(0.0, 0.0, 360.0) && grid[i].states[1][0]){
+//                //grid[i].mColor = ColorA(0.0, 1.0, 0.0, .7);
+//                gl::color(grid[i].mColor);
+//            }
+            gl::color(grid[i].mColor);
+            gl::drawStrokedCube(grid[i].mPos, grid[i].mSize);
+           // gl::drawColorCube(grid[i].mPos, grid[i].mSize);
+            //gl::drawCube(grid[i].mPos, grid[i].mSize);
+        }
         //gl::drawSphere(grid[i].mPos, .5);
     }
     
@@ -896,8 +1141,51 @@ void ThirdRoomApp::drawRoomSkeleton(float width,float height, float length){
 /****************************************************************************************/
 /* Setting up the Room Grid, made out of Box objects */
 
+
 void ThirdRoomApp::setupGrid(float w, float h, float l){
+    int subGrid = 0;
+    int subCount = 0;
     int count = 0;
+    //ceiling and floor
+    for(int z= -(l/2); z < (l/2); z+=10){
+        for(int x = -(w/2); x < (w/2); x+=10){
+            grid[count].mPos = Vec3f(x+5, (h/2)-5, z);
+            grid[count].mSize = Vec3f(10, 0, 10);
+            grid[count].id = count;
+            grid[count].wallID = ceiling;
+            grid[count].note = subGrid;
+          //  cout << grid[count].id << " " << grid[count].note << endl;
+            count++;
+            subCount++;
+            if(subCount%3 == 0){
+                subGrid++;
+            }
+            if(subCount < 36){
+                subGrid = subGrid%4;
+            }
+            else if(subCount >= 36 && subCount <71){
+                subGrid = 4+ subGrid%4;
+            }
+            else if(subCount >= 72 && subCount <107){
+                subGrid = 8 + subGrid%4;
+            }
+            else if(subCount >= 108 && subCount < 144){
+                subGrid = 12 + subGrid%4;
+            }
+            
+            
+        }
+    }
+    
+    for(int z= -(l/2); z < (l/2); z+=10){
+        for(int x = (w/2); x > -(w/2); x-=10){
+            grid[count].mPos = Vec3f(x-5, (-h/2)-5, z);
+            grid[count].mSize = Vec3f(10, 0, 10);
+            grid[count].id = count;
+            grid[count].wallID = floor;
+            count++;
+        }
+    }
     //front wall
     for(int y = -(h/2); y < (h/2); y+=10){
         for(int x = -(w/2); x < (w/2); x+=10){
@@ -937,26 +1225,7 @@ void ThirdRoomApp::setupGrid(float w, float h, float l){
             count++;
         }
     }
-    //ceiling and floor
-    for(int z= -(l/2); z < (l/2); z+=10){
-        for(int x = -(w/2); x < (w/2); x+=10){
-            grid[count].mPos = Vec3f(x+5, (h/2)-5, z);
-            grid[count].mSize = Vec3f(10, 0, 10);
-            grid[count].id = count;
-            grid[count].wallID = ceiling;
-            count++;
-        }
-    }
-    
-    for(int z= -(l/2); z < (l/2); z+=10){
-        for(int x = -(w/2); x < (w/2); x+=10){
-            grid[count].mPos = Vec3f(x+5, (-h/2)-5, z);
-            grid[count].mSize = Vec3f(10, 0, 10);
-            grid[count].id = count;
-            grid[count].wallID = floor;
-            count++;
-        }
-    }
+
     
     while(count < 1400){
         grid[count].mSize = Vec3f(0, 0, 0);
@@ -972,7 +1241,7 @@ void ThirdRoomApp::introduction(){
     timeline().appendTo(&textColor, ColorA(1.0f, 1.0f, 1.0f, 1.0f), 1.5, EaseInQuad());
     timeline().appendTo(&textColor, ColorA(1.0f, 1.0f, 1.0f, 0.0f), 1.5, EaseInQuad());
     
-    intro = false;
+        intro = false;
     
 }
 
@@ -983,7 +1252,7 @@ double ThirdRoomApp::nowMinus(double time){
 void ThirdRoomApp::shutdown(){
     mShouldQuit = true;
     mThread.join();
-    mOscThread.join();
+   // mOscThread.join();
 }
 
 CINDER_APP_BASIC( ThirdRoomApp, RendererGl )

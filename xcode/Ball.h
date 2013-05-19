@@ -34,9 +34,11 @@ public:
     void        wallHit(int side);
     bool        ballHit(Instrument* ball);
     bool        collisionTest(Instrument* instrument);
+    void        setNote(int newNote);
 private:
     User*       mUser;
     long        lastThrown;
+    int         notes[5];
 
     
 };

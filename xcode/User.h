@@ -92,6 +92,10 @@ public:
     double          getLastCatchRight();
     void            setLastThrowLeft(double time);
     void            setLastThrowRight(double time);
+    void            setLastWaveLeft(double time);
+    void            setLastWaveRight(double time);
+    double          getLastWaveLeft();
+    double          getLastWaveRight();
     bool            isGrouped();
     void            setGroup(bool );
     ci::ColorA      getColor();
@@ -110,7 +114,7 @@ private:
     ci::TriMesh     mesh;
     double          time;
     bool            preparingToClear;
-    double          lastLeftThrow, lastRightThrow, catchLeft, catchRight;
+    double          lastLeftThrow, lastRightThrow, catchLeft, catchRight, lastWaveLeft, lastWaveRight;
     bool            grouped;
     bool            screen;
     int             waveCountLeft;

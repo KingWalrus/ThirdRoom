@@ -13,6 +13,12 @@
 
 Ball::Ball(bool isHit){
     setHit(isHit);
+    lastThrown = 0;
+    notes[0] = 48;
+    notes[1] = 50;
+    notes[2] = 53;
+    notes[3] = 46;
+    notes[4] = 60;
 }
 
 Ball::Ball(ci::Vec3f position, ci::Vec3f roomDimensions){
@@ -29,6 +35,11 @@ Ball::Ball(ci::Vec3f position, ci::Vec3f roomDimensions){
     // roomSize = cinder::Vec3f(roomDimensions.x/2, roomDimensions.y/2, roomDimensions.z/2);
     setName("Ball");
     lastThrown = 0;
+    notes[0] = 48;
+    notes[1] = 50;
+    notes[2] = 53;
+    notes[3] = 46;
+    notes[4] = 60;
 }
 
 
@@ -50,15 +61,15 @@ void Ball::update(){
         
         move(mVelocity, mPosition);
         ci::Vec3f tempVelocity = getVelocity();
-        if(getPosition().x > getBoundaries().x || getPosition().x < -getBoundaries().x){
+        if(getPosition().x > getBoundaries().x+5 || getPosition().x < -getBoundaries().x-5){
             tempVelocity.x = -1*tempVelocity.x;
             setVelocity(tempVelocity);
         }
-        if(getPosition().y > getBoundaries().y-5 || getPosition().y < -getBoundaries().y-5){
+        if(getPosition().y > getBoundaries().y+5 || getPosition().y < -getBoundaries().y-5){
             tempVelocity.y = -1*tempVelocity.y;
             setVelocity(tempVelocity);
         }
-        if(getPosition().z > getBoundaries().z || getPosition().z < -getBoundaries().z-5){
+        if(getPosition().z > getBoundaries().z+5 || getPosition().z < -getBoundaries().z-5){
             tempVelocity.z = -1*tempVelocity.z;
             setVelocity(tempVelocity);
         }
@@ -161,4 +172,9 @@ float Ball::getDifference(int axis){
 
 float Ball::getVecDifference(){
     return getPosition().distance(getZposition());
+}
+
+void Ball::setNote(int newNote){
+    note = notes[newNote%5];
+    //std::cout << note << std::endl;
 }

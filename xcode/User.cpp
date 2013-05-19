@@ -30,6 +30,12 @@ User::User(int userId){
     setScreen(false);
     setLastCatchLeft(0);
     setLastCatchRight(0);
+    setLastThrowLeft(0);
+    setLastThrowRight(0);
+    setLastWaveLeft(0);
+    setLastWaveRight(0);
+    
+    waveCountLeft = waveCountRight = 0;
 }
 
 User::~User(){
@@ -53,6 +59,15 @@ void User::update(){
     //    if(isActive(rightHand) && waveCountRight > 5){
     //        setUnactive(rightHand);
     //    }
+    
+    if(isWavingLeft() && waveCountLeft > 3){
+        setUnactive(leftHand);
+        std::cout<<"backup clear left" << std::endl;
+    }
+    if(isWavingRight() && waveCountRight > 3){
+        setUnactive(rightHand);
+        std::cout<<"backup clear right" << std::endl;
+    }
     for(int i = 0; i < 14; i++){
         allJointsZ[i] = allJoints[i];
         
@@ -161,46 +176,51 @@ int User::getUserID(){
 //******************************************************************************
 
 Instrument* User::isGesturing(){
-    if( !isActive(leftHand)  && isWavingLeft() ){
-        Ball* b = new Ball(true);
-        b->initializePosition(getJointPosition(leftHand));
-        b->setSize(ci::Vec3f (2.0, 2.0, 2.0));
-        b->setColor(ci::Vec3f(1.0, 0.0, 0.0));
-        b->setMoveBehavior(new BounceAll());
-        b->setCreatedAt(ci::app::getElapsedSeconds());
-        b->setNote(cinder::randInt(40, 100));
-        b->setName("Ball");
-        b->setUserID(userID);
-        b->setUserHand(b->leftHand);
-        setActive(leftHand);
-        return b;
-        
-    }
-    else if(!isActive(rightHand)  && isWavingRight() ){
-        Ball* b = new Ball(true);
-        b->initializePosition(getJointPosition(rightHand));
-        b->setSize(ci::Vec3f (2.0, 2.0, 2.0));
-        b->setColor(ci::Vec3f(1.0, 0.0, 0.0));
-        b->setMoveBehavior(new BounceAll());
-        b->setCreatedAt(ci::app::getElapsedSeconds());
-        b->setNote(cinder::randInt(40, 100));
-        b->setName("Ball");
-        b->setUserID(userID);
-        b->setUserHand(b->rightHand);
-        setActive(rightHand);
-        return b;
-    }
-    else if(isTouchingHands() && !isActive(leftHand) && !isActive(rightHand)){
-        Screen* s = new Screen(true);
-        s->initializePosition(getMidpoint(leftHand, rightHand));
-        s->setSize(ci::Vec3f(1.0, 1.0, 1.0));
-        s->setColor(ci::ColorA(0.0, 0.0, 1.0, .7));
-        s->setMoveBehavior(NULL);
-        s->setCreatedAt(ci::app::getElapsedSeconds());
-        s->setName("Screen");
-        s->setUserID(userID);
-        
-        return s;
+    if( !isGrouped()){
+        if( !isActive(leftHand)  && isWavingLeft() ){
+            Ball* b = new Ball(true);
+            b->initializePosition(getJointPosition(leftHand));
+            b->setSize(ci::Vec3f (2.0, 2.0, 2.0));
+            b->setColor(ci::Vec3f(1.0, 0.0, 0.0));
+            b->setMoveBehavior(new BounceAll());
+            b->setCreatedAt(ci::app::getElapsedSeconds());
+            b->setNote(cinder::randInt(0, 100));
+            b->setName("Ball");
+            b->setUserID(userID);
+            b->setUserHand(b->leftHand);
+            setActive(leftHand);
+            return b;
+            
+        }
+        else if(!isActive(rightHand)  && isWavingRight() ){
+            Ball* b = new Ball(true);
+            b->initializePosition(getJointPosition(rightHand));
+            b->setSize(ci::Vec3f (2.0, 2.0, 2.0));
+            b->setColor(ci::Vec3f(1.0, 0.0, 0.0));
+            b->setMoveBehavior(new BounceAll());
+            b->setCreatedAt(ci::app::getElapsedSeconds());
+            b->setNote(cinder::randInt(0, 100));
+            b->setName("Ball");
+            b->setUserID(userID);
+            b->setUserHand(b->rightHand);
+            setActive(rightHand);
+            return b;
+        }
+        else if(isTouchingHands() && !isActive(leftHand) && !isActive(rightHand)){
+            Screen* s = new Screen(true);
+            s->initializePosition(getMidpoint(leftHand, rightHand));
+            s->setSize(ci::Vec3f(1.0, 1.0, 1.0));
+            s->setColor(ci::ColorA(0.0, 0.0, 1.0, .7));
+            s->setMoveBehavior(NULL);
+            s->setCreatedAt(ci::app::getElapsedSeconds());
+            s->setName("Screen");
+            s->setUserID(userID);
+            
+            return s;
+        }
+        else {
+            return NULL;
+        }
     }
     else return NULL;
 }
@@ -209,14 +229,16 @@ bool User::isWaving(){
     
     if(allJoints[rightHand].y > allJoints[rightShoulder].y){
         
-        if(getDifference(rightHand, 0) < -2 && getPositionDistance(rightHand) > 2){
+        if(getDifference(rightHand, 0) < -2 && getPositionDistance(rightHand) > 2 && getLastWaveRight() > 2){
+            setLastWaveRight(ci::app::getElapsedSeconds());
             return true;
         }
         
     }
     else if(allJoints[leftHand].y > allJoints[leftShoulder].y){
         
-        if(getDifference(leftHand, 0) < -2 && getPositionDistance(leftHand) > 2){
+        if(getDifference(leftHand, 0) < -2 && getPositionDistance(leftHand) > 2 && getLastWaveLeft() > 2){
+            setLastWaveLeft(ci::app::getElapsedSeconds());
             return true;
         }
     }
@@ -231,8 +253,9 @@ bool User::isWaving(){
 bool User::isWavingLeft(){
     if(allJoints[leftHand].y > allJoints[leftShoulder].y){
         
-        if(getDifference(leftHand, 0) < -2 && getPositionDistance(leftHand) > 2){
-            std::cout << "Waving left" << std::endl;
+        if(getDifference(leftHand, 0) < -2 && getPositionDistance(leftHand) > 2  && getLastWaveLeft() > 2){
+           // std::cout << "Waving left" << std::endl;
+            setLastWaveLeft(ci::app::getElapsedSeconds());
             waveCountLeft++;
             return true;
         }
@@ -248,8 +271,9 @@ bool User::isWavingLeft(){
 bool User::isWavingRight(){
     if(allJoints[rightHand].y > allJoints[rightShoulder].y){
         
-        if(getDifference(rightHand, 0) < -2 && getPositionDistance(rightHand) > 2){
-            std::cout << "Waving right" << std::endl;
+        if(getDifference(rightHand, 0) < -2 && getPositionDistance(rightHand) > 2  && getLastWaveRight() > 2){
+            //std::cout << "Waving right" << std::endl;
+             setLastWaveRight(ci::app::getElapsedSeconds());
             waveCountRight++;
             return true;
         }
@@ -270,9 +294,9 @@ bool User::isThrowingLeft(){
         waveCountLeft = 0;
         return true;
     }
-
+    
     else return false;
-
+    
 }
 
 bool User::isThrowingRight(){
@@ -281,14 +305,14 @@ bool User::isThrowingRight(){
         waveCountRight = 0;
         return true;
     }
-
+    
     
     else return false;
 }
 
 bool User::isStomping(){
-    if(getPositionDistance(leftKnee) > 3.0 || getPositionDistance(rightKnee) > 3.0 ){
-        std::cout<< "STOMP" << std::endl;
+    if(getPositionDistance(leftKnee) > 5.0 || getPositionDistance(rightKnee) > 5.0 ){
+    //    std::cout<< "STOMP" << std::endl;
         return true;
     }
     else return false;
@@ -316,8 +340,8 @@ bool User::isClearing(){
 
 bool User::isFullClearing(){
     if(allJointsZ[rightHand].x < allJointsZ[leftShoulder].x && allJointsZ[leftHand].x > allJoints[rightShoulder].x){
-        std::cout << getDifference(rightHand, x) << " " << getDifference(leftHand, x) << std::endl;
-        if(getDifference(rightHand, x) > 2  && getDifference(leftHand, x) < -2){
+       // std::cout << getDifference(rightHand, x) << " " << getDifference(leftHand, x) << std::endl;
+        if(getDifference(rightHand, x) > 1.5  && getDifference(leftHand, x) < -1.5){
             std::cout << "FULL CLEAR" << std::endl;
             return true;
         }
@@ -395,11 +419,11 @@ ci::ColorA User::getColor(){
 }
 
 float User::getLastThrowLeft(){
-    return lastLeftThrow;
+    return ci::app::getElapsedSeconds() - lastLeftThrow;
 }
 
 float User::getLastThrowRight(){
-    return lastRightThrow;
+    return ci::app::getElapsedSeconds() - lastRightThrow;
 }
 
 void User::setGroup(bool inGroup){
@@ -435,11 +459,11 @@ ci::Vec3f User::getMidpoint(int whichJoint1, int whichJoint2){
 }
 
 double User::getLastCatchLeft(){
-    return catchLeft;
+    return ci::app::getElapsedSeconds() - catchLeft;
 }
 
 double User::getLastCatchRight(){
-    return catchRight;
+    return ci::app::getElapsedSeconds() - catchRight;
 }
 
 void User::setLastCatchLeft(double left){
@@ -449,3 +473,20 @@ void User::setLastCatchLeft(double left){
 void User::setLastCatchRight(double right){
     catchRight = right;
 }
+
+void User::setLastWaveLeft(double time){
+    lastWaveLeft = time;
+}
+
+double User::getLastWaveLeft(){
+    return ci::app::getElapsedSeconds() - lastWaveLeft;
+}
+
+void User::setLastWaveRight(double time){
+    lastWaveRight = time;
+}
+
+double User::getLastWaveRight(){
+    return ci::app::getElapsedSeconds() - lastWaveRight;
+}
+
